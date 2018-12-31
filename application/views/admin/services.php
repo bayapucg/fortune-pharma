@@ -42,8 +42,8 @@ table.order-list td {
                         <table id="" class="table order-list">
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <input type="text" name="lname" placeholder="Enter Name" class="form-control" />
+                                    <td >
+                                        <input type="text" name="service_name1[]" placeholder="Enter Name" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -69,7 +69,7 @@ table.order-list td {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="lname" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name2[]" placeholder="Enter Name" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -95,7 +95,7 @@ table.order-list td {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="lname" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name3[]" placeholder="Enter Name" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -150,7 +150,81 @@ table.order-list td {
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#defaultForm').bootstrapValidator({
 
+            fields: {
+
+                title1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Title is required'
+                        }
+                    }
+                },
+				title2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Title is required'
+                        }
+                    }
+                },
+				title3: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Title is required'
+                        }
+                    }
+                },
+                paragraph1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Paragraph is required'
+                        }
+                    }
+                },
+				paragraph2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Paragraph is required'
+                        }
+                    }
+                },
+				paragraph3: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Paragraph is required'
+                        }
+                    }
+                },
+                'service_name1[]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'service name1 is required'
+                        }
+                    }
+                },
+                'service_name2[]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'service name2 is required'
+                        }
+                    }
+                },
+                'service_name3[]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'service name3 is required'
+                        }
+                    }
+                }
+                
+            }
+        })
+
+    });
+</script>
 <script>
     $(document).ready(function () {
     var counter = 0;
@@ -159,8 +233,10 @@ table.order-list td {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" placeholder="Enter Name" name="lname' + counter + '"/></td>';
-
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name3" name="service_name3[]' + counter + '"/></td>';
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name2" name="service_name2[]' + counter + '"/></td>';
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name1" name="service_name1[]' + counter + '"/></td>';
+		
         cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
         newRow.append(cols);
         $("table.order-list").append(newRow);

@@ -16,13 +16,13 @@ table.order-list td {
                 <h4 class="page-title">Instruments</h4>
             </div>
         </div>
-        <form id="defaultForm" method="post" class="m-b-30" action="" enctype="multipart/form-data">
+        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('instruments/addpost'); ?>" enctype="multipart/form-data">
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Title</label>
-                        <input name="title" id="title" class="form-control" placeholder="Title Name">
+                        <input name="title" id="title" class="form-control" placeholder="Title">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
@@ -38,7 +38,7 @@ table.order-list td {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="lname" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="description[]" placeholder="Enter Description" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -51,11 +51,7 @@ table.order-list td {
                 </div>
             </div>
             
-            <div class="row m-t-30">
-                <div class="col-md-12">
-                    <div id="summernote"></div>
-                </div>
-            </div>
+            
             
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
@@ -65,7 +61,41 @@ table.order-list td {
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#defaultForm').bootstrapValidator({
 
+            fields: {
+
+                title: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Title is required'
+                        }
+                    }
+                },
+                paragraph: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Paragraph is required'
+                        }
+                    }
+                },
+                'description[]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required'
+                        }
+                    }
+                }
+                
+                
+                
+            }
+        })
+
+    });
+</script>
 <script>
     $(document).ready(function () {
     var counter = 0;
@@ -74,7 +104,7 @@ table.order-list td {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" placeholder="Enter Name" name="lname' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" placeholder="Enter Description" name="description[]' + counter + '"/></td>';
 
         cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
         newRow.append(cols);

@@ -14,40 +14,46 @@
             <div class="row">
                 <div class="col-md-12 bg-white">
                     <div class="clearfix">&nbsp;</div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>Paragraph</th>
-                                <td>
-                                    We have sophisticated equipments with cGMP Compliance. Our well experienced scientists and equipments support to carryout all testing activities.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+					<?php if(isset($instruments_list) && count($instruments_list)>0){ ?>
                     <div class="table-responsive">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>SI No</th>
-                                    <th>List Items</th>
-                                    <th>Action</th>
+                                    <th>Title</th>
+                                    <th>Paragraph</th>
+                                    <th>Description</th>
+									<th>Status</th>
+									<th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+							<?php foreach($instruments_list as $list){?>
                                 <tr>
                                     <td>
-                                        1
+                                       <?php  echo $list['title'];?>
                                     </td>
                                     <td>
-                                        HPLC Waters 2695 with 2996,2487
+                                       <?php  echo $list['paragraph'];?>
                                     </td>
-                                    <td>
-                                        <a href="#" class="btn btn-danger">Delete</a>
+									<td>
+									<?php foreach($list['instrument'] as $li){ ?>
+									<?php echo $li['description'].'<br>'; ?>
+									<?php } ?>
                                     </td>
+									<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
+                                    <td class="">
+											<a href="<?php echo base_url('instruments/edit/'.base64_encode($list['i_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
+											<a href="<?php echo base_url('instruments/status/'.base64_encode($list['i_id']).'/'.base64_encode($list['status'])); ?>" data-toggle="tooltip" title="status" class="btn btn-warning"><i class="fa fa-info-circle btn btn-warning"></i></a>
+		                                    <a href="<?php echo base_url('instruments/delete/'.base64_encode($list['i_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
+											</td>
                                 </tr>
+							<?php }?>
                             </tbody>
                         </table>
                     </div>
+					<?php }else{ ?>
+                    <div> No data available</div>
+                     <?php }?>
                 </div>
             </div>
             
