@@ -233,9 +233,9 @@ table.order-list td {
         var newRow = $("<tr>");
         var cols = "";
 
-         cols += '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name1[]' + counter + '"/></td>',
-        '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name2[]' + counter + '"/></td>',
-          '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name3[]' + counter + '"/></td>'
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name3" name="service_name3[]' + counter + '"/></td>';
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name2" name="service_name2[]' + counter + '"/></td>';
+         cols += '<td><input type="text" class="form-control" placeholder="Enter service name1" name="service_name1[]' + counter + '"/></td>';
 		
         cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
         newRow.append(cols);

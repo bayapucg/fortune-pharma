@@ -15,9 +15,9 @@ class Services extends Back_end {
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
-			$data['detail']=$this->Services_model->get_services_details(1);
 			
-			$this->load->view('admin/services',$data);
+			
+			$this->load->view('admin/services');
 			$this->load->view('admin/footer');
 
 		}else{
@@ -30,8 +30,8 @@ class Services extends Back_end {
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
+			$data['services_list']=$this->Services_model->get_services_list();
 			
-			$data['services_list']=$this->Services_model->get_services_list($admindetails['id']);
 			
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/services-list',$data);
@@ -50,7 +50,7 @@ class Services extends Back_end {
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
 			//echo '<pre>';print_r($post);exit;
-			$detail=$this->Services_model->get_services_details(1);
+			
 						$add_data=array(
 						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 						'paragraph1'=>isset($post['paragraph1'])?$post['paragraph1']:'',
@@ -65,11 +65,30 @@ class Services extends Back_end {
 						'created_by'=>$admindetails['id'],
 						);
 						
-						//echo '<pre>';print_r($add_data);
+						//echo '<pre>';print_r($add_data);exit;
 						
-						$save=$this->Services_model->update_services_details(1,$add_data);
-					
+						$save=$this->Services_model->save_services_details($add_data);
+					//echo '<pre>';print_r($save);exit;
 					if(count($save)>0){
+				if(isset($post['service_name1']) && count($post['service_name1'])>0){
+					$cnt=0;foreach($post['service_name1'] as $list){
+						  $add_data=array(
+						  's_id'=>isset($save)?$save:'',
+						  'service_name1'=>$list,
+						  'service_name2'=>$post['service_name2'][$cnt],
+						  'service_name3'=>$post['service_name3'][$cnt],
+						  'status'=>1,
+						  'created_at'=>date('Y-m-d H:i:s'),
+						  'updated_at'=>date('Y-m-d H:i:s'),
+						  'created_by'=>$admindetails['id'],
+						  );
+						   //echo '<pre>';print_r($add_data);
+						  $this->Services_model->save_servies_data_details($add_data);	
+ 
+				       $cnt++;
+					}
+					}
+					//exit;
 							$this->session->set_flashdata('success','Services successfully updated');
 							redirect('services/lists');
 							
@@ -87,43 +106,96 @@ class Services extends Back_end {
 		}
 		
 	}
-	
-	public function delete()
-	{	
+	public function status()
+	{
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
-			$post=$this->input->post();
-			$s_id=base64_decode($this->uri->segment(3));
-			if($s_id==1){
-				$up_dat=array('paragraph1'=>'','title1'=>'');	
-			}else if($s_id==2){
-				$up_dat=array('paragraph2'=>'','title2'=>'');	
-			}else if($s_id==3){
-				$up_dat=array('paragraph3'=>'','title3'=>'');	
-			}else if($s_id==4){
-				$up_dat=array('paragraph4'=>'','title4'=>'');	
-			}else if($s_id==5){
-				$up_dat=array('paragraph5'=>'','title5'=>'');	
-			}else if($s_id==6){
-				$up_dat=array('paragraph6'=>'','title6'=>'');	
-			}
-					
-					$delete=$this->Services_model->update_services_details(1,$up_dat);
-					if(count($delete)>0){
-						$this->session->set_flashdata('success','Service successfully deleted');
-						redirect('services/lists');
+	             $s_id=base64_decode($this->uri->segment(3));
+					$status=base64_decode($this->uri->segment(4));
+					if($status==1){
+						$statu=0;
 					}else{
-						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('services/lists');
+						$statu=1;
 					}
-		}else{
-			$this->session->set_flashdata('error','Please login to continue');
-			redirect('admin');
-		}
+					if($status==0){
+						$check=$this->Services_model->check_services_status();
+						if(count($check)>0){
+							$this->session->set_flashdata('error',"Already one image is active. Please try again once");
+							redirect('services/lists');
+						}
+					}
+					
+					if($s_id!=''){
+						$stusdetails=array(
+							'status'=>$statu,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							//echo'<pre>';print_r($stusdetails);exit;
+							$statusdata=$this->Services_model->update_services_details($s_id,$stusdetails);
+							//echo'<pre>';print_r($statusdata);exit;
+							//echo $this->db->last_query();exit;	
+							if(count($statusdata)>0){
+								if($status==1){
+								$this->session->set_flashdata('success',"services details details successfully Deactivate.");
+								}else{
+									$this->session->set_flashdata('success',"services details details successfully Activate.");
+								}
+								redirect('services/lists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('services/lists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+	
+          }else{
+		 $this->session->set_flashdata('error',"Please login and continue");
+		 redirect('');  
+	   }
+
+
+}	
+	
+	public function delete()
+{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+	             $s_id=base64_decode($this->uri->segment(3));
+					
+					if($s_id!=''){
+						$stusdetails=array(
+							'status'=>2,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							$statusdata=$this->Services_model->update_services_details($s_id,$stusdetails);
+							if(count($statusdata)>0){
+								$this->session->set_flashdata('success',"services details  successfully deleted.");
+								redirect('services/lists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('services/lists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+	
+          }else{
+		 $this->session->set_flashdata('error',"Please login and continue");
+		 redirect('');  
+	   }
+
+		
 		
 	}
-	
 	
 	
 	
