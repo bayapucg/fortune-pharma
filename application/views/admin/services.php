@@ -39,7 +39,7 @@ table.order-list td {
                         <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph1'])?$detail['paragraph1']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
-                        <table id="" class="table order-list">
+                        <table id="" class="table order-list1">
                             <tbody>
                                 <tr>
                                     <td >
@@ -51,7 +51,7 @@ table.order-list td {
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-sm btn-info addrow">Add Row</button>
+                        <button type="button" class="btn btn-sm btn-info" id="addrow1">Add Row</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -65,7 +65,7 @@ table.order-list td {
                         <textarea name="paragraph2" id="paragraph2" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph2'])?$detail['paragraph2']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
-                        <table id="" class="table order-list">
+                        <table id="" class="table order-list2">
                             <tbody>
                                 <tr>
                                     <td>
@@ -77,7 +77,7 @@ table.order-list td {
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-sm btn-info addrow">Add Row</button>
+                        <button type="button" class="btn btn-sm btn-info" id="addrow2">Add Row</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -91,7 +91,7 @@ table.order-list td {
                         <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph3'])?$detail['paragraph3']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
-                        <table id="" class="table order-list">
+                        <table id="" class="table order-list3">
                             <tbody>
                                 <tr>
                                     <td>
@@ -103,7 +103,7 @@ table.order-list td {
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-sm btn-info addrow">Add Row</button>
+                        <button type="button" class="btn btn-sm btn-info" id="addrow3">Add Row</button>
                     </div>
                 </div>
             </div>
@@ -229,29 +229,77 @@ table.order-list td {
     $(document).ready(function () {
     var counter = 0;
 
-    $(".addrow").on("click", function () {
+    $("#addrow1").on("click", function () {
         var newRow = $("<tr>");
         var cols = "";
 
-         cols += '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name1[]' + counter + '"/></td>',
-        '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name2[]' + counter + '"/></td>',
-          '<td><input type="text" class="form-control" placeholder="Enter service name" name="service_name3[]' + counter + '"/></td>'
-		
+        cols += '<td><input type="text" class="form-control" placeholder="Enter Description" name="description[]' + counter + '"/></td>';
+
         cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
         newRow.append(cols);
-        $("table.order-list").append(newRow);
+        $("table.order-list1").append(newRow);
         counter++;
     });
 
 
 
-    $("table.order-list").on("click", ".ibtnDel", function (event) {
+    $("table.order-list1").on("click", ".ibtnDel", function (event) {
         $(this).closest("tr").remove();       
         counter -= 1
     });
 
 
 });
+</script><script>
+    $(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow2").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td><input type="text" class="form-control" placeholder="Enter Description" name="description[]' + counter + '"/></td>';
+
+        cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
+        newRow.append(cols);
+        $("table.order-list2").append(newRow);
+        counter++;
+    });
 
 
+
+    $("table.order-list2").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();       
+        counter -= 1
+    });
+
+
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow3").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td><input type="text" class="form-control" placeholder="Enter Description" name="description[]' + counter + '"/></td>';
+
+        cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger"><i class="fa fa-trash"></i></button></td>';
+        newRow.append(cols);
+        $("table.order-list3").append(newRow);
+        counter++;
+    });
+
+
+
+    $("table.order-list3").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();       
+        counter -= 1
+    });
+
+
+});
 </script>
