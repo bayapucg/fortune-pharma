@@ -3,7 +3,7 @@
     <div class="content container-fluid">
         <div class="row">
             <div class="col-xs-4">
-                <h4 class="page-title">Services</h4>
+                <h4 class="page-title">Instruments List</h4>
             </div>
             <div class="col-xs-8 text-right m-b-30">
                 <a href="<?php echo base_url('instruments'); ?>" class="btn btn-primary pull-right rounded"><i class="fa fa-plus"></i> Add Instruments</a>

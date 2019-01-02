@@ -13,7 +13,7 @@ table.order-list td {
     <div class="content container-fluid bg-white">
         <div class="row">
             <div class="col-xs-4">
-                <h4 class="page-title">Instruments</h4>
+                <h4 class="page-title">Edit Instruments</h4>
             </div>
         </div>
         <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('instruments/editpost'); ?>" enctype="multipart/form-data">

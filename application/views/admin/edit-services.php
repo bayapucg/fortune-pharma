@@ -13,22 +13,22 @@ table.order-list td {
     <div class="content container-fluid bg-white">
         <div class="row">
             <div class="col-xs-4">
-                <h4 class="page-title">Services</h4>
+                <h4 class="page-title">Edit Services</h4>
             </div>
         </div>
-        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('services/addpost'); ?>" enctype="multipart/form-data">
-
+        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('services/editpost'); ?>" enctype="multipart/form-data">
+<input type="hidden" id="s_id" name="s_id" value="<?php echo $edit_servies['s_id'] ?>">
             <div class="row">
 			<div class="col-md-6">
                     <div class="form-group">
                         <label>Title</label>
-                        <input name="title" id="title" class="form-control" placeholder="Enter Title"></input>
+                        <textarea name="title" id="title" class="form-control" placeholder="Enter Title"><?php echo isset($edit_servies['title'])?$edit_servies['title']:''; ?></textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph" id="paragraph" class="form-control" rows="5"></textarea>
+                        <input name="paragraph" id="paragraph" class="form-control" value="<?php echo isset($edit_servies['paragraph'])?$edit_servies['paragraph']:''; ?>">
                     </div>
                 </div>
 				
@@ -39,23 +39,26 @@ table.order-list td {
                     <h4 class="text-primary">Service 1</h4>
                     <div class="form-group">
                         <label>Service 1 title</label>
-                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" >
+                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" value="<?php echo isset($edit_servies['title1'])?$edit_servies['title1']:''; ?>">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($edit_servies['paragraph1'])?$edit_servies['paragraph1']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
                             <tbody>
-                                <tr>
+							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
+                               <tr id="oldid<?php echo $cnt; ?>">
                                     <td >
-                                        <input type="text" name="service_name1[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name1[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name1'])?$lis['service_name1']:''; ?>" />
                                     </td>
+									<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>
                                     <td>
                                         <a class="deleteRow"></a>
                                     </td>
                                 </tr>
+							<?php $cnt++;} ?>
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-sm btn-info" id="addrow1">Add Row</button>
@@ -65,23 +68,26 @@ table.order-list td {
                     <h4 class="text-primary">Service 2</h4>
                     <div class="form-group">
                         <label>Service 2 title</label>
-                        <input type="text" name="title2" id="title2" class="form-control" placeholder="Enter Service 2" >
+                        <input type="text" name="title2" id="title2" class="form-control" placeholder="Enter Service 2" value="<?php echo isset($edit_servies['title2'])?$edit_servies['title2']:''; ?>">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph2" id="paragraph2" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph2" id="paragraph2" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($edit_servies['paragraph2'])?$edit_servies['paragraph2']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list2">
                             <tbody>
-                                <tr>
+							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
+                               <tr id="oldid2<?php echo $cnt; ?>">
                                     <td>
-                                        <input type="text" name="service_name2[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name2[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name2'])?$lis['service_name2']:''; ?>"  />
                                     </td>
+								<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph2('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>	
                                     <td>
                                         <a class="deleteRow"></a>
                                     </td>
                                 </tr>
+							<?php $cnt++;} ?>
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-sm btn-info" id="addrow2">Add Row</button>
@@ -91,64 +97,33 @@ table.order-list td {
                     <h4 class="text-primary">Service 3</h4>
                     <div class="form-group">
                         <label>Service 3 title</label>
-                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Serviec 3" >
+                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Serviec 3" value="<?php echo isset($edit_servies['title3'])?$edit_servies['title3']:''; ?>">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($edit_servies['paragraph3'])?$edit_servies['paragraph3']:''; ?></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list3">
                             <tbody>
-                                <tr>
+							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
+                                 <tr id="oldid3<?php echo $cnt; ?>">
                                     <td>
-                                        <input type="text" name="service_name3[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name3[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name3'])?$lis['service_name3']:''; ?>" />
                                     </td>
+									<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph3('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>	
                                     <td>
                                         <a class="deleteRow"></a>
                                     </td>
                                 </tr>
+							<?php $cnt++;} ?>
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-sm btn-info" id="addrow3">Add Row</button>
                     </div>
                 </div>
             </div>
-            <!--<div class="row">
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 4</h4>
-                    <div class="form-group">
-                        <label>Service 4 title</label>
-                        <input type="text" name="title4" id="title4" class="form-control" placeholder="Enter Service 4" value="<?php echo isset($detail['title4'])?$detail['title4']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph4" id="paragraph4" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph4'])?$detail['paragraph4']:''; ?></textarea>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 5 </h4>
-                    <div class="form-group">
-                        <label>Service 5 title</label>
-                        <input type="text" name="title5" id="title5" class="form-control" placeholder="Enter Service 5" value="<?php echo isset($detail['title5'])?$detail['title5']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph5" id="paragraph5" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph5'])?$detail['paragraph5']:''; ?></textarea>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 6</h4>
-                    <div class="form-group">
-                        <label>Service 6 title</label>
-                        <input type="text" name="title6" id="title6" class="form-control" placeholder="Enter Service 6" value="<?php echo isset($detail['title6'])?$detail['title6']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph6" id="paragraph6" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph6'])?$detail['paragraph6']:''; ?></textarea>
-                    </div>
-                </div>
-            </div>-->
+           
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
             </div>
@@ -157,20 +132,81 @@ table.order-list td {
 
     </div>
 </div>
+<script>
+function removeparagraph(p_id,id){
+	if(p_id!=''){
+		 jQuery.ajax({
+					url: "<?php echo site_url('services/remove_pragraph');?>",
+					data: {
+						p_id: p_id,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+					if(data.msg==1){
+						jQuery('#oldid'+id).remove();
+						jQuery('#oldid'+id).hide();
+					}
+				 }
+				});
+			}
+	
+}
+
+
+function removeparagraph2(p_id,id){
+	if(p_id!=''){
+		 jQuery.ajax({
+					url: "<?php echo site_url('services/remove_pragraph_second');?>",
+					data: {
+						p_id: p_id,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+					if(data.msg==1){
+						jQuery('#oldid2'+id).remove();
+						jQuery('#oldid2'+id).hide();
+					}
+				 }
+				});
+			}
+	
+}
+
+function removeparagraph3(p_id,id){
+	if(p_id!=''){
+		 jQuery.ajax({
+					url: "<?php echo site_url('services/remove_pragraph_third');?>",
+					data: {
+						p_id: p_id,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+					if(data.msg==1){
+						jQuery('#oldid3'+id).remove();
+						jQuery('#oldid3'+id).hide();
+					}
+				 }
+				});
+			}
+	
+}
+</script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#defaultForm').bootstrapValidator({
 
             fields: {
-
-                title: {
+                 title: {
                     validators: {
                         notEmpty: {
                             message: 'Title is required'
                         }
                     }
                 },
-				title1: {
+                title1: {
                     validators: {
                         notEmpty: {
                             message: 'Title is required'

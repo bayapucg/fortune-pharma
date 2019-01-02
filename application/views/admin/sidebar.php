@@ -65,6 +65,11 @@
                 <li class="">
                     <a target="_blank" href="<?php echo base_url('preview'); ?>">Preview<span class="menu-arrow"></span></a>
                 </li>
+				
+				<li class="">
+                    <a target="_blank" href="<?php echo base_url('preview/instruments'); ?>">Preview<span class="menu-arrow"></span></a>
+                </li>
+				
                 <!--<li class="">
                     <a href="<?php echo base_url('raise_ticket'); ?>">Raise a Support Ticket<span class="menu-arrow"></span></a>
                 </li>

@@ -39,10 +39,6 @@ class Users_model extends CI_Model
 		$this->db->select('*')->from('aboutus');
 		$this->db->where('status',1);
 		return $this->db->get()->row_array();
-	}public  function get_services_details(){
-		$this->db->select('*')->from('services');
-		$this->db->where('status',1);
-		return $this->db->get()->row_array();
 	}
 	public  function get_gallery_details(){
 		$this->db->select('*')->from('gallery');
@@ -125,6 +121,61 @@ class Users_model extends CI_Model
 		$this->db->where('c_id',$c_id);
 		return $this->db->update('contactform',$data);
 	}
+	
+	
+	public  function get_services_details(){
+		$this->db->select('*')->from('services');
+		$this->db->where('status',1);
+		$return=$this->db->get()->result_array();
+  foreach($return as $list){
+   $lists=$this->get_serve_data_list($list['s_id']);
+   //echo '<pre>';print_r($lists);exit;
+   $data[$list['s_id']]=$list;
+   $data[$list['s_id']]['servies_list']=$lists;
+   
+  }
+  
+  if(!empty($data)){
+   
+   return $data;
+   
+  }
+ }
+	public function get_serve_data_list($id){
+	 $this->db->select('servies_data.*')->from('servies_data');
+     $this->db->where('servies_data.s_id',$id);
+	 return $this->db->get()->result_array();
+	
+	}
+	
+	public  function get_instrument_details(){
+		$this->db->select('*')->from('instruments');
+		$this->db->where('status',1);
+		$return=$this->db->get()->result_array();
+  foreach($return as $list){
+   $lists=$this->get_instument_data_list($list['i_id']);
+   //echo '<pre>';print_r($lists);exit;
+   $data[$list['i_id']]=$list;
+   $data[$list['i_id']]['instrument_list']=$lists;
+   
+  }
+  
+  if(!empty($data)){
+   
+   return $data;
+   
+  }
+ }
+	public function get_instument_data_list($id){
+	 $this->db->select('instruments_data.*')->from('instruments_data');
+     $this->db->where('instruments_data.i_id',$id);
+	 return $this->db->get()->result_array();
+	
+	}
+	
+	
+	
+	
 	
 	
 	

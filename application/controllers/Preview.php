@@ -26,10 +26,13 @@ class Preview extends CI_Controller {
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['aboutus_details']=$this->Users_model->get_aboutus_details();
 				$data['services_details']=$this->Users_model->get_services_details();
+				$data['instrument_details']=$this->Users_model->get_instrument_details();
+				//echo '<pre>';print_r($data['services_details']);exit;
+				
 				$data['gallery_details']=$this->Users_model->get_gallery_details();
 				$data['testimonials_details']=$this->Users_model->get_testimonials_details();
 				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				//echo '<pre>';print_r($data);exit;
+				
 				$this->load->view('html/preview',$data);
 		
 		
@@ -158,5 +161,14 @@ class Preview extends CI_Controller {
 		//echo 
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 

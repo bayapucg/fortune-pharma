@@ -51,7 +51,7 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?PHP echo base_url('home/index');?>">Home</a></li>
+                    <li class="menu-active"><a href="#intro">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#I-list">Instruments List</a></li>
@@ -118,67 +118,7 @@
         <?php } ?>
 
         <main id="main">
-            <!--==========================
-      About Us Section
-    ============================-->
-            <?php if(isset($aboutus_details) && count($aboutus_details)>0){ ?>
-            <section id="about">
-                <div class="container">
-
-                    <header class="section-header">
-                        <h3>About Us</h3>
-                        <p>
-                            <?php echo isset($aboutus_details['parahraph'])?$aboutus_details['parahraph']:''; ?>
-                        </p>
-                    </header>
-                    <input type="hidden" name="about_us_a_id" id="about_us_a_id" value="<?php echo isset($aboutus_details['a_id'])?$aboutus_details['a_id']:''; ?>">
-
-                    <!--<div class="row about-cols">
-
-                        <div class="col-md-4 wow fadeInUp">
-                            <div class="about-col">
-                                <div class="img">
-                                    <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image1']); ?>" alt="<?php echo isset($aboutus_details['image1'])?$aboutus_details['image1']:''; ?>" class="img-fluid">
-                                    <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                                </div>
-                                <h2 class="title"><a href="#">Equities</a></h2>
-                                <p>
-                                    <?php echo isset($aboutus_details['paragraph1'])?$aboutus_details['paragraph1']:''; ?>.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="about-col">
-                                <div class="img">
-                                    <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image2']); ?>" alt="<?php echo isset($aboutus_details['image2'])?$aboutus_details['image2']:''; ?>" class="img-fluid">
-                                    <div class="icon"><i class="ion-ios-list-outline"></i></div>
-                                </div>
-                                <h2 class="title"><a href="#">Multi-asset</a></h2>
-                                <p>
-                                    <?php echo isset($aboutus_details['paragraph2'])?$aboutus_details['paragraph2']:''; ?>.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="about-col">
-                                <div class="img">
-                                    <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image3']); ?>" alt="<?php echo isset($aboutus_details['image3'])?$aboutus_details['image3']:''; ?>" class="img-fluid">
-                                    <div class="icon"><i class="ion-ios-eye-outline"></i></div>
-                                </div>
-                                <h2 class="title"><a href="#">Fixed income</a></h2>
-                                <p>
-                                    <?php echo isset($aboutus_details['paragraph3'])?$aboutus_details['paragraph3']:''; ?>.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>-->
-
-                </div>
-            </section><!-- #about -->
-            <?php } ?>
+         
 
             <!--==========================
       Services Section
@@ -191,7 +131,7 @@
                     <header class="section-header wow fadeInUp">
 					 <?php foreach($services_details as $list){ ?>
 
-                        <h3><?php echo isset($list['title'])?$list['title']:''; ?></h3>
+                        <h3>SERVICES</h3>
                         <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
 						<?php }?>
                     </header>
@@ -268,185 +208,9 @@
             <?php } ?>
             
             
-            
-            <!--==========================
-      Instruments List
-    ============================-->
-            
-           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
-            <section id="I-list">
-                <div class="container">
-                    
-                    <header class="section-header wow fadeInUp">
-					<?php foreach($instrument_details as $list){ ?>
-                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
-					<?php }?>
-                    </header>
+           
 
-                    <div class="row section-body">
-
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <ul>
-							<?php foreach($instrument_details as $list){ ?>
-							<?php foreach($list['instrument_list'] as $li){ ?>
-                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-             <?php } ?>
-
-            <!--==========================
-      Call To Action Section
-    ============================-->
-              
-
-             <!--   <?php if(isset($gallery_details) && count($gallery_details)>0){ ?>
-
-                <section id="portfolio" class="section-bg">
-                    <div class="container">
-
-                        <header class="section-header">
-                            <h3 class="section-title">Our Gallery</h3>
-                        </header>
-
-
-                        <div class="row portfolio-container">
-                            <?php foreach($gallery_details as $list){ ?>
-                            <input type="hidden" name="gallery_id[]" id="gallery_id" value="<?php echo isset($list['g_id'])?$list['g_id']:''; ?>">
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-                                <div class="portfolio-wrap">
-                                    <figure>
-                                        <img src="<?php echo base_url('assets/gallery/'.$list['image']); ?>" class="img-fluid" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
-                                        <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                                        <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                    </figure>
-
-                                    <div class="portfolio-info">
-                                        <h4><a href="#">
-                                                <?php echo isset($list['text'])?$list['text']:''; ?></a></h4>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-
-
-                        </div>
-
-                    </div>
-                </section><!-- #portfolio -->
-
-                <?php } ?>
-
-                <?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
-                <!--<section id="testimonials" class="section-bg wow fadeInUp">
-                    <div class="container">
-
-                        <header class="section-header">
-                            <h3>Team</h3>
-                        </header>
-
-                        <div class="owl-carousel testimonials-carousel">
-                            <?php foreach($testimonials_details as $list){ ?>
-                            <input type="hidden" name="testimonials_id[]" id="testimonials_id" value="<?php echo isset($list['t_id'])?$list['t_id']:''; ?>">
-
-                            <div class="testimonial-item">
-                                <img src="<?php echo base_url('assets/testimonial/'.$list['image']); ?>" class="testimonial-img" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
-                                <h3>
-                                    <?php echo isset($list['name'])?$list['name']:''; ?>
-                                </h3>
-                                <h4>
-                                    <?php echo isset($list['designation'])?$list['designation']:''; ?>
-                                </h4>
-                                <p>
-                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-left.png" class="quote-sign-left" alt="">
-                                    <?php echo isset($list['paragraph'])?$list['paragraph']:''; ?>.
-                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-right.png" class="quote-sign-right" alt="">
-                                </p>
-                            </div>
-                            <?php } ?>
-
-                        </div>
-
-                    </div>
-                </section><!-- #testimonials -->
-
-                <?php } ?>
-
-                <section id="contact" class="section-bg wow fadeInUp">
-                    <div class="container">
-
-                        <div class="section-header">
-                            <h3>Contact Us</h3>
-                            <p>We are happy to serve you. Please reach out to us below.</p>
-                        </div>
-                        <input type="hidden" name="contactus_details_id" id="contactus_details_id" value="<?php echo isset($contactus_details['c_id'])?$contactus_details['c_id']:''; ?>">
-
-                        <div class="row contact-info">
-
-                            <div class="col-md-6">
-                                <div class="contact-address">
-                                    <i class="ion-ios-location-outline"></i>
-                                    <h3>Address</h3>
-                                    <address>
-                                        <?php echo isset($contactus_details['address'])?$contactus_details['address']:''; ?></address>
-                                </div>
-                            </div>
-
-                            <!--<div class="col-md-4">
-                                <div class="contact-phone">
-                                    <i class="ion-ios-telephone-outline"></i>
-                                    <h3>Phone Number</h3>
-                                    <p><a href="tel:+155895548855">
-                                            <?php echo isset($contactus_details['phone'])?$contactus_details['phone']:''; ?></a></p>
-                                </div>
-                            </div>-->
-
-                            <div class="col-md-6">
-                                <div class="contact-email">
-                                    <i class="ion-ios-email-outline"></i>
-                                    <h3>Email</h3>
-                                    <p><a href="mailto:info@example.com">
-                                            <?php echo isset($contactus_details['email'])?$contactus_details['email']:''; ?></a></p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="form">
-                            <div id="sendmessage">Your message has been sent. Thank you!</div>
-                            <div id="errormessage"></div>
-                            <!--<form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">-->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
-                                    <div class="validation"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                                <div class="validation"></div>
-                            </div>
-                            <div><button type="submit" class="btn btn-success" name="submit">Send Message</button></div>
-                        </div>
-                    </div>
-                </section><!-- #contact -->
+           
         </main>
 
         <!--==========================
@@ -476,7 +240,7 @@
                         <div class="col-lg-4 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home');?>">Home</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#intro">Home</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#testimonials">Team</a></li>

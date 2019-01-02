@@ -37,7 +37,8 @@
                             <thead>
                                 <tr>
                                     
-                                    <th>Service 1 Title</th>
+                                    <th>Title</th>
+									<th>Service 1 Title</th>
                                     <th>Paragraph1</th>
                                     <th>Description1</th>
 									<th>Service 2 Title</th>
@@ -54,7 +55,9 @@
 							<?php foreach($services_list as $list){?>
                                 <tr>
                                    
-
+                                    <td>
+                                        <?php echo isset($list['title'])?$list['title']:''; ?>
+                                    </td>
                                     <td>
                                         <?php echo isset($list['title1'])?$list['title1']:''; ?>
                                     </td>

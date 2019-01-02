@@ -51,7 +51,7 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?PHP echo base_url('home/index');?>">Home</a></li>
+                    <li class="menu-active"><a href="#intro">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#I-list">Instruments List</a></li>
@@ -476,7 +476,7 @@
                         <div class="col-lg-4 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home');?>">Home</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#intro">Home</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#testimonials">Team</a></li>

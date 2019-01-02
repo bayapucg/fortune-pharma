@@ -52,6 +52,7 @@ class Services extends Back_end {
 			//echo '<pre>';print_r($post);exit;
 			
 						$add_data=array(
+						'title'=>isset($post['title'])?$post['title']:'',
 						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 						'paragraph1'=>isset($post['paragraph1'])?$post['paragraph1']:'',
 						'paragraph2'=>isset($post['paragraph2'])?$post['paragraph2']:'',
@@ -59,7 +60,7 @@ class Services extends Back_end {
 						'title1'=>isset($post['title1'])?$post['title1']:'',
 						'title2'=>isset($post['title2'])?$post['title2']:'',
 						'title3'=>isset($post['title3'])?$post['title3']:'',
-						'status'=>1,
+						'status'=>0,
 						'created_at'=>date('Y-m-d H:i:s'),
 						'updated_at'=>date('Y-m-d H:i:s'),
 						'created_by'=>$admindetails['id'],
@@ -106,6 +107,124 @@ class Services extends Back_end {
 		}
 		
 	}
+	public function edit()
+	{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$servies=base64_decode($this->uri->segment(3));
+		 $data['edit_servies']=$this->Services_model->edit_servies_details($servies);
+		//echo '<pre>';print_r($data);exit;
+			$this->load->view('admin/edit-services',$data);
+			$this->load->view('admin/footer');
+
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('admin');
+		}
+	}
+	
+	public  function remove_pragraph(){
+	$post=$this->input->post();
+	//echo'<pre>';print_r($post);exit;				
+		$delete_data=$this->Services_model->delete_servies_details($post['p_id']);
+		//echo $this->db->last_query();exit;
+		if(count($delete_data)>0){
+			$data['msg']=1;
+			echo json_encode($data);exit;
+		}else{
+			$data['msg']=0;
+			echo json_encode($data);exit;
+		}
+}	
+	public  function remove_pragraph_second(){
+	$post=$this->input->post();
+	//echo'<pre>';print_r($post);exit;				
+		$delete_data=$this->Services_model->delete_servies_details($post['p_id']);
+		//echo $this->db->last_query();exit;
+		if(count($delete_data)>0){
+			$data['msg']=1;
+			echo json_encode($data);exit;
+		}else{
+			$data['msg']=0;
+			echo json_encode($data);exit;
+		}
+}	
+	
+public  function remove_pragraph_third(){
+	$post=$this->input->post();
+	//echo'<pre>';print_r($post);exit;				
+		$delete_data=$this->Services_model->delete_servies_details($post['p_id']);
+		//echo $this->db->last_query();exit;
+		if(count($delete_data)>0){
+			$data['msg']=1;
+			echo json_encode($data);exit;
+		}else{
+			$data['msg']=0;
+			echo json_encode($data);exit;
+		}
+}		
+	
+	public function editpost()
+	{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$post=$this->input->post();
+			//echo'<pre>';print_r($post);exit;
+			$update_data=array(
+			'title'=>isset($post['title'])?$post['title']:'',
+			'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
+			'title1'=>isset($post['title1'])?$post['title1']:'',
+			'paragraph1'=>isset($post['paragraph1'])?$post['paragraph1']:'',
+			'title2'=>isset($post['title2'])?$post['title2']:'',
+			'paragraph2'=>isset($post['paragraph2'])?$post['paragraph2']:'',
+			'title3'=>isset($post['title3'])?$post['title3']:'',
+			'paragraph3'=>isset($post['paragraph3'])?$post['paragraph3']:'',
+			'updated_at'=>date('Y-m-d H:i:s'),
+			);
+			//echo'<pre>';print_r($update_data);exit;
+			 $update=$this->Services_model->update_servies($post['s_id'],$update_data);
+			//echo'<pre>';print_r($update);exit;
+			 if(count($update)>0){
+				  $details=$this->Services_model->edit_servies_list($post['s_id']);
+				  //echo'<pre>';print_r($details);exit;
+				  if(count( $details)>0){
+					  foreach($details as $lis){
+						 $this->Services_model->delete_serves_data_details($lis['s_d_id']); 
+					  }
+					}
+					if(isset($post['service_name1']) && count($post['service_name1'])>0){
+					$cnt=0;foreach($post['service_name1'] as $list){ 
+						  $add_data=array(
+						  's_id'=>isset($post['s_id'])?$post['s_id']:'',
+						  'service_name1'=>$list,
+						  'service_name2'=>$post['service_name2'][$cnt],
+						  'service_name3'=>$post['service_name3'][$cnt],
+						  'status'=>1,
+						  'created_at'=>date('Y-m-d H:i:s'),
+						  'updated_at'=>date('Y-m-d H:i:s'),
+						  );
+						  // echo '<pre>';print_r($add_data);exit;
+						  $pal=$this->Services_model->save_servies_list_data_details($add_data);	
+						   //echo '<pre>';print_r($pal);exit;
+                        $cnt++;
+				       }
+					}
+					//exit;
+					$this->session->set_flashdata('success',"services details details successfully updated");	
+					redirect('services/lists');	
+					}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('services/lists');
+					}
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('admin');
+		}
+	}
+	
+	
 	public function status()
 	{
 		if($this->session->userdata('multi_details'))

@@ -119,7 +119,6 @@ class Instruments extends Back_end {
 			$update_data=array(
 			'title'=>isset($post['title'])?$post['title']:'',
 			'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
-			'status'=>0,
 			'updated_at'=>date('Y-m-d H:i:s'),
 			);
 			//echo'<pre>';print_r($update_data);exit;
