@@ -43,7 +43,7 @@ table.order-list td {
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter  here..."></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
@@ -114,41 +114,7 @@ table.order-list td {
                     </div>
                 </div>
             </div>
-            <!--<div class="row">
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 4</h4>
-                    <div class="form-group">
-                        <label>Service 4 title</label>
-                        <input type="text" name="title4" id="title4" class="form-control" placeholder="Enter Service 4" value="<?php echo isset($detail['title4'])?$detail['title4']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph4" id="paragraph4" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph4'])?$detail['paragraph4']:''; ?></textarea>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 5 </h4>
-                    <div class="form-group">
-                        <label>Service 5 title</label>
-                        <input type="text" name="title5" id="title5" class="form-control" placeholder="Enter Service 5" value="<?php echo isset($detail['title5'])?$detail['title5']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph5" id="paragraph5" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph5'])?$detail['paragraph5']:''; ?></textarea>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 6</h4>
-                    <div class="form-group">
-                        <label>Service 6 title</label>
-                        <input type="text" name="title6" id="title6" class="form-control" placeholder="Enter Service 6" value="<?php echo isset($detail['title6'])?$detail['title6']:''; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph6" id="paragraph6" class="form-control" rows="5" placeholder="Enter title here..."><?php echo isset($detail['paragraph6'])?$detail['paragraph6']:''; ?></textarea>
-                    </div>
-                </div>
-            </div>-->
+           
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
             </div>

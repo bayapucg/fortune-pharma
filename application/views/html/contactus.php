@@ -121,40 +121,74 @@
           
             
             
-            <!--==========================
-      Instruments List
-    ============================-->
-            
-           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
-            <section id="I-list">
-                <div class="container">
-                    
-                    <header class="section-header wow fadeInUp">
-					<?php foreach($instrument_details as $list){ ?>
-                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
-					<?php }?>
-                    </header>
-
-                    <div class="row section-body">
-
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <ul>
-							<?php foreach($instrument_details as $list){ ?>
-							<?php foreach($list['instrument_list'] as $li){ ?>
-                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-             <?php } ?>
-
+       
            
-               
+                <section id="contact" class="section-bg wow fadeInUp">
+                    <div class="container">
+
+                        <div class="section-header">
+                            <h3>Contact Us</h3>
+                            <p>We are happy to serve you. Please reach out to us below.</p>
+                        </div>
+                        <input type="hidden" name="contactus_details_id" id="contactus_details_id" value="<?php echo isset($contactus_details['c_id'])?$contactus_details['c_id']:''; ?>">
+
+                        <div class="row contact-info">
+
+                            <div class="col-md-6">
+                                <div class="contact-address">
+                                    <i class="ion-ios-location-outline"></i>
+                                    <h3>Address</h3>
+                                    <address>
+                                        <?php echo isset($contactus_details['address'])?$contactus_details['address']:''; ?></address>
+                                </div>
+                            </div>
+
+                            <!--<div class="col-md-4">
+                                <div class="contact-phone">
+                                    <i class="ion-ios-telephone-outline"></i>
+                                    <h3>Phone Number</h3>
+                                    <p><a href="tel:+155895548855">
+                                            <?php echo isset($contactus_details['phone'])?$contactus_details['phone']:''; ?></a></p>
+                                </div>
+                            </div>-->
+
+                            <div class="col-md-6">
+                                <div class="contact-email">
+                                    <i class="ion-ios-email-outline"></i>
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:info@example.com">
+                                            <?php echo isset($contactus_details['email'])?$contactus_details['email']:''; ?></a></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form">
+                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                            <div id="errormessage"></div>
+                            <!--<form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">-->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+                                    <div class="validation"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                                <div class="validation"></div>
+                            </div>
+                            <div><button type="submit" class="btn btn-success" name="submit">Send Message</button></div>
+                        </div>
+                    </div>
+                </section><!-- #contact -->
         </main>
 
         <!--==========================

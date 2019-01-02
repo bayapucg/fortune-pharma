@@ -206,7 +206,7 @@ public  function remove_pragraph_third(){
 						  'updated_at'=>date('Y-m-d H:i:s'),
 						  );
 						  // echo '<pre>';print_r($add_data);exit;
-						  $pal=$this->Services_model->save_servies_list_data_details($add_data);	
+						 $this->Services_model->save_servies_list_data_details($add_data);	
 						   //echo '<pre>';print_r($pal);exit;
                         $cnt++;
 				       }
@@ -256,7 +256,7 @@ public  function remove_pragraph_third(){
 							//echo $this->db->last_query();exit;	
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"services  details successfully Deactivate.");
+								$this->session->set_flashdata('success',"services   successfully Deactivate.");
 								}else{
 									$this->session->set_flashdata('success',"services  details successfully Activate.");
 								}

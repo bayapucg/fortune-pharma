@@ -51,11 +51,11 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#I-list">Instruments List</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="menu-active"><a href="<?php echo base_url('home'); ?>">Home</a></li>
+                    <li><a href="<?php echo base_url('home/aboutus'); ?>">About Us</a></li>
+                    <li><a href="<?php echo base_url('home/services'); ?>">Services</a></li>
+                    <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments List</a></li>
+                     <li><a href="<?php echo base_url('home/contactus'); ?>">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -205,7 +205,7 @@
                             <p>
                                 <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?></p>
                             <ul>
-							<?php foreach($services_details as $list){ ?>
+							<?php if(isset($list['servies_list']) && count($list['servies_list'])>0){ ?>
 							<?php foreach($list['servies_list'] as $li){ ?>
                                 <li><?php echo isset($li['service_name1'])?$li['service_name1']:''; ?></li>
                                <?php }?> 
@@ -221,7 +221,7 @@
                             <p>
                                 <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?></p>
                             <ul>
-                                <?php foreach($services_details as $list){ ?>
+                                <?php if(isset($list['servies_list']) && count($list['servies_list'])>0){ ?>
 							<?php foreach($list['servies_list'] as $li){ ?>
                                 <li><?php echo isset($li['service_name2'])?$li['service_name2']:''; ?></li>
                                <?php }?> 
@@ -234,7 +234,7 @@
                             <p>
                                 <?php echo isset($list['paragraph3'])?$list['paragraph3']:''; ?></p>
                             <ul>
-                                <?php foreach($services_details as $list){ ?>
+                                <?php if(isset($list['servies_list']) && count($list['servies_list'])>0){ ?>
 							<?php foreach($list['servies_list'] as $li){ ?>
                                 <li><?php echo isset($li['service_name3'])?$li['service_name3']:''; ?></li>
                                <?php }?> 

@@ -58,11 +58,11 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="<?php echo base_url('home/index'); ?>">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="<?php echo base_url('home/aboutus'); ?>">About Us</a></li>
                     <li><a href="<?php echo base_url('home/services'); ?>">Services</a></li>
                     <!--<li><a href="#testimonials">Team</a></li>-->
                     <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments List</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="<?php echo base_url('home/contactus'); ?>">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
