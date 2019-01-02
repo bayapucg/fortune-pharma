@@ -90,7 +90,7 @@ class Services extends Back_end {
 					}
 					}
 					//exit;
-							$this->session->set_flashdata('success','Services successfully updated');
+							$this->session->set_flashdata('success','Services details successfully added');
 							redirect('services/lists');
 							
 						}else{
@@ -212,7 +212,7 @@ public  function remove_pragraph_third(){
 				       }
 					}
 					//exit;
-					$this->session->set_flashdata('success',"services details details successfully updated");	
+					$this->session->set_flashdata('success',"services  details successfully updated");	
 					redirect('services/lists');	
 					}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -240,7 +240,7 @@ public  function remove_pragraph_third(){
 					if($status==0){
 						$check=$this->Services_model->check_services_status();
 						if(count($check)>0){
-							$this->session->set_flashdata('error',"Already one image is active. Please try again once");
+							$this->session->set_flashdata('error',"Already one Services is active. Please try again once");
 							redirect('services/lists');
 						}
 					}
@@ -256,9 +256,9 @@ public  function remove_pragraph_third(){
 							//echo $this->db->last_query();exit;	
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"services details details successfully Deactivate.");
+								$this->session->set_flashdata('success',"services  details successfully Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"services details details successfully Activate.");
+									$this->session->set_flashdata('success',"services  details successfully Activate.");
 								}
 								redirect('services/lists');
 							}else{

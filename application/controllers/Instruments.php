@@ -145,7 +145,7 @@ class Instruments extends Back_end {
 
 				       }
 					}
-					$this->session->set_flashdata('success',"Instruments details details successfully updated");	
+					$this->session->set_flashdata('success',"Instruments details  successfully updated");	
 					redirect('instruments/lists');	
 					}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -172,7 +172,7 @@ class Instruments extends Back_end {
 					if($status==0){
 						$check=$this->Admin_model->check_instument_status();
 						if(count($check)>0){
-							$this->session->set_flashdata('error',"Already one image is active. Please try again once");
+							$this->session->set_flashdata('error',"Already one Instruments is active. Please try again once");
 							redirect('instruments/lists');
 						}
 					}
@@ -188,9 +188,9 @@ class Instruments extends Back_end {
 							//echo $this->db->last_query();exit;	
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"Instruments details details successfully Deactivate.");
+								$this->session->set_flashdata('success',"Instruments details  successfully Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"Instruments details details successfully Activate.");
+									$this->session->set_flashdata('success',"Instruments details  successfully Activate.");
 								}
 								redirect('instruments/lists');
 							}else{
