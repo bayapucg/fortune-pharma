@@ -28,7 +28,7 @@ table.order-list td {
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph" id="paragraph" class="form-control" rows="5"></textarea>
+                        <textarea name="paragraph" id="paragraph" placeholder="Enter text here....." class="form-control" rows="5"></textarea>
                     </div>
                 </div>
 				
@@ -43,14 +43,14 @@ table.order-list td {
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter  here..."></textarea>
+                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
                             <tbody>
                                 <tr>
                                     <td >
-                                        <input type="text" name="service_name1[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name1[]" placeholder="Enter service name1" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -69,14 +69,14 @@ table.order-list td {
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph2" id="paragraph2" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph2" id="paragraph2"  class="form-control" rows="5" placeholder="Enter text here..."></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list2">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="service_name2[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name2[]" placeholder="Enter service name2" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>
@@ -91,18 +91,18 @@ table.order-list td {
                     <h4 class="text-primary">Service 3</h4>
                     <div class="form-group">
                         <label>Service 3 title</label>
-                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Serviec 3" >
+                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Service 3" >
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter title here..."></textarea>
+                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
                     </div>
                     <div class="table-responsive">
                         <table id="" class="table order-list3">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="service_name3[]" placeholder="Enter Name" class="form-control" />
+                                        <input type="text" name="service_name3[]" placeholder="Enter service name3" class="form-control" />
                                     </td>
                                     <td>
                                         <a class="deleteRow"></a>

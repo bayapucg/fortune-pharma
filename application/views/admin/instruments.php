@@ -26,7 +26,7 @@ table.order-list td {
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph" id="paragraph" class="form-control" rows="5"></textarea>
+                        <textarea name="paragraph" id="paragraph" placeholder="Enter text here....." class="form-control" rows="5"></textarea>
                     </div>
                 </div>
             </div>

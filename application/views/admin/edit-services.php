@@ -28,7 +28,7 @@ table.order-list td {
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <input name="paragraph" id="paragraph" class="form-control" value="<?php echo isset($edit_servies['paragraph'])?$edit_servies['paragraph']:''; ?>">
+                        <input name="paragraph" id="paragraph" placeholder="Enter text here....." class="form-control" value="<?php echo isset($edit_servies['paragraph'])?$edit_servies['paragraph']:''; ?>">
                     </div>
                 </div>
 				
@@ -39,7 +39,7 @@ table.order-list td {
                     <h4 class="text-primary">Service 1</h4>
                     <div class="form-group">
                         <label>Service 1 title</label>
-                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" value="<?php echo isset($edit_servies['title1'])?$edit_servies['title1']:''; ?>">
+                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter  Service1 " value="<?php echo isset($edit_servies['title1'])?$edit_servies['title1']:''; ?>">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
@@ -51,7 +51,7 @@ table.order-list td {
 							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
                                <tr id="oldid<?php echo $cnt; ?>">
                                     <td >
-                                        <input type="text" name="service_name1[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name1'])?$lis['service_name1']:''; ?>" />
+                                        <input type="text" name="service_name1[]" placeholder="Enter service name1" class="form-control" value="<?php echo isset($lis['service_name1'])?$lis['service_name1']:''; ?>" />
                                     </td>
 									<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>
                                     <td>
@@ -80,7 +80,7 @@ table.order-list td {
 							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
                                <tr id="oldid2<?php echo $cnt; ?>">
                                     <td>
-                                        <input type="text" name="service_name2[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name2'])?$lis['service_name2']:''; ?>"  />
+                                        <input type="text" name="service_name2[]" placeholder="Enter service name2" class="form-control" value="<?php echo isset($lis['service_name2'])?$lis['service_name2']:''; ?>"  />
                                     </td>
 								<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph2('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>	
                                     <td>
@@ -97,7 +97,7 @@ table.order-list td {
                     <h4 class="text-primary">Service 3</h4>
                     <div class="form-group">
                         <label>Service 3 title</label>
-                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Serviec 3" value="<?php echo isset($edit_servies['title3'])?$edit_servies['title3']:''; ?>">
+                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Service 3" value="<?php echo isset($edit_servies['title3'])?$edit_servies['title3']:''; ?>">
                     </div>
                     <div class="form-group">
                         <label>Paragraph</label>
@@ -109,7 +109,7 @@ table.order-list td {
 							<?php $cnt=1;foreach($edit_servies['sevies_list'] as $lis){ ?>
                                  <tr id="oldid3<?php echo $cnt; ?>">
                                     <td>
-                                        <input type="text" name="service_name3[]" placeholder="Enter Name" class="form-control" value="<?php echo isset($lis['service_name3'])?$lis['service_name3']:''; ?>" />
+                                        <input type="text" name="service_name3[]" placeholder="Enter service name1" class="form-control" value="<?php echo isset($lis['service_name3'])?$lis['service_name3']:''; ?>" />
                                     </td>
 									<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph3('<?php echo $lis['s_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>	
                                     <td>
