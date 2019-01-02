@@ -201,9 +201,9 @@
                         <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
 						
                             <h4 class="title"><a href="">
-                                    <?php echo isset($list['title2'])?$list['title2']:''; ?></a></h4>
+                                    <?php echo isset($list['title1'])?$list['title1']:''; ?></a></h4>
                             <p>
-                                <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?></p>
+                                <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?></p>
                             <ul>
 							<?php foreach($services_details as $list){ ?>
 							<?php foreach($list['servies_list'] as $li){ ?>
@@ -217,9 +217,9 @@
                         </div>
                         <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
                             <h4 class="title"><a href="">
-                                    <?php echo isset($list['title1'])?$list['title1']:''; ?></a></h4>
+                                    <?php echo isset($list['title2'])?$list['title2']:''; ?></a></h4>
                             <p>
-                                <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?></p>
+                                <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?></p>
                             <ul>
                                 <?php foreach($services_details as $list){ ?>
 							<?php foreach($list['servies_list'] as $li){ ?>
