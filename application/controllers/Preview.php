@@ -30,6 +30,7 @@ class Preview extends CI_Controller {
 				//echo '<pre>';print_r($data['services_details']);exit;
 				
 				$data['gallery_details']=$this->Users_model->get_gallery_details();
+				//echo '<pre>';print_r($data['gallery_details']);exit;
 				$data['testimonials_details']=$this->Users_model->get_testimonials_details();
 				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				

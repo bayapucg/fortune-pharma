@@ -41,12 +41,7 @@
 									<th>Service 1 Title</th>
                                     <th>Paragraph1</th>
                                     <th>Description1</th>
-									<th>Service 2 Title</th>
-									<th>Paragraph2</th>
-									<th>Description2</th>
-									<th>Service 3 Title</th>
-									<th>Paragraph3</th>
-									<th>Description3</th>
+									
 									<th>Status</th>
                                     <th class="text-right">Action</th>
                                 </tr>
@@ -59,41 +54,24 @@
                                         <?php echo isset($list['title'])?$list['title']:''; ?>
                                     </td>
                                     <td>
-                                        <?php echo isset($list['title1'])?$list['title1']:''; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?>
+									<?php foreach($list['servies'] as $li){ ?>
+                                        <?php echo isset($li['title1'])?$li['title1']:'' ; ?>
+									<?php }?>
                                     </td>
                                     <td>
 									<?php foreach($list['servies'] as $li){ ?>
-									<?php echo $li['service_name1'].'<br>'; ?>
+                                        <?php echo isset($li['paragraph1'])?$li['paragraph1']:''; ?>
+										<?php }?>
+                                    </td>
+                                    <td>
+									<?php foreach($list['servies'] as $li){ ?>
+									<?php foreach($li['servie_data'] as $lis){ ?>
+									<?php echo $lis['service_name1'].'<br>'; ?>
 									<?php } ?>
-                                        
+                                    <?php } ?>  
                                     </td>
 									
-									<td>
-                                        <?php echo isset($list['title2'])?$list['title2']:''; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?>
-                                    </td>
-                                    <td>
-                                        <?php foreach($list['servies'] as $li){ ?>
-									<?php echo $li['service_name2'].'<br>'; ?>
-									<?php } ?>
-                                    </td>
 									
-									<td>
-                                        <?php echo isset($list['title3'])?$list['title3']:''; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo isset($list['paragraph3'])?$list['paragraph3']:''; ?>
-                                    </td>
-                                    <td>
-                                       <?php foreach($list['servies'] as $li){ ?>
-									<?php echo $li['service_name3'].'<br>'; ?>
-									<?php } ?>
-                                    </td>
 									<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
 									<td class="">
 											<a href="<?php echo base_url('services/edit/'.base64_encode($list['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>

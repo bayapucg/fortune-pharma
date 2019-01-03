@@ -41,7 +41,7 @@
 
                     </ul>
                 </li>
-                <!--<li class="submenu">
+                <li class="submenu">
                     <a href="#" class=""><span> Gallery </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled" style="display: none;">
 

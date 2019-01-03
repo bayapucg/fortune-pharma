@@ -54,12 +54,6 @@ class Services extends Back_end {
 						$add_data=array(
 						'title'=>isset($post['title'])?$post['title']:'',
 						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
-						'paragraph1'=>isset($post['paragraph1'])?$post['paragraph1']:'',
-						'paragraph2'=>isset($post['paragraph2'])?$post['paragraph2']:'',
-						'paragraph3'=>isset($post['paragraph3'])?$post['paragraph3']:'',
-						'title1'=>isset($post['title1'])?$post['title1']:'',
-						'title2'=>isset($post['title2'])?$post['title2']:'',
-						'title3'=>isset($post['title3'])?$post['title3']:'',
 						'status'=>0,
 						'created_at'=>date('Y-m-d H:i:s'),
 						'updated_at'=>date('Y-m-d H:i:s'),
@@ -70,28 +64,125 @@ class Services extends Back_end {
 						
 						$save=$this->Services_model->save_services_details($add_data);
 					//echo '<pre>';print_r($save);exit;
-					if(count($save)>0){
-				if(isset($post['service_name1']) && count($post['service_name1'])>0){
-					$cnt=0;foreach($post['service_name1'] as $list){
+					if($save!=0){
+						
 						  $add_data=array(
-						  's_id'=>isset($save)?$save:'',
+						  's_id'=>$save,
+						  'title1'=>isset($post['title1'])?$post['title1']:'',
+						'paragraph1'=>isset($post['paragraph1'])?$post['paragraph1']:'',
+						'status'=>0,
+						'created_at'=>date('Y-m-d H:i:s'),
+						'updated_at'=>date('Y-m-d H:i:s'),
+						'created_by'=>$admindetails['id'],
+						);
+						
+					
+						$id=$this->Services_model->save_servies_name_details($add_data);
+						   if($id!=0){
+				if(isset($post['service_name1']) && count($post['service_name1'])>0){
+					$cnt=0;
+					foreach($post['service_name1'] as $list){
+						  $data[]=array(
+						  's_id'=>$save,
+						  's_n_id'=>$id,
 						  'service_name1'=>$list,
-						  'service_name2'=>$post['service_name2'][$cnt],
-						  'service_name3'=>$post['service_name3'][$cnt],
 						  'status'=>1,
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'updated_at'=>date('Y-m-d H:i:s'),
 						  'created_by'=>$admindetails['id'],
 						  );
 						   //echo '<pre>';print_r($add_data);
-						  $this->Services_model->save_servies_data_details($add_data);	
- 
-				       $cnt++;
+						 
+                      
+				      
 					}
+					 
 					}
+				 $this->Services_model->save_servies_one_data_details($data);	
+					
+					}
+										
+			//second loop
+			
+						
+						  $add_data=array(
+						  's_id'=>$save,
+						  'title1'=>isset($post['title2'])?$post['title2']:'',
+						'paragraph1'=>isset($post['paragraph2'])?$post['paragraph2']:'',
+						'status'=>0,
+						'created_at'=>date('Y-m-d H:i:s'),
+						'updated_at'=>date('Y-m-d H:i:s'),
+						'created_by'=>$admindetails['id'],
+						);
+						
+					
+						$id=$this->Services_model->save_servies_name_details($add_data);
+						   if($id!=0){
+				if(isset($post['service_name2']) && count($post['service_name2'])>0){
+					$cnt=0;
+					foreach($post['service_name2'] as $list){
+						  $data1[]=array(
+						  's_id'=>$save,
+						  's_n_id'=>$id,
+						  'service_name1'=>$list,
+						  'status'=>1,
+						  'created_at'=>date('Y-m-d H:i:s'),
+						  'updated_at'=>date('Y-m-d H:i:s'),
+						  'created_by'=>$admindetails['id'],
+						  );
+						   //echo '<pre>';print_r($add_data);
+						 
+                     
+				      
+					}
+					 	
+					}
+				$this->Services_model->save_servies_one_data_details($data1);
+					
+					}
+							
+			//end
+					
+						
+						  $add_data=array(
+						  's_id'=>$save,
+						  'title1'=>isset($post['title3'])?$post['title3']:'',
+						'paragraph1'=>isset($post['paragraph3'])?$post['paragraph3']:'',
+						'status'=>0,
+						'created_at'=>date('Y-m-d H:i:s'),
+						'updated_at'=>date('Y-m-d H:i:s'),
+						'created_by'=>$admindetails['id'],
+						);
+						
+					
+						$id=$this->Services_model->save_servies_name_details($add_data);
+						   if($id!=0){
+				if(isset($post['service_name3']) && count($post['service_name3'])>0){
+					$cnt=0;
+					foreach($post['service_name3'] as $list){
+						  $data2[]=array(
+						  's_id'=>$save,
+						  's_n_id'=>$id,
+						  'service_name1'=>$list,
+						  'status'=>1,
+						  'created_at'=>date('Y-m-d H:i:s'),
+						  'updated_at'=>date('Y-m-d H:i:s'),
+						  'created_by'=>$admindetails['id'],
+						  );
+						   //echo '<pre>';print_r($add_data);
+						 
+                     
+				      
+					}
+						
+					}
+				
+					 $this->Services_model->save_servies_one_data_details($data2);
+					}
+			}					
+			//end
 					
 					
-					//exit;
 							$this->session->set_flashdata('success','Services details successfully added');
 							redirect('services/lists');
 							
@@ -103,12 +194,11 @@ class Services extends Back_end {
 				
 					
 						
-		}else{
-			$this->session->set_flashdata('error','Please login to continue');
-			redirect('admin');
+		
 		}
 		
-	}
+	
+	
 	public function edit()
 	{
 		if($this->session->userdata('multi_details'))
