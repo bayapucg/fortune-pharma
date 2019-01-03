@@ -76,6 +76,8 @@ class Services extends Back_end {
 						  $add_data=array(
 						  's_id'=>isset($save)?$save:'',
 						  'service_name1'=>$list,
+						  'service_name2'=>$post['service_name2'][$cnt],
+						  'service_name3'=>$post['service_name3'][$cnt],
 						  'status'=>1,
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'updated_at'=>date('Y-m-d H:i:s'),
@@ -87,38 +89,7 @@ class Services extends Back_end {
 				       $cnt++;
 					}
 					}
-					if(isset($post['service_name2']) && count($post['service_name2'])>0){
-					$cnt=0;foreach($post['service_name2'] as $list){
-						  $add_data=array(
-						  's_id'=>isset($save)?$save:'',
-						  'service_name2'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'updated_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						  $this->Services_model->save_servies_data_details($add_data);	
- 
-				       $cnt++;
-					}
-					}
-					if(isset($post['service_name3']) && count($post['service_name3'])>0){
-					$cnt=0;foreach($post['service_name3'] as $list){
-						  $add_data=array(
-						  's_id'=>isset($save)?$save:'',
-						  'service_name3'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'updated_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						  $this->Services_model->save_servies_data_details($add_data);	
- 
-				       $cnt++;
-					}
-					}
+					
 					
 					//exit;
 							$this->session->set_flashdata('success','Services details successfully added');
