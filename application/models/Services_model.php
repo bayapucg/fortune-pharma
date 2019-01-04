@@ -83,12 +83,9 @@ class Services_model extends CI_Model
 	return $this->db->insert_id()?$this->db->insert_id():0;
 	}
 	
-	public function save_serviessecond_data_details($data){
-	$this->db->insert('servies_two',$data);
-	return $this->db->insert_id();
-	}
+	
 	public function save_servies_one_data_details($data){
-	$this->db->insert_batch('servies_one',$data);
+	$this->db->insert_batch('service_name_details',$data);
 	return $this->db->affected_rows()?1:0;
 	}
 	
@@ -98,13 +95,13 @@ class Services_model extends CI_Model
 	$this->db->where('services.status !=', 2);
 	 $return=$this->db->get()->result_array();
 	 //echo '<pre>';print_r($return);exit;
-	  foreach($return as $list){
+	  $cnt=0;foreach($return as $list){
 	   $lists=$this->get_servies_data_list($list['s_id']);
 	   //echo '<pre>';print_r($lists);exit;
-	   $data[$list['s_id']]=$list;
-	   $data[$list['s_id']]['servies']=$lists;
+	   $data[$cnt]=$list;
+	   $data[$cnt]['servies']=$lists;
 	   
-	  }
+	 $cnt++;}
 	if(!empty($data)){
 	   
 	   return $data;
@@ -114,6 +111,7 @@ class Services_model extends CI_Model
 	public function get_servies_data_list($s_id){
 	 $this->db->select('servies_name.*')->from('servies_name');
      $this->db->where('servies_name.s_id',$s_id);
+     $this->db->where('servies_name.status',1);
 	 $return=$this->db->get()->result_array();
 	  //echo '<pre>';print_r($return);exit;
 	foreach($return as $list){
@@ -130,10 +128,25 @@ class Services_model extends CI_Model
 	  }
  }
 	public function get_servies_one_list($s_n_id){
-	 $this->db->select('servies_one.*')->from('servies_one');
-     $this->db->where('servies_one.s_n_id',$s_n_id);
+	 $this->db->select('service_name_details.*')->from('service_name_details');
+     $this->db->where('service_name_details.s_n_id',$s_n_id);
+     $this->db->where('service_name_details.status',1);
 	 return $this->db->get()->result_array();
 	}
+	
+	
+	public  function check_servies_active_ornot(){
+	$this->db->select('*')->from('services');
+	$this->db->where('services.status',1);
+	return $this->db->get()->row_array();
+}
+	
+public function delete_services_name_details_data($s_b_d_id){
+	$this->db->where('s_b_d_id',$s_b_d_id);
+	return $this->db->delete('service_name_details');
+	}	
+	
+	
 	
 	
 	

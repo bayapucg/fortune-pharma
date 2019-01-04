@@ -51,11 +51,13 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?PHP echo base_url('home/index');?>">Home</a></li>
+                    <li class="menu-active"><a href="<?PHP echo base_url('home');?>">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
+					<li><a href="#portfolio">gallery</a></li>
                     <li><a href="#I-list">Instruments List</a></li>
                     <li><a href="#contact">Contact</a></li>
+					
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -180,94 +182,115 @@
             </section><!-- #about -->
             <?php } ?>
 
-            <!--==========================
+           <!--==========================
       Services Section
     ============================-->
-            <?php if(isset($services_details) && count($services_details)>0){ ?>
-            <section id="services" class="section-bg">
-                <div class="container">
-                    <input type="hidden" name="services_id" id="services_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
-                        
-                    <header class="section-header wow fadeInUp">
-					 <?php foreach($services_details as $list){ ?>
+        <?php if(isset($services_details) && count($services_details)>0){ ?>
+        <section id="services" class="section-bg">
+            <div class="container">
+                <input type="hidden" name="services_id" id="services_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
 
-                        <h3><?php echo isset($list['title'])?$list['title']:''; ?></h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
+                <header class="section-header wow fadeInUp">
+                    <h3><?php echo isset($services_details[0]['title'])?$services_details[0]['title']:''; ?></h3>
+                    <p><?php echo isset($services_details[0]['paragraph'])?$services_details[0]['paragraph']:''; ?></p>
+                       
+                </header>
+
+                <div class="row section-body">
+
+                    <?php if(isset($services_details) && count($services_details)>0){ ?>
+					<?php $count=1;foreach($services_details[0]['servies'] as $lis){?>
+                    <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
+                        <h4 class="title"><a href="">
+                               <?php echo isset($lis['title'])?$lis['title']:''; ?></a></h4>
+                        <p>
+                          <?php echo isset($lis['paragraph'])?$lis['paragraph']:''; ?></p>
+                        <ul>
+						<?php foreach($lis['servie_data'] as $li){ ?>
+                            <li><?php echo isset($li['service_name'])?$li['service_name']:''; ?></li>
 						<?php }?>
-                    </header>
-
-                    <div class="row section-body">
-                       <?php foreach($services_details as $list){ ?>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-						
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title1'])?$list['title1']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?></p>
-                            <ul>
-							<?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name1'])?$li['service_name1']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                               
-								
-                            </ul>
-							
-                        </div>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title2'])?$list['title2']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?></p>
-                            <ul>
-                                <?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name2'])?$li['service_name2']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title3'])?$list['title3']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph3'])?$list['paragraph3']:''; ?></p>
-                            <ul>
-                                <?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name3'])?$li['service_name3']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        <!--<div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title4'])?$services_details['title4']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph4'])?$services_details['paragraph4']:''; ?>.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title5'])?$services_details['title5']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph5'])?$services_details['paragraph5']:''; ?>.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title6'])?$services_details['title6']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph6'])?$services_details['paragraph6']:''; ?>.</p>
-                        </div>-->
-                      <?php } ?>
+                        </ul>
                     </div>
+					<?php $count++;}?>
+                    <?php }?>
+                    
 
                 </div>
-            </section><!-- #services -->
 
-            <?php } ?>
+            </div>
+        </section><!-- #services -->
+
+        <?php } ?>
+			
+			
+			
+			<?php if(isset($gallery_details) && count($gallery_details)>0){ ?>
+        <section id="portfolio" class="section-bg">
+            <div class="container">
+                <header class="section-header">
+                    <h3 class="section-title">Our Gallery</h3>
+                </header>
+                <div class="row portfolio-container">
+                    <?php foreach($gallery_details as $list){ ?>
+                    <input type="hidden" name="gallery_id[]" id="gallery_id" value="<?php echo isset($list['g_id'])?$list['g_id']:''; ?>">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <img src="<?php echo base_url('assets/gallery/'.$list['image']); ?>" class="img-fluid" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
+                                <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                            </figure>
+                            <div class="portfolio-info">
+                                <h4><a href="#">
+                                        <?php echo isset($list['text'])?$list['text']:''; ?></a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
+        <?php } ?>
+			
+			
+			
+			
+			
+			
             
             
+			<!--<?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
+                <section id="testimonials" class="section-bg wow fadeInUp">
+                    <div class="container">
+
+                        <header class="section-header">
+                            <h3>Team</h3>
+                        </header>
+
+                        <div class="owl-carousel testimonials-carousel">
+                            <?php foreach($testimonials_details as $list){ ?>
+                            <input type="hidden" name="testimonials_id[]" id="testimonials_id" value="<?php echo isset($list['t_id'])?$list['t_id']:''; ?>">
+
+                            <div class="testimonial-item">
+                                <img src="<?php echo base_url('assets/testimonial/'.$list['image']); ?>" class="testimonial-img" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
+                                <h3>
+                                    <?php echo isset($list['name'])?$list['name']:''; ?>
+                                </h3>
+                                <h4>
+                                    <?php echo isset($list['designation'])?$list['designation']:''; ?>
+                                </h4>
+                                <p>
+                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                                    <?php echo isset($list['paragraph'])?$list['paragraph']:''; ?>.
+                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                                </p>
+                            </div>
+                            <?php } ?>
+
+                        </div>
+
+                    </div>
+                </section><!-- #testimonials -->
+				
             
             <!--==========================
       Instruments List
@@ -303,38 +326,7 @@
 
           
 
-                <?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
-                <!--<section id="testimonials" class="section-bg wow fadeInUp">
-                    <div class="container">
-
-                        <header class="section-header">
-                            <h3>Team</h3>
-                        </header>
-
-                        <div class="owl-carousel testimonials-carousel">
-                            <?php foreach($testimonials_details as $list){ ?>
-                            <input type="hidden" name="testimonials_id[]" id="testimonials_id" value="<?php echo isset($list['t_id'])?$list['t_id']:''; ?>">
-
-                            <div class="testimonial-item">
-                                <img src="<?php echo base_url('assets/testimonial/'.$list['image']); ?>" class="testimonial-img" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
-                                <h3>
-                                    <?php echo isset($list['name'])?$list['name']:''; ?>
-                                </h3>
-                                <h4>
-                                    <?php echo isset($list['designation'])?$list['designation']:''; ?>
-                                </h4>
-                                <p>
-                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-left.png" class="quote-sign-left" alt="">
-                                    <?php echo isset($list['paragraph'])?$list['paragraph']:''; ?>.
-                                    <img src="<?php echo base_url(); ?>assets/vendor/img/quote-sign-right.png" class="quote-sign-right" alt="">
-                                </p>
-                            </div>
-                            <?php } ?>
-
-                        </div>
-
-                    </div>
-                </section><!-- #testimonials -->
+                
 
                 <?php } ?>
 

@@ -123,93 +123,43 @@
             <!--==========================
       Services Section
     ============================-->
-            <?php if(isset($services_details) && count($services_details)>0){ ?>
-            <section id="services" class="section-bg">
-                <div class="container">
-                    <input type="hidden" name="services_id" id="services_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
-                        
-                    <header class="section-header wow fadeInUp">
-					 <?php foreach($services_details as $list){ ?>
+        <?php if(isset($services_details) && count($services_details)>0){ ?>
+        <section id="services" class="section-bg">
+            <div class="container">
+                <input type="hidden" name="services_id" id="services_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
 
-                        <h3>SERVICES</h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
+                <header class="section-header wow fadeInUp">
+                    <h3><?php echo isset($services_details[0]['title'])?$services_details[0]['title']:''; ?></h3>
+                    <p><?php echo isset($services_details[0]['paragraph'])?$services_details[0]['paragraph']:''; ?></p>
+                       
+                </header>
+
+                <div class="row section-body">
+
+                    <?php if(isset($services_details) && count($services_details)>0){ ?>
+					<?php $count=1;foreach($services_details[0]['servies'] as $lis){?>
+                    <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
+                        <h4 class="title"><a href="">
+                               <?php echo isset($lis['title'])?$lis['title']:''; ?></a></h4>
+                        <p>
+                          <?php echo isset($lis['paragraph'])?$lis['paragraph']:''; ?></p>
+                        <ul>
+						<?php foreach($lis['servie_data'] as $li){ ?>
+                            <li><?php echo isset($li['service_name'])?$li['service_name']:''; ?></li>
 						<?php }?>
-                    </header>
-
-                    <div class="row section-body">
-                       <?php foreach($services_details as $list){ ?>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-						
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title2'])?$list['title2']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph2'])?$list['paragraph2']:''; ?></p>
-                            <ul>
-							<?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name1'])?$li['service_name1']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                               
-								
-                            </ul>
-							
-                        </div>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title1'])?$list['title1']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph1'])?$list['paragraph1']:''; ?></p>
-                            <ul>
-                                <?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name2'])?$li['service_name2']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($list['title3'])?$list['title3']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($list['paragraph3'])?$list['paragraph3']:''; ?></p>
-                            <ul>
-                                <?php foreach($services_details as $list){ ?>
-							<?php foreach($list['servies_list'] as $li){ ?>
-                                <li><?php echo isset($li['service_name3'])?$li['service_name3']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        <!--<div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title4'])?$services_details['title4']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph4'])?$services_details['paragraph4']:''; ?>.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title5'])?$services_details['title5']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph5'])?$services_details['paragraph5']:''; ?>.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                            <h4 class="title"><a href="">
-                                    <?php echo isset($services_details['title6'])?$services_details['title6']:''; ?></a></h4>
-                            <p>
-                                <?php echo isset($services_details['paragraph6'])?$services_details['paragraph6']:''; ?>.</p>
-                        </div>-->
-                      <?php } ?>
+                        </ul>
                     </div>
+					<?php $count++;}?>
+                    <?php }?>
+                    
 
                 </div>
-            </section><!-- #services -->
 
-            <?php } ?>
-            
-            
-           
+            </div>
+        </section><!-- #services -->
 
+        <?php } ?>
+			
            
         </main>
 

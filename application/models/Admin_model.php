@@ -116,9 +116,9 @@ class Admin_model extends CI_Model
 	$this->db->insert('instruments_data',$data);
 	return $this->db->insert_id();	
 	}
-	public function check_instument_status(){
+	public function check_instruments_active_ornot(){
 	$this->db->select('*')->from('instruments');
-		$this->db->where('status',1);
+		$this->db->where('instruments.status',1);
 		return $this->db->get()->result_array();	
 	}
 	

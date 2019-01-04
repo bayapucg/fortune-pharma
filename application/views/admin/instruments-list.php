@@ -37,12 +37,11 @@
                                     </td>
 									<td>
 									<?php foreach($list['instrument'] as $li){ ?>
-									<?php echo $li['description'].'<br>'; ?>
+									<li><?php echo $li['description'].'<br>'; ?>&nbsp; <a  href="<?php echo base_url('instruments/instrumentsdelete/'.base64_encode($li['i_d_id']));?>">X</a></li>
 									<?php } ?>
                                     </td>
 									<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                     <td class="">
-											<a href="<?php echo base_url('instruments/edit/'.base64_encode($list['i_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
 											<a href="<?php echo base_url('instruments/status/'.base64_encode($list['i_id']).'/'.base64_encode($list['status'])); ?>" data-toggle="tooltip" title="status" class="btn btn-warning"><i class="fa fa-info-circle btn btn-warning"></i></a>
 		                                    <a href="<?php echo base_url('instruments/delete/'.base64_encode($list['i_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
 											</td>

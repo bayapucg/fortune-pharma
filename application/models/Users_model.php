@@ -123,30 +123,7 @@ class Users_model extends CI_Model
 	}
 	
 	
-	public  function get_services_details(){
-		$this->db->select('*')->from('services');
-		$this->db->where('status',1);
-		$return=$this->db->get()->result_array();
-  foreach($return as $list){
-   $lists=$this->get_serve_data_list($list['s_id']);
-   //echo '<pre>';print_r($lists);exit;
-   $data[$list['s_id']]=$list;
-   $data[$list['s_id']]['servies_list']=$lists;
-   
-  }
-  
-  if(!empty($data)){
-   
-   return $data;
-   
-  }
- }
-	public function get_serve_data_list($id){
-	 $this->db->select('servies_data.*')->from('servies_data');
-     $this->db->where('servies_data.s_id',$id);
-	 return $this->db->get()->result_array();
 	
-	}
 	
 	public  function get_instrument_details(){
 		$this->db->select('*')->from('instruments');
@@ -176,8 +153,51 @@ class Users_model extends CI_Model
 	
 	
 	
+	public function get_services_list(){
+	$this->db->select('services.*')->from('services');
+	 $this->db->where('services.status',1);
+	 $return=$this->db->get()->result_array();
+	 //echo '<pre>';print_r($return);exit;
+	  $cnt=0;foreach($return as $list){
+	   $lists=$this->get_servies_data_list($list['s_id']);
+	   //echo '<pre>';print_r($lists);exit;
+	   $data[$cnt]=$list;
+	   $data[$cnt]['servies']=$lists;
+	   
+	 $cnt++;}
+	if(!empty($data)){
+	   
+	   return $data;
+	   
+	  }
+ }
+	public function get_servies_data_list($s_id){
+	 $this->db->select('servies_name.*')->from('servies_name');
+     $this->db->where('servies_name.s_id',$s_id);
+     $this->db->where('servies_name.status',1);
+	 $return=$this->db->get()->result_array();
+	  //echo '<pre>';print_r($return);exit;
+	foreach($return as $list){
+	   $lists=$this->get_servies_one_list($list['s_n_id']);
+	   //echo '<pre>';print_r($lists);exit;
+	   $data[$list['s_n_id']]=$list;
+	   $data[$list['s_n_id']]['servie_data']=$lists;
+	   
+	  }
+	if(!empty($data)){
+	   
+	   return $data;
+	   
+	  }
+ }
+	public function get_servies_one_list($s_n_id){
+	 $this->db->select('service_name_details.*')->from('service_name_details');
+     $this->db->where('service_name_details.s_n_id',$s_n_id);
+     $this->db->where('service_name_details.status',1);
+	 return $this->db->get()->result_array();
+	}
 	
 	
-	
+		
 
 }

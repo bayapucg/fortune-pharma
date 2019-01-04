@@ -25,9 +25,9 @@ class Preview extends CI_Controller {
 				$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['aboutus_details']=$this->Users_model->get_aboutus_details();
-				$data['services_details']=$this->Users_model->get_services_details();
+				$data['services_details']=$this->Users_model->get_services_list();
 				$data['instrument_details']=$this->Users_model->get_instrument_details();
-				//echo '<pre>';print_r($data['services_details']);exit;
+				//echo '<pre>';print_r($data);exit;
 				
 				$data['gallery_details']=$this->Users_model->get_gallery_details();
 				//echo '<pre>';print_r($data['gallery_details']);exit;

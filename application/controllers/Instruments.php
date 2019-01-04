@@ -24,10 +24,17 @@ class Instruments extends Back_end {
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
 			//echo'<pre>';print_r($post);exit;
+		$check_ative=$this->Admin_model->check_instruments_active_ornot();
+		if(count($check_ative)>0){
+			$this->session->set_flashdata('error',"At time only one Instruments is active. Please try again");	
+			redirect('instruments/lists');	
+		}
+			
+			
 			$save_data=array(
 			'title'=>isset($post['title'])?$post['title']:'',
 			'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
-			'status'=>0,
+			'status'=>1,
 			'created_at'=>date('Y-m-d H:i:s'),
 			'created_by'=>$admindetails['id'],
 			);
@@ -79,7 +86,34 @@ class Instruments extends Back_end {
 			redirect('admin');
 		}
 	}
+	public function instrumentsdelete()
+	{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+				$i_d_id=base64_decode ($this->uri->segment(3));
+				 $delete_details =$this->Admin_model->delete_instrument_data_details($i_d_id);
+				 //echo'<pre>';print_r($delete_details);exit;  			
+					if(count($delete_details)>0){
+					$this->session->set_flashdata('success',"Instrument Description details successfully deleted.");
+					redirect('instruments/lists');
+					}else{
+					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+					redirect('instruments/lists');
+				  }	  					  
+	                        
+		     }else{
+		 $this->session->set_flashdata('error',"Please login and continue");
+		 redirect('');  
+	   }
+
+
+}	
 	
+	
+	
+	
+	/*
 	public function edit()
 	{
 		if($this->session->userdata('multi_details'))
@@ -156,7 +190,7 @@ class Instruments extends Back_end {
 			redirect('admin');
 		}
 	}
-	
+	*/
 	public function status()
 	{
 		if($this->session->userdata('multi_details'))
@@ -169,13 +203,7 @@ class Instruments extends Back_end {
 					}else{
 						$statu=1;
 					}
-					if($status==0){
-						$check=$this->Admin_model->check_instument_status();
-						if(count($check)>0){
-							$this->session->set_flashdata('error',"Already one Instruments is active. Please try again once");
-							redirect('instruments/lists');
-						}
-					}
+					
 					
 					if($i_id!=''){
 						$stusdetails=array(
