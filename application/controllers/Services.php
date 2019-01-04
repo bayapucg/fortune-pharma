@@ -33,7 +33,7 @@ class Services extends Back_end {
 			$data['services_list']=$this->Services_model->get_services_list();
 			
 			
-			//echo '<pre>';print_r($data);exit;
+			echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/services-list',$data);
 			$this->load->view('admin/footer');
 
