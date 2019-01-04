@@ -54,7 +54,7 @@
                     <li class="menu-active"><a href="<?PHP echo base_url('home');?>">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
-					<li><a href="#portfolio">gallery</a></li>
+					<li><a href="#portfolio">Gallery</a></li>
                     <li><a href="#I-list">Instruments List</a></li>
                     <li><a href="#contact">Contact</a></li>
 					

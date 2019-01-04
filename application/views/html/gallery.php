@@ -54,7 +54,7 @@
                     <li class="menu-active"><a href="<?php echo base_url('home'); ?>">Home</a></li>
                     <li><a href="<?php echo base_url('home/aboutus'); ?>">About Us</a></li>
                     <li><a href="<?php echo base_url('home/services'); ?>">Services</a></li>
-					<li><a href="<?php echo base_url('home/gallery'); ?>">gallery</a></li>
+					<li><a href="<?php echo base_url('home/gallery'); ?>">Gallery</a></li>
                     <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments List</a></li>
                      <li><a href="<?php echo base_url('home/contactus'); ?>">Contact</a></li>
                 </ul>
