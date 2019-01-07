@@ -52,6 +52,12 @@ class Users_model extends CI_Model
 		$this->db->select('*')->from('contactform');
 		return $this->db->get()->row_array();
 	}
+	public  function get_servies_details(){
+		$this->db->select('*')->from('s_id');
+		$this->db->where('status',1);
+		return $this->db->get()->result_array();
+	}
+	
 		/* home  purpose*/
 	public  function get_home_logo_details(){
 		$this->db->select('*')->from('logo');
@@ -121,7 +127,11 @@ class Users_model extends CI_Model
 		$this->db->where('c_id',$c_id);
 		return $this->db->update('contactform',$data);
 	}
-	
+	public  function update_home_page_instrument_preview_status($i_id,$data){
+		$this->db->where('i_id',$i_id);
+		return $this->db->update('instruments',$data);
+		
+	}
 	
 	
 	

@@ -51,12 +51,13 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?php echo base_url('home'); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url('home/aboutus'); ?>">About Us</a></li>
-                    <li><a href="<?php echo base_url('home/services'); ?>">Services</a></li>
-					<li><a href="<?php echo base_url('home/gallery'); ?>">Gallery</a></li>
-                    <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments</a></li>
-                    <li><a href="<?php echo base_url('home/contactus'); ?>">Contactus</a></li>
+                    <li class="menu-active"><a href="#
+					">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+					<li><a href="#portfolio">Gallery</a></li>
+                    <li><a href="#I-list">Instruments</a></li>
+                    <li><a href="#contact">Contactus</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -65,7 +66,7 @@
     <!--==========================
     Intro Section
   ============================-->
-    <!--<form action="<?php echo base_url('preview/okpost'); ?>" method="post">-->
+    <form action="<?php echo base_url('preview/okpost'); ?>" method="post">
         <?php if(isset($slider_details) && count($slider_details)>0){ ?>
         <section id="intro">
             <div class="intro-container">
@@ -221,41 +222,7 @@
 
         <?php } ?>
 			
-            
-            
-            <!--==========================
-      Instruments List
-    ============================-->
-            
-           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
-            <section id="I-list">
-                <div class="container">
-                    
-                    <header class="section-header wow fadeInUp">
-					<?php foreach($instrument_details as $list){ ?>
-                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
-					<?php }?>
-                    </header>
-
-                    <div class="row section-body">
-
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <ul>
-							<?php foreach($instrument_details as $list){ ?>
-							<?php foreach($list['instrument_list'] as $li){ ?>
-                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-             <?php } ?>
-
-            <!--==========================
+               <!--==========================
       Call To Action Section
     ============================-->
               
@@ -297,6 +264,40 @@
                     </div>
                 </section><!-- #portfolio -->
 
+            
+            <!--==========================
+      Instruments List
+    ============================-->
+            
+           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
+            <section id="I-list">
+                <div class="container">
+                    
+                    <header class="section-header wow fadeInUp">
+					<?php foreach($instrument_details as $list){ ?>
+                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
+                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
+					<?php }?>
+                    </header>
+
+                    <div class="row section-body">
+
+                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
+                            <ul>
+							<?php foreach($instrument_details as $list){ ?>
+							<?php foreach($list['instrument_list'] as $li){ ?>
+                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
+                               <?php }?> 
+							   <?php } ?>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+             <?php } ?>
+
+         
                 <?php } ?>
 
                 <?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
@@ -433,12 +434,12 @@
                             <h4>Useful Links</h4>
                             <ul>
 							 
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home'); ?>">Home</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/aboutus'); ?>">About us</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/services'); ?>">Services</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/gallery'); ?>">Gallery</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/instrument'); ?>">Instruments</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/contactus'); ?>">Contactus</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#header">Home</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#portfolio">Gallery</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#I-list">Instruments</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contactus</a></li>
                             </ul>
                         </div>
 

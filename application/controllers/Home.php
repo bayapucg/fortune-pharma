@@ -20,8 +20,6 @@ class Home extends CI_Controller {
 	
 	
 	public function index(){
-		
-		
 				$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['aboutus_details']=$this->Users_model->get_aboutus_details();
@@ -34,62 +32,6 @@ class Home extends CI_Controller {
 				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/home',$data);
-		
-		
-	}
-	public function instrument(){
-		
-		
-				$data['logo_details']=$this->Users_model->get_logo_details();
-				$data['slider_details']=$this->Users_model->get_slider_details();
-				$data['instrument_details']=$this->Users_model->get_instrument_details();
-				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				//echo '<pre>';print_r($data['services_details']);exit;
-				
-				
-				$this->load->view('html/instrument',$data);
-		
-		
-	}
-	public function services(){
-		
-		
-				$data['logo_details']=$this->Users_model->get_logo_details();
-				$data['slider_details']=$this->Users_model->get_slider_details();
-				$data['services_details']=$this->Users_model->get_services_list();
-				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				//echo '<pre>';print_r($data['services_details']);exit;
-				$this->load->view('html/services',$data);
-		
-		
-	}
-	public function aboutus(){
-		
-		
-				$data['logo_details']=$this->Users_model->get_logo_details();
-				$data['slider_details']=$this->Users_model->get_slider_details();
-				$data['aboutus_details']=$this->Users_model->get_aboutus_details();
-				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				$this->load->view('html/aboutus',$data);
-		
-		
-	}
-	public function contactus(){
-		
-		
-				$data['logo_details']=$this->Users_model->get_logo_details();
-				$data['slider_details']=$this->Users_model->get_slider_details();
-				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				$this->load->view('html/contactus',$data);
-		
-		
-	}
-	public function gallery(){
-		$data['logo_details']=$this->Users_model->get_logo_details();
-				$data['slider_details']=$this->Users_model->get_slider_details();
-				$data['gallery_details']=$this->Users_model->get_gallery_details();
-				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				$this->load->view('html/gallery',$data);
 		
 		
 	}

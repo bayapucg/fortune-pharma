@@ -42,6 +42,7 @@ class Preview extends CI_Controller {
 		if($this->session->userdata('multi_details'))
 		{
 			$post=$this->input->post();
+			//echo'<pre>';print_r($post);exit;
 			$slider_details=$this->Users_model->get_slider_details();
 			if(count($slider_details)>0){
 				foreach($slider_details as $li){
@@ -66,6 +67,7 @@ class Preview extends CI_Controller {
 				  }
 				
 			}
+			
 			$gallery_details=$this->Users_model->get_gallery_details();
 			if(count($gallery_details)>0){
 				foreach($gallery_details as $li){
@@ -90,7 +92,8 @@ class Preview extends CI_Controller {
 				  }
 				
 			}
-			$testimonials_details=$this->Users_model->get_testimonials_details();
+			
+			/*$testimonials_details=$this->Users_model->get_testimonials_details();
 			if(count($testimonials_details)>0){
 				foreach($testimonials_details as $li){
 			
@@ -113,15 +116,14 @@ class Preview extends CI_Controller {
 				  $this->Users_model->update_home_page_estimonials_preview_status($list,$update);
 				  }
 				
-			}
+			}*/
 			$update=array('homepage_preview'=>1);
 			$this->Users_model->update_home_page_about_us_preview_status($post['about_us_a_id'],$update);
-			$this->Users_model->update_home_page_services_preview_status($post['services_id'],$update);
+			$this->Users_model->update_home_page_services_preview_status($post['s_id'],$update);
+			$this->Users_model->update_home_page_instrument_preview_status($post['i_id'],$update);
 			$this->Users_model->update_home_page_contactus_details_preview_status($post['contactus_details_id'],$update);
-			$this->session->set_flashdata('success',"Home page successfully updated.");
-			redirect('preview');
-			//echo '<pre>';print_r($post);exit;
-
+			//echo '<pre>';print_r($update);exit;
+			
 		}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('admin');

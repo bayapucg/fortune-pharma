@@ -51,13 +51,12 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?PHP echo base_url('home');?>">Home</a></li>
+                    <li class="menu-active"><a href="#">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
 					<li><a href="#portfolio">Gallery</a></li>
                     <li><a href="#I-list">Instruments</a></li>
                     <li><a href="#contact">Contactus</a></li>
-					
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -66,7 +65,7 @@
     <!--==========================
     Intro Section
   ============================-->
-    <!--<form action="<?php echo base_url('preview/okpost'); ?>" method="post">-->
+    <form action="<?php echo base_url('preview/okpost'); ?>" method="post">
         <?php if(isset($slider_details) && count($slider_details)>0){ ?>
         <section id="intro">
             <div class="intro-container">
@@ -188,16 +187,15 @@
         <?php if(isset($services_details) && count($services_details)>0){ ?>
         <section id="services" class="section-bg">
             <div class="container">
-                <input type="hidden" name="services_id" id="services_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
+                
 
                 <header class="section-header wow fadeInUp">
                     <h3><?php echo isset($services_details[0]['title'])?$services_details[0]['title']:''; ?></h3>
                     <p><?php echo isset($services_details[0]['paragraph'])?$services_details[0]['paragraph']:''; ?></p>
                        
                 </header>
-
+                <input type="hidden" name="s_id" id="s_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
                 <div class="row section-body">
-
                     <?php if(isset($services_details) && count($services_details)>0){ ?>
 					<?php $count=1;foreach($services_details[0]['servies'] as $lis){?>
                     <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
@@ -222,9 +220,7 @@
 
         <?php } ?>
 			
-			
-			
-			<?php if(isset($gallery_details) && count($gallery_details)>0){ ?>
+            <?php if(isset($gallery_details) && count($gallery_details)>0){ ?>
         <section id="portfolio" class="section-bg">
             <div class="container">
                 <header class="section-header">
@@ -252,14 +248,46 @@
         <?php } ?>
 			
 			
-			
-			
-			
-			
             
+            <!--==========================
+      Instruments List
+    ============================-->
             
-			<!--<?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
-                <section id="testimonials" class="section-bg wow fadeInUp">
+           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
+            <section id="I-list">
+                <div class="container">
+                    <?php foreach($instrument_details as $list){ ?>
+           <input type="hidden" name="i_id" id="i_id" value="<?php echo isset($list['i_id'])?$list['i_id']:''; ?>">
+                    <header class="section-header wow fadeInUp">
+					
+                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
+                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
+					
+                    </header>
+
+                    <div class="row section-body">
+
+                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
+                            <ul>
+							<?php foreach($instrument_details as $list){ ?>
+							<?php foreach($list['instrument_list'] as $li){ ?>
+                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
+                               <?php }?> 
+							   <?php } ?>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+				<?php }?>
+				
+            </section>
+             <?php } ?>
+
+            
+
+                <?php if(isset($testimonials_details) && count($testimonials_details)>0){ ?>
+                <!--<section id="testimonials" class="section-bg wow fadeInUp">
                     <div class="container">
 
                         <header class="section-header">
@@ -290,43 +318,6 @@
 
                     </div>
                 </section><!-- #testimonials -->
-				
-            
-            <!--==========================
-      Instruments List
-    ============================-->
-            
-           <?php if(isset($instrument_details) && count($instrument_details)>0){ ?>
-            <section id="I-list">
-                <div class="container">
-                    
-                    <header class="section-header wow fadeInUp">
-					<?php foreach($instrument_details as $list){ ?>
-                        <h3> <?php echo isset($list['title'])?$list['title']:''; ?></h3>
-                        <p><?php echo isset($list['paragraph'])?$list['paragraph']:''; ?></p>
-					<?php }?>
-                    </header>
-
-                    <div class="row section-body">
-
-                        <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
-                            <ul>
-							<?php foreach($instrument_details as $list){ ?>
-							<?php foreach($list['instrument_list'] as $li){ ?>
-                                <li><?php echo isset($li['description'])?$li['description']:''; ?></li>
-                               <?php }?> 
-							   <?php } ?>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-             <?php } ?>
-
-          
-
-                
 
                 <?php } ?>
 
@@ -373,28 +364,27 @@
                         <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage"></div>
-                            <form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">
+                            <!--<form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">-->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
                                     <div class="validation"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
                                     <div class="validation"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
                             <div><button type="submit" class="btn btn-success" name="submit">Send Message</button></div>
-                        </form>
-						</div>
+                        </div>
                     </div>
                 </section><!-- #contact -->
         </main>
@@ -410,12 +400,11 @@
 
                         <div class="col-lg-4  footer-info">
                             <div id="logo" class="pull-left logo-header">
-                 <?php if($logo_details['image']==''){ ?>
+                                <?php if($logo_details['image']==''){ ?>
                 <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" height="70px">
                 <?php }else{ ?>
                 <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" height="70px">
                 <?php } ?>
-
 
 
                                 <p>
@@ -427,8 +416,7 @@
                         <div class="col-lg-4 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
-							
-                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home');?>">Home</a></li>
+                               <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#portfolio">Gallery</a></li>
@@ -452,13 +440,8 @@
 								<strong>fortunepharmalabs:</strong>
                                 <?php echo isset($contactus_details['forturn_lab'])?$contactus_details['forturn_lab']:''; ?><br>
                             </p>
-                            <div class="social-links">
-                                <a href="<?php echo isset($contactus_details['facebook_link'])?$contactus_details['facebook_link']:'#'; ?>" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="<?php echo isset($contactus_details['twitter_link'])?$contactus_details['twitter_link']:'#'; ?>" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="<?php echo isset($contactus_details['instagram_link'])?$contactus_details['instagram_link']:'#'; ?>" target="_balnk" class="instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="<?php echo isset($contactus_details['google_plus'])?$contactus_details['google_plus']:'#'; ?>" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                                <a href="<?php echo isset($contactus_details['linkedIn_link'])?$contactus_details['linkedIn_link']:'#'; ?>" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                            </div>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -473,9 +456,9 @@
                         </div>
                       
                     </div>
-                     <!--<div class="col-md-2">
+                    <div class="col-md-2">
                         <button type="submit" class="btn btn-success" style="margin-top:40px;">Preview Ok</button>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </footer><!-- #footer -->
