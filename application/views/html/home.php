@@ -55,8 +55,8 @@
                     <li><a href="<?php echo base_url('home/aboutus'); ?>">About Us</a></li>
                     <li><a href="<?php echo base_url('home/services'); ?>">Services</a></li>
 					<li><a href="<?php echo base_url('home/gallery'); ?>">Gallery</a></li>
-                    <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments List</a></li>
-                     <li><a href="<?php echo base_url('home/contactus'); ?>">Contact</a></li>
+                    <li><a href="<?php echo base_url('home/instrument'); ?>">Instruments</a></li>
+                    <li><a href="<?php echo base_url('home/contactus'); ?>">Contactus</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -413,11 +413,12 @@
 
                         <div class="col-lg-4  footer-info">
                             <div id="logo" class="pull-left logo-header">
-                                <?php if($logo_details['image']==''){ ?>
-                                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" class="img-fluid py-5">
-                                <?php }else{ ?>
-                                <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" class="img-fluid py-5">
-                                <?php } ?>
+                                 <?php if($logo_details['image']==''){ ?>
+                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" height="70px">
+                <?php }else{ ?>
+                <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" height="70px">
+                <?php } ?>
+
 
 
                                 <p>
@@ -429,10 +430,13 @@
                         <div class="col-lg-4 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="#intro">Home</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="#testimonials">Team</a></li>
+							 
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home'); ?>">Home</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/aboutus'); ?>">About us</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/services'); ?>">Services</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/gallery'); ?>">Gallery</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/instrument'); ?>">Instruments</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home/contactus'); ?>">Contactus</a></li>
                             </ul>
                         </div>
 

@@ -55,8 +55,8 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
 					<li><a href="#portfolio">Gallery</a></li>
-                    <li><a href="#I-list">Instruments List</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#I-list">Instruments</a></li>
+                    <li><a href="#contact">Contactus</a></li>
 					
                 </ul>
             </nav><!-- #nav-menu-container -->
@@ -409,11 +409,12 @@
 
                         <div class="col-lg-4  footer-info">
                             <div id="logo" class="pull-left logo-header">
-                                <?php if($logo_details['image']==''){ ?>
-                                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" class="img-fluid py-5">
-                                <?php }else{ ?>
-                                <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" class="img-fluid py-5">
-                                <?php } ?>
+                 <?php if($logo_details['image']==''){ ?>
+                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" height="70px">
+                <?php }else{ ?>
+                <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" height="70px">
+                <?php } ?>
+
 
 
                                 <p>
@@ -425,10 +426,13 @@
                         <div class="col-lg-4 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
+							
                                 <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo base_url('home');?>">Home</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>
                                 <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
-                                <li><i class="ion-ios-arrow-right"></i> <a href="#testimonials">Team</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#portfolio">Gallery</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#I-list">Instruments</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contactus</a></li>
                             </ul>
                         </div>
 
