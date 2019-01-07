@@ -29,6 +29,18 @@
                         <input type="text" class="form-control" placeholder="Enter Phone Number" id="phone" name="phone" value="<?php echo isset($details['phone'])?$details['phone']:''; ?>">
                     </div>
                 </div>
+				 <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Phone Number" id="phone_number" name="phone_number" value="<?php echo isset($details['phone_number'])?$details['phone_number']:''; ?>">
+                    </div>
+                </div>
+				 <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Phone Number" id="phone_no" name="phone_no" value="<?php echo isset($details['phone_no'])?$details['phone_no']:''; ?>">
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Email</label>
@@ -111,15 +123,41 @@
                 phone: {
                     validators: {
                         notEmpty: {
-                            message: 'Landline Number is required'
+                            message: 'Phone Number is required'
                         },
                         regexp: {
                             regexp: /^[0-9]{10,14}$/,
-                            message: 'Landline Number must be 10 to 14 digits'
+                            message: 'Phone Number must be 10 to 14 digits'
                         }
 
                     }
                 },
+				phone_number: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Phone Number is required'
+                        },
+                        regexp: {
+                            regexp: /^[0-9]{10,14}$/,
+                            message: 'Phone Number must be 10 to 14 digits'
+                        }
+
+                    }
+                },
+				phone_no: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Phone Number is required'
+                        },
+                        regexp: {
+                            regexp: /^[0-9]{10,14}$/,
+                            message: 'Phone Number must be 10 to 14 digits'
+                        }
+
+                    }
+                },
+				
+				
                 email: {
                     validators: {
                         notEmpty: {
@@ -138,41 +176,68 @@
                         }
                     }
                 },
-                twitter_link: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Twitter Link is required'
-                        }
+				twitter_link: {
+                validators: {
+                    notEmpty: {
+                        message: 'Twitter link is required'
+                    },
+                    regexp: {
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?twitter\.com(\/.*)?$/,
+                        message: 'Twitter link format valid. For  https://www.twitter.com'
                     }
+
+                }
                 },
-                facebook_link: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Facebook Link is required'
-                        }
+				facebook_link: {
+                validators: {
+                    notEmpty: {
+                        message: 'Facebook link is required'
+                    },
+                    regexp: {
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?facebook\.com(\/.*)?$/,
+                        message: 'Facebook link format valid. For  https://www.facebook.com'
                     }
+
+                }
                 },
-                instagram_link: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Instagram Link is required'
-                        }
+				instagram_link: {
+                validators: {
+                    notEmpty: {
+                        message: 'Instagram link is required'
+                    },
+                    regexp: {
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?instagram\.com(\/.*)?$/,
+                        message: 'Instagram link format valid. For  https://www.instagram.com'
                     }
+
+                }
                 },
                 google_plus: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Google+ Link is required'
-                        }
+                validators: {
+                    notEmpty: {
+                        message: 'Google+ link is required'
+                    },
+                    regexp: {
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?google\.com(\/.*)?$/,
+                        message: 'Google+ link format valid. For  https://www.google.com'
                     }
+
+                }
                 },
                 linkedIn_link: {
-                    validators: {
-                        notEmpty: {
-                            message: 'LinkedIn Link is required'
-                        }
+                validators: {
+                    notEmpty: {
+                        message: 'LinkedIn link is required'
+                    },
+                    regexp: {
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?linkedin\.com(\/.*)?$/,
+                        message: 'LinkedIn link  format valid. For  https://www.linkedin.com'
                     }
+                                  
                 }
+                }
+                
+                
             }
         })
 

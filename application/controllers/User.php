@@ -31,6 +31,6 @@ class User extends CI_Controller {
 				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/home',$data);
-		
+		        
 	}
 }

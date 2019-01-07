@@ -35,6 +35,8 @@ class Contactus extends Back_end {
 		$addcontact=array(
 		'contact_email'=>isset($post['contact_email'])?$post['contact_email']:'',
 		'phone'=>isset($post['phone'])?$post['phone']:'',
+		'phone_number'=>isset($post['phone_number'])?$post['phone_number']:'',
+		'phone_no'=>isset($post['phone_no'])?$post['phone_no']:'',
 		'email'=>isset($post['email'])?$post['email']:'',
 		'address'=>isset($post['address'])?$post['address']:'',
 		'twitter_link'=>isset($post['twitter_link'])?$post['twitter_link']:'',
