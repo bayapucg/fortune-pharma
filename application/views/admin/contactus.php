@@ -47,6 +47,13 @@
                         <input type="text" class="form-control" placeholder="Enter Email" id="email" name="email" value="<?php echo isset($details['email'])?$details['email']:''; ?>">
                     </div>
                 </div>
+				 <div class="col-md-6">
+                    <div class="form-group">
+                        <label>fortunepharmalabs</label>
+                        <input type="text" class="form-control" placeholder="Enter fortunepharmalabs" id="forturn_lab" name="forturn_lab" value="<?php echo isset($details['forturn_lab'])?$details['forturn_lab']:''; ?>">
+                    </div>
+                </div>
+				
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Address</label>
@@ -169,6 +176,19 @@
                         }
                     }
                 },
+				forturn_lab: {
+                validators: {
+                    notEmpty: {
+                        message: 'Forturn Lab is required'
+                    },
+                    regexp: {
+                        regexp: /^(www\.)?fortunepharmalabs\.com(\/.*)?$/,
+                        message: 'Forturn Lab format valid. For  www.fortunepharmalabs.com'
+                    }
+
+                }
+                },
+				
                 address: {
                     validators: {
                         notEmpty: {

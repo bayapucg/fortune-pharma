@@ -449,6 +449,8 @@
                                 <?php echo isset($contactus_details['phone_no'])?$contactus_details['phone_no']:''; ?><br>
 								<strong>Email:</strong>
                                 <?php echo isset($contactus_details['email'])?$contactus_details['email']:''; ?><br>
+								<strong>fortunepharmalabs:</strong>
+                                <?php echo isset($contactus_details['forturn_lab'])?$contactus_details['forturn_lab']:''; ?><br>
                             </p>
 
                             

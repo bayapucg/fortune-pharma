@@ -38,6 +38,7 @@ class Contactus extends Back_end {
 		'phone_number'=>isset($post['phone_number'])?$post['phone_number']:'',
 		'phone_no'=>isset($post['phone_no'])?$post['phone_no']:'',
 		'email'=>isset($post['email'])?$post['email']:'',
+		'forturn_lab'=>isset($post['forturn_lab'])?$post['forturn_lab']:'',
 		'address'=>isset($post['address'])?$post['address']:'',
 		'twitter_link'=>isset($post['twitter_link'])?$post['twitter_link']:'',
 		'facebook_link'=>isset($post['facebook_link'])?$post['facebook_link']:'',
