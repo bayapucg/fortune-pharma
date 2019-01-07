@@ -194,10 +194,11 @@
                     <p><?php echo isset($services_details[0]['paragraph'])?$services_details[0]['paragraph']:''; ?></p>
                        
                 </header>
-                <input type="hidden" name="s_id" id="s_id" value="<?php echo isset($services_details['s_id'])?$services_details['s_id']:''; ?>">
+              
                 <div class="row section-body">
                     <?php if(isset($services_details) && count($services_details)>0){ ?>
 					<?php $count=1;foreach($services_details[0]['servies'] as $lis){?>
+					  <input type="hidden" name="s_id" id="s_id" value="<?php echo isset($lis['s_id'])?$lis['s_id']:''; ?>">
                     <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
                         <h4 class="title"><a href="">
                                <?php echo isset($lis['title'])?$lis['title']:''; ?></a></h4>
