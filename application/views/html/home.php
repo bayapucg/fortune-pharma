@@ -134,7 +134,7 @@
                     </header>
                     <input type="hidden" name="about_us_a_id" id="about_us_a_id" value="<?php echo isset($aboutus_details['a_id'])?$aboutus_details['a_id']:''; ?>">
 
-                    <!--<div class="row about-cols">
+                   <div class="row about-cols">
 
                         <div class="col-md-4 wow fadeInUp">
                             <div class="about-col">
@@ -175,7 +175,7 @@
                             </div>
                         </div>
 
-                    </div>-->
+                    </div>
 
                 </div>
             </section><!-- #about -->
