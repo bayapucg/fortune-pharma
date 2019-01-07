@@ -22,7 +22,7 @@ class Contactus extends Back_end {
 	
 	public function index(){
 		
-		$data['details']=$this->Users_model->get_contact_details(1);
+		$data['details']=$this->Users_model->get_contact_form_details();
 		//echo '<pre>';print_r($data);exit;
 		$this->load->view('admin/contactus',$data);
 		$this->load->view('admin/footer');
@@ -46,17 +46,22 @@ class Contactus extends Back_end {
 		'google_plus'=>isset($post['google_plus'])?$post['google_plus']:'',
 		'linkedIn_link'=>isset($post['linkedIn_link'])?$post['linkedIn_link']:'',
 		'updated_at'=>date('Y-m-d H:i:s'),
+		'status'=>1,
 		);
-		$save=$this->Users_model->update_contact_details(1,$addcontact);
-		//echo $this->db->last_query();exit;
+		$contact=$this->Users_model->get_contact_form_details();
+		if(count($contact)>0){
+		$upadte=$this->Users_model->update_contact_form_details($addcontact);
+		}else{
+		$save=$this->Users_model->save_contactus_form_details($addcontact);	
+	}
+		
 		if(count($save)>0){
-				
-				$this->session->set_flashdata('success',"Contactus details successfully updated.");
-				redirect('contactus');
-			}else{
-				$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-				redirect('contactus');
-			}
+					$this->session->set_flashdata('success',"contactus details successfully added");	
+					redirect('contactus');	
+					}else{
+					$this->session->set_flashdata('success',"contactus details successfully updated");
+					redirect('contactus');
+					}  
 		//echo 
 		
 	}

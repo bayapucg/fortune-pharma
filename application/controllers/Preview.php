@@ -123,7 +123,7 @@ class Preview extends CI_Controller {
 			$this->Users_model->update_home_page_instrument_preview_status($post['i_id'],$update);
 			$this->Users_model->update_home_page_contactus_details_preview_status($post['contactus_details_id'],$update);
 			//echo '<pre>';print_r($update);exit;
-			
+			redirect('');
 		}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('admin');

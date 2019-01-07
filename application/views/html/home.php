@@ -66,7 +66,7 @@
     <!--==========================
     Intro Section
   ============================-->
-    <form action="<?php echo base_url('preview/okpost'); ?>" method="post">
+    <!--<form action="<?php echo base_url('preview/okpost'); ?>" method="post">-->
         <?php if(isset($slider_details) && count($slider_details)>0){ ?>
         <section id="intro">
             <div class="intro-container">
@@ -378,7 +378,7 @@
                         <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage"></div>
-                          <form id="defaultForm" action="<?php echo base_url('home/contactpost'); ?>" method="post" role="form" class="">
+                          <form id="defaultForm" action="<?php echo base_url('user/contactpost'); ?>" method="post" role="form" class="">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
