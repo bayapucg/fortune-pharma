@@ -39,7 +39,7 @@ CREATE TABLE `aboutus` (
 
 /*Data for the table `aboutus` */
 
-insert  into `aboutus`(`a_id`,`image1`,`image2`,`image3`,`parahraph`,`paragraph1`,`paragraph2`,`paragraph3`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'','0.00545800 1545988674','0.00693000 1545988674','Fortune Pharma Labs is a leading testing laboratory approved By DCA.we perform wide range of analytical laboratory tests across pharmaceutical industries.we are an organization committed to provide affordable and providing high quality services. Our state of the art analytical laboratory situated in Hyderabad,India. We are the team with more than 13 years of industrial experience and have a strong analytical capability in Analytical Method Development and Validation , Extractable & Leachale studies , Genotoxic impuirities studies etc.','tguhyjytj','Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ','Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',1,'2019-01-04 18:25:47','2019-01-04 18:25:47',2,1);
+insert  into `aboutus`(`a_id`,`image1`,`image2`,`image3`,`parahraph`,`paragraph1`,`paragraph2`,`paragraph3`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'0.04251100 1546855603','0.00545800 1545988674','0.00693000 1545988674','Fortune Pharma Labs is a leading testing laboratory approved By DCA.we perform wide range of analytical laboratory tests across pharmaceutical industries.we are an organization committed to provide affordable and providing high quality services. Our state of the art analytical laboratory situated in Hyderabad,India. We are the team with more than 13 years of industrial experience and have a strong analytical capability in Analytical Method Development and Validation , Extractable & Leachale studies , Genotoxic impuirities studies etc.','Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.','Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ','Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',1,'2019-01-07 15:41:32','2019-01-07 15:41:32',2,1);
 
 /*Table structure for table `admin` */
 
@@ -77,7 +77,9 @@ CREATE TABLE `contactform` (
   `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `contact_email` varchar(250) DEFAULT NULL,
   `email` varchar(250) DEFAULT NULL,
-  `phone` varchar(45) DEFAULT NULL,
+  `phone` varchar(250) DEFAULT NULL,
+  `phone_number` varchar(250) DEFAULT NULL,
+  `phone_no` varchar(250) DEFAULT NULL,
   `address` text,
   `twitter_link` text,
   `facebook_link` text,
@@ -91,7 +93,7 @@ CREATE TABLE `contactform` (
 
 /*Data for the table `contactform` */
 
-insert  into `contactform`(`c_id`,`contact_email`,`email`,`phone`,`address`,`twitter_link`,`facebook_link`,`instagram_link`,`google_plus`,`linkedIn_link`,`updated_at`,`homepage_preview`) values (1,'info@fortunepharmalabs.com','info@fortunepharmalabs.com','9182529063','Plot no.118/B,Flat No.401, Sri Sai Nagar Colony, Near Lucid Diagnostics, Near JNTU Metro, Hyderabad-500072.','www.twitter.com','www.facebook.com','www.instagram.com','www.gmail.com','www.linkedin.com','2019-01-07 14:47:29',1);
+insert  into `contactform`(`c_id`,`contact_email`,`email`,`phone`,`phone_number`,`phone_no`,`address`,`twitter_link`,`facebook_link`,`instagram_link`,`google_plus`,`linkedIn_link`,`updated_at`,`homepage_preview`) values (1,'info@fortunepharmalabs.com','info@fortunepharmalabs.com','04042417000','8919286318','9182529063','Plot no.118/B,Flat No.401, Sri Sai Nagar Colony, Near Lucid Diagnostics, Near JNTU Metro, Hyderabad-500072.','https://www.twitter.com','https://www.facebook.com','https://www.instagram.com','https://www.google.com','https://www.linkedin.com','2019-01-07 16:21:32',1);
 
 /*Table structure for table `contactus` */
 
@@ -179,7 +181,7 @@ CREATE TABLE `logo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(250) DEFAULT NULL,
   `keywords` text,
-  `description` text,
+  `description` longtext,
   `org_image` varchar(250) DEFAULT NULL,
   `favicon` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',

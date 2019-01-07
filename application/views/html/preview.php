@@ -442,7 +442,12 @@
                             <p>
                                 <strong>Phone:</strong>
                                 <?php echo isset($contactus_details['phone'])?$contactus_details['phone']:''; ?><br>
-                                <strong>Email:</strong>
+                                <strong>Phone Number:</strong>
+                                <?php echo isset($contactus_details['phone_number'])?$contactus_details['phone_number']:''; ?><br>
+								
+								<strong>Phone Number:</strong>
+                                <?php echo isset($contactus_details['phone_no'])?$contactus_details['phone_no']:''; ?><br>
+								<strong>Email:</strong>
                                 <?php echo isset($contactus_details['email'])?$contactus_details['email']:''; ?><br>
                             </p>
                             <div class="social-links">
