@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 				$data['gallery_details']=$this->Users_model->get_gallery_details();
 				$data['testimonials_details']=$this->Users_model->get_testimonials_details();
 				$data['contactus_details']=$this->Users_model->get_contactus_details();
-				
+				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/home',$data);
 		
 		
@@ -43,6 +43,7 @@ class Home extends CI_Controller {
 				$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['instrument_details']=$this->Users_model->get_instrument_details();
+				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				//echo '<pre>';print_r($data['services_details']);exit;
 				
 				
@@ -56,6 +57,7 @@ class Home extends CI_Controller {
 				$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['services_details']=$this->Users_model->get_services_list();
+				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				//echo '<pre>';print_r($data['services_details']);exit;
 				$this->load->view('html/services',$data);
 		
@@ -67,6 +69,7 @@ class Home extends CI_Controller {
 				$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['aboutus_details']=$this->Users_model->get_aboutus_details();
+				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				$this->load->view('html/aboutus',$data);
 		
 		
@@ -85,6 +88,7 @@ class Home extends CI_Controller {
 		$data['logo_details']=$this->Users_model->get_logo_details();
 				$data['slider_details']=$this->Users_model->get_slider_details();
 				$data['gallery_details']=$this->Users_model->get_gallery_details();
+				$data['contactus_details']=$this->Users_model->get_contactus_details();
 				$this->load->view('html/gallery',$data);
 		
 		
