@@ -218,9 +218,9 @@
                         </div>
                       
                     </div>
-                    <div class="col-md-2">
+                    <!--<div class="col-md-2">
                         <button type="submit" class="btn btn-success" style="margin-top:40px;">Preview Ok</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </footer><!-- #footer -->

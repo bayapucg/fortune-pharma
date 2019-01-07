@@ -65,7 +65,7 @@
     <!--==========================
     Intro Section
   ============================-->
-    <form action="<?php echo base_url('preview/okpost'); ?>" method="post">
+    <!--<form action="<?php echo base_url('preview/okpost'); ?>" method="post">-->
         <?php if(isset($slider_details) && count($slider_details)>0){ ?>
         <section id="intro">
             <div class="intro-container">
@@ -167,27 +167,28 @@
                         <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage"></div>
-                            <!--<form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">-->
+                            <form id="defaultForm" action="<?php echo base_url('home/contactpost'); ?>" method="post" role="form" class="">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                     <div class="validation"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                                     <div class="validation"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                                 <div class="validation"></div>
                             </div>
                             <div><button type="submit" class="btn btn-success" name="submit">Send Message</button></div>
-                        </div>
+                        </form>
+						</div>
                     </div>
                 </section><!-- #contact -->
         </main>
@@ -251,9 +252,9 @@
                         </div>
                       
                     </div>
-                    <div class="col-md-2">
+                    <!--<div class="col-md-2">
                         <button type="submit" class="btn btn-success" style="margin-top:40px;">Preview Ok</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </footer><!-- #footer -->

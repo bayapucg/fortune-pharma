@@ -154,10 +154,10 @@ class Preview extends CI_Controller {
 				$this->email->message($msg);
 				$this->email->send();
 				$this->session->set_flashdata('success',"Your message was successfully sent.");
-				redirect('');
+				redirect('preview');
 			}else{
 				$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-				redirect('');
+				redirect('preview');
 			}
 		//echo 
 		

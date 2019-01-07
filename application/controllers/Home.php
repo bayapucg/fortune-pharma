@@ -94,6 +94,47 @@ class Home extends CI_Controller {
 		
 	}
 	
+	public  function contactpost(){
+		$post=$this->input->post();
+		//echo '<pre>';print_r($post);exit;
+		$addcontact=array(
+		'name'=>isset($post['name'])?$post['name']:'',
+		'subject'=>isset($post['subject'])?$post['subject']:'',
+		'email_id'=>isset($post['email'])?$post['email']:'',
+		'message'=>isset($post['message'])?$post['message']:'',
+		'create_at'=>date('Y-m-d H:i:s'),
+		);
+		$save=$this->Users_model->save_contactus($addcontact);
+		if(count($save)>0){
+			$contactus_details=$this->Users_model->get_contactus_details();
+				$data['details']=$post;
+				$this->load->library('email');
+				$this->email->set_newline("\r\n");
+				$this->email->set_mailtype("html");
+				$this->email->from($post['email']);
+				$this->email->to($contactus_details['contact_email']);
+				$this->email->subject('Contact us - Request');
+
+				$msg='Name:'.$post['name'].'<br> Email :'.$post['email'].'<br> Subject :'.$post['subject'].'<br> Message :'.$post['message'];
+				$this->email->message($msg);
+				$this->email->send();
+				$this->session->set_flashdata('success',"Your message was successfully sent.");
+				redirect('home');
+			}else{
+				$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+				redirect('home');
+			}
+		//echo 
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
