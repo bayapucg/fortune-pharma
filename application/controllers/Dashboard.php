@@ -83,7 +83,7 @@ class Dashboard extends Back_end {
         $this->session->unset_userdata($userinfo);
 		$this->session->sess_destroy('multi_details');
 		$this->session->unset_userdata('multi_details');
-        redirect('');
+        redirect('home');
 	}
 	
 	
