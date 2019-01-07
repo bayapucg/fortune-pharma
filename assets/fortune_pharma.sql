@@ -1,6 +1,6 @@
 /*
 SQLyog Community v11.52 (64 bit)
-MySQL - 10.1.32-MariaDB : Database - fortune_pharma
+MySQL - 10.1.31-MariaDB : Database - fortune_pharma
 *********************************************************************
 */
 
@@ -39,7 +39,7 @@ CREATE TABLE `aboutus` (
 
 /*Data for the table `aboutus` */
 
-insert  into `aboutus`(`a_id`,`image1`,`image2`,`image3`,`parahraph`,`paragraph1`,`paragraph2`,`paragraph3`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'0.00426500 1545988674','0.00545800 1545988674','0.00693000 1545988674','Fortune Pharma Labs is a leading testing laboratory approved By DCA.we perform wide range of analytical laboratory tests across pharmaceutical industries.we are an organization committed to provide affordable and providing high quality services. Our state of the art analytical laboratory situated in Hyderabad,India. We are the team with more than 13 years of industrial experience and have a strong analytical capability in Analytical Method Development and Validation , Extractable & Leachale studies , Genotoxic impuirities studies etc.','Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat','Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ','Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',1,'2018-12-28 14:47:54','2018-12-28 14:47:54',2,1);
+insert  into `aboutus`(`a_id`,`image1`,`image2`,`image3`,`parahraph`,`paragraph1`,`paragraph2`,`paragraph3`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'','0.00545800 1545988674','0.00693000 1545988674','Fortune Pharma Labs is a leading testing laboratory approved By DCA.we perform wide range of analytical laboratory tests across pharmaceutical industries.we are an organization committed to provide affordable and providing high quality services. Our state of the art analytical laboratory situated in Hyderabad,India. We are the team with more than 13 years of industrial experience and have a strong analytical capability in Analytical Method Development and Validation , Extractable & Leachale studies , Genotoxic impuirities studies etc.','tguhyjytj','Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ','Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',1,'2019-01-04 18:25:47','2019-01-04 18:25:47',2,1);
 
 /*Table structure for table `admin` */
 
@@ -67,7 +67,7 @@ CREATE TABLE `admin` (
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`id`,`role`,`name`,`email`,`mobile`,`dob`,`paddress`,`address`,`gender`,`password`,`org_password`,`profile_pic`,`notes`,`status`,`created_at`,`updated_at`) values (2,1,'reddem vasudevareddy','admin@gmail.com','8500050944','','kadapa','kadapa','Male','fcea920f7412b5da7be0cf42b8c93759','1234567','1540534910.jpg',NULL,1,NULL,'2018-10-29 15:36:13');
+insert  into `admin`(`id`,`role`,`name`,`email`,`mobile`,`dob`,`paddress`,`address`,`gender`,`password`,`org_password`,`profile_pic`,`notes`,`status`,`created_at`,`updated_at`) values (2,1,'reddem vasudevareddy','admin@gmail.com','8500050944','','kadapa','kadapa','Male','fcea920f7412b5da7be0cf42b8c93759','1234567','1546853280.jpg',NULL,1,NULL,'2018-10-29 15:36:13');
 
 /*Table structure for table `contactform` */
 
@@ -91,7 +91,7 @@ CREATE TABLE `contactform` (
 
 /*Data for the table `contactform` */
 
-insert  into `contactform`(`c_id`,`contact_email`,`email`,`phone`,`address`,`twitter_link`,`facebook_link`,`instagram_link`,`google_plus`,`linkedIn_link`,`updated_at`,`homepage_preview`) values (1,'info@fortunepharmalabs.com','info@fortunepharmalabs.com','9411663672','Plot no.118/ B, Flat No 401, Sri Sai Nagar Colony, Near Lucid Diagnostics, Near JNTU Metro, Hyderabad','www.twitter.com','www.facebook.com','www.instagram.com','www.gmail.com','www.linkedin.com','2018-12-28 14:54:34',1);
+insert  into `contactform`(`c_id`,`contact_email`,`email`,`phone`,`address`,`twitter_link`,`facebook_link`,`instagram_link`,`google_plus`,`linkedIn_link`,`updated_at`,`homepage_preview`) values (1,'info@fortunepharmalabs.com','info@fortunepharmalabs.com','9182529063','Plot no.118/B,Flat No.401, Sri Sai Nagar Colony, Near Lucid Diagnostics, Near JNTU Metro, Hyderabad-500072.','www.twitter.com','www.facebook.com','www.instagram.com','www.gmail.com','www.linkedin.com','2019-01-07 14:47:29',1);
 
 /*Table structure for table `contactus` */
 
@@ -105,11 +105,11 @@ CREATE TABLE `contactus` (
   `message` text,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `contactus` */
 
-insert  into `contactus`(`c_id`,`name`,`subject`,`email_id`,`message`,`create_at`) values (1,'fdsfsd','test','inventory@gmail.com','dfasdfsd','2018-10-26 19:23:50'),(2,'fgf','fgsdf','admin@gmail.com','fdgdsfg','2018-10-26 19:25:02'),(3,'cvzxcvxc','cvzxcv','admin@gmail.com','cxvzxcv','2018-10-26 19:26:26'),(4,'vasudevareddy','test','testing@gmail.com','hello','2018-10-29 14:48:53'),(5,'vasudevareddy','test','admin@gmail.com','fgdfg','2018-10-29 14:50:00'),(6,'hello','ijdsfkh','heelo@gmail.com','hfkhdskf','2018-10-29 14:51:18');
+insert  into `contactus`(`c_id`,`name`,`subject`,`email_id`,`message`,`create_at`) values (1,'vasu','hj','admin@gmail.com','mjjj','2019-01-07 14:05:26'),(2,'test1','fgfg','vasu@gmail.com','fgf','2019-01-07 14:05:50'),(3,'kali','hj','inventory@gmail.com','gh','2019-01-07 14:06:13');
 
 /*Table structure for table `gallery` */
 
@@ -126,11 +126,50 @@ CREATE TABLE `gallery` (
   `create_by` int(11) DEFAULT NULL,
   `homepage_preview` int(11) DEFAULT '0',
   PRIMARY KEY (`g_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `gallery` */
 
-insert  into `gallery`(`g_id`,`image`,`text`,`org_image`,`status`,`create_at`,`update_at`,`create_by`,`homepage_preview`) values (7,'0.6680950015422631491.jpg','Image1','1.jpg',1,'2018-11-15 11:55:49','2018-11-15 11:55:49',2,1),(8,'0.7544880015422631494.jpg','Image2','4.jpg',1,'2018-11-15 11:55:49','2018-11-15 11:55:49',2,1),(10,'0.86111500154226314911.jpg','Image4','11.jpg',1,'2018-11-15 11:55:49','2018-11-15 11:55:49',2,1),(11,'0.94337900154226314922.jpg','Image5','22.jpg',1,'2018-11-15 11:55:49','2018-11-15 11:55:49',2,1),(12,'0.00562500154226315068.jpg','Image6','68.jpg',1,'2018-11-15 11:55:50','2018-11-15 11:55:50',2,1),(13,'0.38560600154226343315.jpg','Image3','15.jpg',1,'2018-11-15 12:00:33','2018-11-15 12:00:33',2,1),(14,'0.7978360015422654236.png','Image7','6.png',1,'2018-11-15 12:33:43','2018-11-15 12:33:43',2,1),(15,'0.9421570015422654234(1).jpg','Image8','4 (1).jpg',1,'2018-11-15 12:33:43','2018-11-15 12:33:43',2,1),(16,'0.0769790015422654247.jpg','Image9','7.jpg',1,'2018-11-15 12:33:44','2018-11-15 12:33:44',2,1),(17,'0.1310030015422654248.png','Image10','8.png',1,'2018-11-15 12:33:44','2018-11-15 12:33:44',2,1),(20,'0.90375100154226582010.jpg','Image3','10.jpg',1,'2018-11-15 12:40:20','2018-11-15 12:40:20',2,1),(23,'0.6264410015422789881(1).jpg','Gallery','1 (1).jpg',1,'2018-11-15 16:19:48','2018-11-15 16:19:48',2,1);
+insert  into `gallery`(`g_id`,`image`,`text`,`org_image`,`status`,`create_at`,`update_at`,`create_by`,`homepage_preview`) values (26,'0.1464430015465071871544598184.jpg','fghgfj','1544598184.jpg',1,'2019-01-03 14:49:47','2019-01-03 14:51:19',2,1),(27,'0.1723930015465071871544509451.jpg','tghfg','1544509451.jpg',1,'2019-01-03 14:49:47','2019-01-03 14:51:20',2,1);
+
+/*Table structure for table `instruments` */
+
+DROP TABLE IF EXISTS `instruments`;
+
+CREATE TABLE `instruments` (
+  `i_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text,
+  `paragraph` longtext,
+  `status` int(11) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `homepage_preview` int(11) DEFAULT '0',
+  PRIMARY KEY (`i_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `instruments` */
+
+insert  into `instruments`(`i_id`,`title`,`paragraph`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'Instruments','Sitar is of the most popular music instruments of North India. The Sitar has a long neck with twenty metal frets and six to seven main cords. Below the frets of Sitar are thirteen sympathetic strings which are tuned to the notes of the Raga. A gourd, which acts as a resonator for the strings is at the lower end of the neck of the Sitar. The frets are moved up and down to adjust the notes. Some famous Sitar players are Ustad Vilayat Khan, Pt. Ravishankar, Ustad Imrat Khan, Ustad Abdul Halim Zaffar Khan, Ustad Rais Khan and Pt Debu Chowdhury.',2,'2019-01-04 14:48:34','2019-01-04 17:22:59',2,0),(2,'Instruments','fghjghkjk',1,'2019-01-04 17:23:31',NULL,2,0);
+
+/*Table structure for table `instruments_data` */
+
+DROP TABLE IF EXISTS `instruments_data`;
+
+CREATE TABLE `instruments_data` (
+  `i_d_id` int(11) NOT NULL AUTO_INCREMENT,
+  `i_id` int(12) DEFAULT NULL,
+  `description` longtext,
+  `status` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`i_d_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+/*Data for the table `instruments_data` */
+
+insert  into `instruments_data`(`i_d_id`,`i_id`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (2,1,'Alto instruments: alto saxophone, french horn, english horn, viola, alto horn',1,'2019-01-04 14:48:34','2019-01-04 14:48:34',2),(3,1,'Baritone instruments: bassoon, baritone saxophone, bass clarinet, cello, baritone horn, euphonium',1,'2019-01-04 14:48:34','2019-01-04 14:48:34',2),(4,2,'ghjgk',1,'2019-01-04 17:23:31','2019-01-04 17:23:31',2),(5,2,'gfjhghj',1,'2019-01-04 17:23:31','2019-01-04 17:23:31',2),(6,2,'ghjghj',1,'2019-01-04 17:23:31','2019-01-04 17:23:31',2);
 
 /*Table structure for table `logo` */
 
@@ -154,7 +193,26 @@ CREATE TABLE `logo` (
 
 /*Data for the table `logo` */
 
-insert  into `logo`(`id`,`image`,`keywords`,`description`,`org_image`,`favicon`,`status`,`title`,`create_at`,`update_at`,`create_by`,`homepage_preview`) values (1,'1545981296.png','keyword','des','fortune pharma  lab log copy.png','21545981296.png',1,'Fortune Pharma Labs ','2018-12-28 12:44:56','2018-12-28 12:44:56',2,1);
+insert  into `logo`(`id`,`image`,`keywords`,`description`,`org_image`,`favicon`,`status`,`title`,`create_at`,`update_at`,`create_by`,`homepage_preview`) values (1,'1546840232.png','keyword','des','1545981296.png','21546840232.png',1,'Fortune Pharma Labs ','2019-01-07 11:20:32','2019-01-07 11:20:32',2,1);
+
+/*Table structure for table `service_name_details` */
+
+DROP TABLE IF EXISTS `service_name_details`;
+
+CREATE TABLE `service_name_details` (
+  `s_b_d_id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_n_id` int(11) DEFAULT NULL,
+  `s_id` int(11) DEFAULT NULL,
+  `service_name` longtext,
+  `status` int(11) DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`s_b_d_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+/*Data for the table `service_name_details` */
+
+insert  into `service_name_details`(`s_b_d_id`,`s_n_id`,`s_id`,`service_name`,`status`,`created_at`,`created_by`) values (1,1,1,'fghgfh',1,'2019-01-07 11:07:31',2),(2,1,1,'ghgh',1,'2019-01-07 11:07:31',2),(3,1,1,'fgjhfgj',1,'2019-01-07 11:07:31',2),(4,1,1,'gh',1,'2019-01-07 11:07:31',2),(5,1,1,'ghgf',1,'2019-01-07 11:07:31',2),(6,1,1,'ghjgf',1,'2019-01-07 11:07:31',2),(7,1,1,'hgj',1,'2019-01-07 11:07:31',2),(8,2,1,'ghgh',1,'2019-01-07 11:07:31',2),(9,2,1,'gfh',1,'2019-01-07 11:07:31',2),(10,2,1,'gh',1,'2019-01-07 11:07:31',2),(11,2,1,'gh',1,'2019-01-07 11:07:31',2),(14,3,1,'gh',1,'2019-01-07 11:07:31',2),(15,3,1,'gh',1,'2019-01-07 11:07:31',2);
 
 /*Table structure for table `services` */
 
@@ -162,19 +220,8 @@ DROP TABLE IF EXISTS `services`;
 
 CREATE TABLE `services` (
   `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text,
   `paragraph` longtext,
-  `paragraph1` longtext,
-  `paragraph2` longtext,
-  `paragraph3` longtext,
-  `paragraph4` longtext,
-  `paragraph5` longtext,
-  `paragraph6` longtext,
-  `title1` text,
-  `title2` text,
-  `title3` text,
-  `title4` text,
-  `title5` text,
-  `title6` text,
   `status` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -185,7 +232,27 @@ CREATE TABLE `services` (
 
 /*Data for the table `services` */
 
-insert  into `services`(`s_id`,`paragraph`,`paragraph1`,`paragraph2`,`paragraph3`,`paragraph4`,`paragraph5`,`paragraph6`,`title1`,`title2`,`title3`,`title4`,`title5`,`title6`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.','We have the best laboratory with capabilities to perform most of the pharma copoeia tests .We undertake all type of complete analysis or individual test analysis as per pharmacopoeia or customer procedure.\r\n',' ',' ','','','','Analytical Services','Chromatographic Purity by HPLC & GC','Special Services','','','',1,'2018-12-31 11:40:03','2018-12-31 11:40:03',2,1);
+insert  into `services`(`s_id`,`title`,`paragraph`,`status`,`created_at`,`updated_at`,`created_by`,`homepage_preview`) values (1,'Services','sdfdshgfjh',1,'2019-01-07 11:07:31',NULL,2,0);
+
+/*Table structure for table `servies_name` */
+
+DROP TABLE IF EXISTS `servies_name`;
+
+CREATE TABLE `servies_name` (
+  `s_n_id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_id` int(11) DEFAULT NULL,
+  `title` text,
+  `paragraph` longtext,
+  `status` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`s_n_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `servies_name` */
+
+insert  into `servies_name`(`s_n_id`,`s_id`,`title`,`paragraph`,`status`,`created_at`,`updated_at`,`created_by`) values (1,1,'s1','gbjhngj',1,'2019-01-07 11:07:31',NULL,2),(2,1,'s2','ghjghjkgh',1,'2019-01-07 11:07:31',NULL,2),(3,1,'s3','fgjfjgfh',1,'2019-01-07 11:07:31',NULL,2);
 
 /*Table structure for table `slider` */
 
