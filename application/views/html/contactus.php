@@ -244,7 +244,13 @@
                            <strong>fortunepharmalabs:</strong>
                                 <?php echo isset($contactus_details['forturn_lab'])?$contactus_details['forturn_lab']:''; ?><br>
 						   </p>
-
+                          <div class="social-links">
+                                <a href="<?php echo isset($contactus_details['facebook_link'])?$contactus_details['facebook_link']:'#'; ?>" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="<?php echo isset($contactus_details['twitter_link'])?$contactus_details['twitter_link']:'#'; ?>" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="<?php echo isset($contactus_details['instagram_link'])?$contactus_details['instagram_link']:'#'; ?>" target="_balnk" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="<?php echo isset($contactus_details['google_plus'])?$contactus_details['google_plus']:'#'; ?>" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="<?php echo isset($contactus_details['linkedIn_link'])?$contactus_details['linkedIn_link']:'#'; ?>" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            </div>  
                             
                         </div>
                     </div>
