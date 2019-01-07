@@ -81,8 +81,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Instagram Link</label>
-                        <input type="text" class="form-control" placeholder="Enter Instagram Link" id="instagram_link" name="instagram_link" value="<?php echo isset($details['instagram_link'])?$details['instagram_link']:''; ?>">
+                        <label>LinkedIn Link</label>
+                        <input type="text" class="form-control" placeholder="Enter LinkedIn Link" id="linkedIn_link" name="linkedIn_link" value="<?php echo isset($details['linkedIn_link'])?$details['linkedIn_link']:''; ?>">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -92,14 +92,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>LinkedIn Link</label>
-                        <input type="text" class="form-control" placeholder="Enter LinkedIn Link" id="linkedIn_link" name="linkedIn_link" value="<?php echo isset($details['linkedIn_link'])?$details['linkedIn_link']:''; ?>">
+                        <label>Instagram Link</label>
+                        <input type="text" class="form-control" placeholder="Enter Instagram Link" id="instagram_link" name="instagram_link" value="<?php echo isset($details['instagram_link'])?$details['instagram_link']:''; ?>">
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
             </div>
