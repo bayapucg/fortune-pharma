@@ -283,6 +283,7 @@ class Users_model extends CI_Model
 	public  function home_get_instrument_details(){
 		$this->db->select('*')->from('instruments');
 		$this->db->where('status',1);
+		$this->db->where('homepage_preview',1);
 		$return=$this->db->get()->result_array();
   foreach($return as $list){
    $lists=$this->home_get_instument_data_list($list['i_id']);
