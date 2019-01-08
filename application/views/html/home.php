@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        <?php echo isset($logo_details['title'])?$logo_details['title']:'Pracha Multi'; ?>
+        <?php echo isset($logo_details['title'])?$logo_details['title']:'Fortune Pharma Labs'; ?>
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="<?php echo isset($logo_details['title'])?$logo_details['title']:'keywords'; ?>">
@@ -43,7 +43,7 @@
             <div id="logo" class="pull-left logo-header">
 
                 <?php if($logo_details['image']==''){ ?>
-                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" height="70px">
+                <img src="<?php echo base_url(); ?>assets/vendor/img/forma.png" alt="logo" height="70px">
                 <?php }else{ ?>
                 <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" height="70px">
                 <?php } ?>
@@ -245,7 +245,7 @@
                                 <div class="portfolio-wrap">
                                     <figure>
                                         <img src="<?php echo base_url('assets/gallery/'.$list['image']); ?>" class="img-fluid" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
-                                        <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                                        <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="<?php echo isset($list['text'])?$list['text']:''; ?>" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                                     </figure>
 
                                     <div class="portfolio-info">
@@ -417,7 +417,7 @@
                         <div class="col-lg-4  footer-info">
                             <div id="logo" class="pull-left logo-header">
                                  <?php if($logo_details['image']==''){ ?>
-                <img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo" height="70px">
+                <img src="<?php echo base_url(); ?>assets/vendor/img/forma.png" alt="logo" height="70px">
                 <?php }else{ ?>
                 <img src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="logo" height="70px">
                 <?php } ?>
@@ -477,7 +477,7 @@
                     <div class="col-md-8">
                         <div class="copyright">
                             &copy; Copyright <strong>
-                                <?php echo isset($logo_details['title'])?$logo_details['title']:'Pracha Multi'; ?></strong>. All Rights Reserved
+                                <?php echo isset($logo_details['title'])?$logo_details['title']:'Fortune Pharma Labs'; ?></strong>. All Rights Reserved
                         </div>
                       
                     </div>

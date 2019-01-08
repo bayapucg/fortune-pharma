@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        <?php echo isset($logo_details['title'])?$logo_details['title']:'Pracha Multi Templete'; ?>
+        <?php echo isset($logo_details['title'])?$logo_details['title']:'Fortune Pharma Labs'; ?>
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="<?php echo isset($logo_details['keywords'])?$logo_details['keywords']:'Prachatech'; ?>" name="keywords">

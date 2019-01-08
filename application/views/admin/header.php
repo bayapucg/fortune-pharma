@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <title>
-        <?php echo isset($logo_details['title'])?$logo_details['title']:'Pracha Multi Templete'; ?>
+        <?php echo isset($logo_details['title'])?$logo_details['title']:'Fortune Pharma Labs'; ?>
     </title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendor/admin/css/bootstrap.min.css">
@@ -33,7 +33,7 @@
                     <?php if(isset($logo_details['image']) && $logo_details['image']!=''){ ?>
                     <img style="height:50px;width:auto;margin-top:-10px;" src="<?php echo base_url('assets/logo/'.$logo_details['image']); ?>" alt="<?php echo isset($logo_details['org_image'])?$logo_details['org_image']:''; ?>">
                     <?php }else{ ?>
-                    <img style="height:50px;width:auto;margin-top:-10px;" class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/admin/img/logo.png" alt="Logo">
+                    <img style="height:50px;width:auto;margin-top:-10px;" class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/admin/img/forma.png" alt="Logo">
                     <?php } ?>
                 </a>
             </div>
