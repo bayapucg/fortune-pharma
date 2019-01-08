@@ -234,12 +234,12 @@
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="<?php echo base_url('assets/gallery/'.$list['image']); ?>" class="img-fluid" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>">
-                                <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                                <a href="<?php echo base_url('assets/gallery/'.$list['image']); ?>" data-lightbox="portfolio" data-title="" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                             </figure>
-                            <div class="portfolio-info">
+                            <!--<div class="portfolio-info">
                                 <h4><a href="#">
                                         <?php echo isset($list['text'])?$list['text']:''; ?></a></h4>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <?php } ?>

@@ -19,7 +19,6 @@
                             <thead>
                                 <tr>
                                     <th style="width:30%;">Name</th>
-                                    <th>Text</th>
                                     <th>Image</th>
                                     <th>Date & Time</th>
                                     <th>Status</th>
@@ -33,9 +32,7 @@
                                     <td>
                                         <?php echo isset($list['org_image'])?$list['org_image']:''; ?>
                                     </td>
-                                    <td>
-                                        <?php echo isset($list['text'])?$list['text']:''; ?>
-                                    </td>
+                                   
                                     <td>
                                         <img class="img-responsive" src="<?php echo base_url('assets/gallery/'.$list['image']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
                                     </td>

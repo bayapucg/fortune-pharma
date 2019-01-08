@@ -73,7 +73,6 @@ class Gallery extends Back_end {
 						move_uploaded_file($_FILES['image']['tmp_name'][$key], "assets/gallery/" . $image1[$cnt]);
 						$add_data=array(
 						'image'=>$image1[$cnt],
-						'text'=>isset($post['text'][$key])?$post['text'][$key]:'',
 						'org_image'=>isset($_FILES['image']['name'][$key])?$_FILES['image']['name'][$key]:'',
 						'status'=>1,
 						'create_at'=>date('Y-m-d H:i:s'),
@@ -87,7 +86,7 @@ class Gallery extends Back_end {
 						// here your insert query
 					$cnt++;}
 					if(count($save)>0){
-							$this->session->set_flashdata('success','Image successfully added');
+							$this->session->set_flashdata('success','Gallery Image successfully added');
 							redirect('gallery/lists');
 							
 						}else{

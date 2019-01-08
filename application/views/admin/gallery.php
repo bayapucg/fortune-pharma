@@ -15,9 +15,7 @@
                                 <th class="text-center">
                                     Image
                                 </th>
-                                <th class="text-center">
-                                    Title
-                                </th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -25,9 +23,7 @@
                                 <td class="form-group">
                                     <input type="file" name='image[]' class="form-control">
                                 </td>
-                                <td class="form-group">
-                                    <input type="text" name='text[]' placeholder='Enter Title' class="form-control" />
-                                </td>
+                                
                             </tr>
                             <tr id='addr1'></tr>
                         </tbody>
@@ -49,7 +45,7 @@
     $(document).ready(function() {
         var i = 1;
         $("#add_row").click(function() {
-            $('#addr' + i).html("<td class='form-group'><input name='image[]' type='file'  class='form-control input-md'  /> </td><td class='form-group'><input  name='text[]' type='text' placeholder='Enter Title'  class='form-control input-md'></td>");
+            $('#addr' + i).html("<td class='form-group'><input name='image[]' type='file'  class='form-control input-md'  /> </td>");
 
             $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
             i++;
@@ -70,13 +66,7 @@
 
             fields: {
 
-                'text[]': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Paragraph is required'
-                        }
-                    }
-                },
+                
                 'image[]': {
                     validators: {
                         notEmpty: {
