@@ -92,14 +92,14 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="row">
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Instagram Link</label>
                         <input type="text" class="form-control" placeholder="Enter Instagram Link" id="instagram_link" name="instagram_link" value="<?php echo isset($details['instagram_link'])?$details['instagram_link']:''; ?>">
                     </div>
                 </div>
-            </div>-->
+            </div>
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
             </div>
