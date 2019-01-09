@@ -62,6 +62,9 @@
                 <li class="">
                     <a href="<?php echo base_url('contactus'); ?>">ContactUs<span class="menu-arrow"></span></a>
                 </li>
+				 <li class="">
+                    <a href="<?php echo base_url('contactus/contactlist'); ?>">Contact List<span class="menu-arrow"></span></a>
+                </li>
                 <li class="">
                     <a target="_blank" href="<?php echo base_url('preview'); ?>">Preview<span class="menu-arrow"></span></a>
                 </li>

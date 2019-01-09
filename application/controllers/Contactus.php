@@ -47,6 +47,7 @@ class Contactus extends Back_end {
 		'linkedIn_link'=>isset($post['linkedIn_link'])?$post['linkedIn_link']:'',
 		'updated_at'=>date('Y-m-d H:i:s'),
 		'status'=>1,
+		'homepage_preview'=>0,
 		);
 		$contact=$this->Users_model->get_contact_form_details();
 		if(count($contact)>0){
@@ -65,5 +66,18 @@ class Contactus extends Back_end {
 		//echo 
 		
 	}
+	public function contactlist(){
+		
+		$data['contact_list']=$this->Users_model->get_contact_list_data();
+		//echo '<pre>';print_r($data);exit;
+		$this->load->view('admin/contactuslist',$data);
+		$this->load->view('admin/footer');
+		
+	}
+	
+	
+	
+	
+	
 	
 }

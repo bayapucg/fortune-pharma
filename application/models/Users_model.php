@@ -13,6 +13,11 @@ class Users_model extends CI_Model
 		$this->db->insert('contactus',$data);
 		return $this->db->insert_id();
 	}
+	public function get_contact_list_data(){
+	$this->db->select('*')->from('contactus');
+		return $this->db->get()->result_array();
+	}
+	
 	
 	
 	public  function update_contact_details($c_id,$data){

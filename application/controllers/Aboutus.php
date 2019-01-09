@@ -94,6 +94,7 @@ class Aboutus extends Back_end {
 						'paragraph2'=>isset($post['paragraph2'])?$post['paragraph2']:'',
 						'paragraph3'=>isset($post['paragraph3'])?$post['paragraph3']:'',
 						'status'=>1,
+						'homepage_preview'=>0,
 						'created_at'=>date('Y-m-d H:i:s'),
 						'updated_at'=>date('Y-m-d H:i:s'),
 						'created_by'=>$admindetails['id'],
