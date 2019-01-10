@@ -43,6 +43,7 @@ class Preview extends CI_Controller {
 		{
 			$post=$this->input->post();
 			//echo'<pre>';print_r($post);exit;
+			
 			$slider_details=$this->Users_model->get_slider_details();
 			if(count($slider_details)>0){
 				foreach($slider_details as $li){
@@ -123,14 +124,15 @@ class Preview extends CI_Controller {
 			$this->Users_model->update_home_page_instrument_preview_status($post['i_id'],$update);
 			$this->Users_model->update_home_page_contactus_details_preview_status($post['contactus_details_id'],$update);
 			//echo '<pre>';print_r($update);exit;
+			$this->session->set_flashdata('success',"Home page successfully sent.");
 			redirect('');
+		       
 		}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('admin');
 		}
 		
 	}
-	
 	public  function contactpost(){
 		$post=$this->input->post();
 		//echo '<pre>';print_r($post);exit;
