@@ -18,10 +18,15 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width:30%;">Name</th>
-                                    <th>Text</th>
-                                    <th>Image</th>
-                                    <th>Date & Time</th>
+                                   
+                                    <th>Upload Slider 1</th>
+                                    <th>frist Slider Text</th>
+									<th>Upload Slider 2</th>
+                                    <th>second Slider Text</th>
+									<th>Upload Slider 3</th>
+                                    <th>third Slider Text</th>
+									<th>Upload Slider 4</th>
+                                    <th>Fourth Slider Text</th>
                                     <th>Status</th>
                                     <th class="text-right">Action</th>
                                 </tr>
@@ -30,18 +35,34 @@
 
                                 <?php foreach($slider_list as $list){ ?>
                                 <tr>
+                                   
+                                   
                                     <td>
-                                        <?php echo isset($list['org_image'])?$list['org_image']:''; ?>
+                                        <img class="img-responsive" src="<?php echo base_url('assets/slider/'.$list['image_slider1']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
                                     </td>
-                                    <td>
-                                        <?php echo isset($list['text'])?$list['text']:''; ?>
+									<td>
+                                        <?php echo isset($list['slider1'])?$list['slider1']:''; ?>
                                     </td>
-                                    <td>
-                                        <img class="img-responsive" src="<?php echo base_url('assets/slider/'.$list['image']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
+									<td>
+                                        <img class="img-responsive" src="<?php echo base_url('assets/slider/'.$list['image_slider2']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
                                     </td>
-                                    <td>
-                                        <?php echo isset($list['created_at'])?$list['created_at']:''; ?>
+									<td>
+                                        <?php echo isset($list['slider2'])?$list['slider2']:''; ?>
                                     </td>
+                                    
+									<td>
+                                        <img class="img-responsive" src="<?php echo base_url('assets/slider/'.$list['image_slider3']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
+                                    </td>
+									<td>
+                                        <?php echo isset($list['slider3'])?$list['slider3']:''; ?>
+                                    </td>
+									<td>
+                                        <img class="img-responsive" src="<?php echo base_url('assets/slider/'.$list['image_slider4']); ?>" alt="<?php echo isset($list['org_image'])?$list['org_image']:''; ?>" style="height:50px;width:auto;">
+                                    </td>
+									<td>
+                                        <?php echo isset($list['slider4'])?$list['slider4']:''; ?>
+                                    </td>
+									
                                     <td>
                                         <?php if($list['status']==1){ echo "Active"; }else{ echo "Deactive";} ?>
                                     </td>

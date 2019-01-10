@@ -24,23 +24,6 @@ class Slider extends Back_end {
 			redirect('admin');
 		}
 	}
-	public function lists()
-	{
-		if($this->session->userdata('multi_details'))
-		{
-			$admindetails=$this->session->userdata('multi_details');
-			
-			$data['slider_list']=$this->Slider_model->get_slider_list($admindetails['id']);
-			
-			//echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/slider-list',$data);
-			$this->load->view('admin/footer');
-
-		}else{
-			$this->session->set_flashdata('loginerror','Please login to continue');
-			redirect('admin');
-		}
-	}
 	
 	public function addpost()
 	{	
@@ -48,49 +31,92 @@ class Slider extends Back_end {
 		{
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
-			//print_r($_FILES['image']['tmp_name']);exit;
-			$cnt='';if(isset($_FILES['image']['tmp_name']) && count($_FILES['image']['tmp_name'])>0){
-				$cnt=1;foreach ($_FILES['image']['tmp_name'] as $key => $val ) {
-					if($_FILES["image"]["name"][$key]!=''){
-						$profilepicrenam2[$cnt] = microtime().basename($_FILES["image"]["name"][$key]);
-						$image1[$cnt]= str_replace(" ", "", $profilepicrenam2[$cnt]);
-						move_uploaded_file($_FILES['image']['tmp_name'][$key], "assets/slider/" . $image1[$cnt]);
+			//echo '<pre>';print_r($post);exit;
+                      if($_FILES['image_slider1']['name']!=''){
+					
+					$image1=$_FILES['image_slider1']['name'];
+					move_uploaded_file($_FILES['image_slider1']['tmp_name'], "assets/slider/" . $_FILES['image_slider1']['name']);
+
+					}else{
+					$image1='';
+					}
+
+                     if($_FILES['image_slider2']['name']!=''){
+					
+					$image2=$_FILES['image_slider2']['name'];
+					move_uploaded_file($_FILES['image_slider2']['tmp_name'], "assets/slider/" . $_FILES['image_slider2']['name']);
+
+					}else{
+					$image2='';
+					}
+
+				if($_FILES['image_slider3']['name']!=''){
+					
+					$image3=$_FILES['image_slider3']['name'];
+					move_uploaded_file($_FILES['image_slider3']['tmp_name'], "assets/slider/" . $_FILES['image_slider3']['name']);
+
+					}else{
+					$image3='';
+					}
+                   
+				   if($_FILES['image_slider4']['name']!=''){
+					
+					$image4=$_FILES['image_slider4']['name'];
+					move_uploaded_file($_FILES['image_slider4']['tmp_name'], "assets/slider/" . $_FILES['image_slider4']['name']);
+
+					}else{
+					$image4='';
+					}
+				   
+				   
 						$add_data=array(
-						'image'=>$image1[$cnt],
-						'text'=>isset($post['text'][$key])?$post['text'][$key]:'',
-						'org_image'=>isset($_FILES['image']['name'][$key])?$_FILES['image']['name'][$key]:'',
+						'image_slider1'=>isset($image1)?$image1:'',
+						'image_slider2'=>isset($image2)?$image2:'',
+						'image_slider3'=>isset($image3)?$image3:'',
+						'image_slider4'=>isset($image4)?$image4:'',
+						'slider1'=>isset($post['slider1'])?$post['slider1']:'',
+						'slider2'=>isset($post['slider2'])?$post['slider2']:'',
+						'slider3'=>isset($post['slider3'])?$post['slider3']:'',
+						'slider4'=>isset($post['slider4'])?$post['slider4']:'',
 						'status'=>1,
+						'homepage_preview'=>0,
 						'created_at'=>date('Y-m-d H:i:s'),
 						'updated_at'=>date('Y-m-d H:i:s'),
 						'created_by'=>$admindetails['id'],
 						);
 						
-						//echo '<pre>';print_r($add_data);
-						
-						$save=$this->Slider_model->save_slider($add_data);
-					}
-						// here your insert query
-					$cnt++;}
-					if(count($save)>0){
-							$this->session->set_flashdata('success','Slider Image successfully added');
-							redirect('slider/lists');
-							
-						}else{
-							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-							redirect('slider');
-						}
-			}else{
-					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-							redirect('slider');
-			}
-				
+						//echo '<pre>';print_r($add_data);exit;
+		$save=$this->Slider_model->save_slider_details($add_data);	
+	
+				if(count($save)>0){
+					$this->session->set_flashdata('success',"Slider details successfully added");	
+					redirect('slider');	
+					}else{
+					$this->session->set_flashdata('success',"Slider details successfully updated");
+					redirect('slider');
+					}  		
 					
-						
+				
 		}else{
 			$this->session->set_flashdata('error','Please login to continue');
 			redirect('admin');
 		}
 		
+	}
+	public function lists()
+	{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$data['slider_list']=$this->Slider_model->get_slider_list();
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('admin/slider-list',$data);
+			$this->load->view('admin/footer');
+
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
 	}
 	
 	public function edit()
@@ -98,8 +124,8 @@ class Slider extends Back_end {
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
-			$s_id=base64_decode($this->uri->segment(3));
-			$data['edit_slider']=$this->Slider_model->edit_slider($s_id);
+			 $slider=base64_decode($this->uri->segment(3));
+			$data['edit_slider']=$this->Slider_model->get_edit_slider_list($slider);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/edit-slider',$data);
 			$this->load->view('admin/footer');
@@ -109,18 +135,86 @@ class Slider extends Back_end {
 			redirect('admin');
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public function editpost()
+	{	
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$post=$this->input->post();
+			//echo '<pre>';print_r($post);exit;
+			$edit_slider=$this->Slider_model->get_edit_slider_list($post['s_id']);
+			//echo '<pre>';print_r($edit_slider);exit;
+                      if($_FILES['image_slider1']['name']!=''){
+					
+					$image1=$_FILES['image_slider1']['name'];
+					move_uploaded_file($_FILES['image_slider1']['tmp_name'], "assets/slider/" . $_FILES['image_slider1']['name']);
+
+					}else{
+					$image1=$edit_slider['image_slider1'];
+					}
+
+                     if($_FILES['image_slider2']['name']!=''){
+					
+					$image2=$_FILES['image_slider2']['name'];
+					move_uploaded_file($_FILES['image_slider2']['tmp_name'], "assets/slider/" . $_FILES['image_slider2']['name']);
+
+					}else{
+					$image2=$edit_slider['image_slider2'];
+					}
+
+				if($_FILES['image_slider3']['name']!=''){
+					
+					$image3=$_FILES['image_slider3']['name'];
+					move_uploaded_file($_FILES['image_slider3']['tmp_name'], "assets/slider/" . $_FILES['image_slider3']['name']);
+
+					}else{
+					$image3=$edit_slider['image_slider3'];
+					}
+                   
+				   if($_FILES['image_slider4']['name']!=''){
+					
+					$image4=$_FILES['image_slider4']['name'];
+					move_uploaded_file($_FILES['image_slider4']['tmp_name'], "assets/slider/" . $_FILES['image_slider4']['name']);
+
+					}else{
+					$image4=$edit_slider['image_slider4'];
+					}
+				   
+				   
+						$update_data=array(
+						'image_slider1'=>isset($image1)?$image1:'',
+						'image_slider2'=>isset($image2)?$image2:'',
+						'image_slider3'=>isset($image3)?$image3:'',
+						'image_slider4'=>isset($image4)?$image4:'',
+						'slider1'=>isset($post['slider1'])?$post['slider1']:'',
+						'slider2'=>isset($post['slider2'])?$post['slider2']:'',
+						'slider3'=>isset($post['slider3'])?$post['slider3']:'',
+						'slider4'=>isset($post['slider4'])?$post['slider4']:'',
+						'status'=>1,
+						'homepage_preview'=>0,
+						'created_at'=>date('Y-m-d H:i:s'),
+						'updated_at'=>date('Y-m-d H:i:s'),
+						'created_by'=>$admindetails['id'],
+						);
+						
+						//echo '<pre>';print_r($update_data);exit;
+		$update=$this->Slider_model->update_slider_details($post['s_id'],$update_data);	
+	//echo '<pre>';print_r($update);exit;
+				if(count($update)>0){
+					$this->session->set_flashdata('success',"Slider details successfully updated");	
+					redirect('slider/lists');	
+					}else{
+					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+					redirect('slider/lists');
+				}	
+					
+				
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+		
+	}
 	
 	public function status()
 	{	
@@ -158,6 +252,7 @@ class Slider extends Back_end {
 		}
 		
 	}
+	
 	public function delete()
 	{	
 		if($this->session->userdata('multi_details'))
@@ -165,35 +260,27 @@ class Slider extends Back_end {
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
 			$s_id=base64_decode($this->uri->segment(3));
-			$details=$this->Slider_model->get_slider_details($s_id);
+			$status=base64_decode($this->uri->segment(4));
 			
-					$delete=$this->Slider_model->delete_slider($s_id);
-					if(count($delete)>0){
-						unlink('assets/slider/'.$details['image']);
-						$this->session->set_flashdata('success','Slider image successfully deleted');
-						redirect('slider/lists');
-					}else{
-						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('slider/lists');
-					}
+			$update_data=array(
+					'status'=>2,
+					'updated_at'=>date('Y-m-d H:i:s'),
+					);
+					$update=$this->Slider_model->update_slider_details($s_id,$update_data);
+						if(count($update)>0){
+							$this->session->set_flashdata('sucess',"Slider image successfully deleted.");
+							redirect('slider/lists');
+							
+						}else{
+							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+							redirect('slider/lists');
+						}
 		}else{
 			$this->session->set_flashdata('error','Please login to continue');
 			redirect('admin');
 		}
 		
 	}
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

@@ -14,9 +14,9 @@ class Aboutus_model extends CI_Model
 		return $this->db->insert_id();
 	}
 	
-	public  function get_aboutus_list($u_id){
+	public  function get_aboutus_list(){
 		$this->db->select('*')->from('aboutus');
-		$this->db->where('created_by',$u_id);
+		$this->db->where('aboutus.status !=', 2);
 		return $this->db->get()->row_array();
 	}
 	public  function get_aboutus_details(){
