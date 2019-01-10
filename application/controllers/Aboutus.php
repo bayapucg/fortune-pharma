@@ -125,7 +125,7 @@ class Aboutus extends Back_end {
 	
 	
 	
-	public function deletes()
+	public function delete()
 {
 		if($this->session->userdata('multi_details'))
 		{

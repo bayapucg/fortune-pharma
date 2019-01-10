@@ -66,6 +66,7 @@
                                         <?php echo isset($aboutus_list['paragraph3'])?$aboutus_list['paragraph3']:''; ?>
                                     </td>
                                     <td class="text-center">
+									
                                         <a href="<?php echo base_url('aboutus/delete/'.base64_encode($aboutus_list['a_id']).'/'.base64_encode(3)); ?>" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
