@@ -59,6 +59,7 @@ class Users_model extends CI_Model
 	}
 	public  function get_contactus_details(){
 		$this->db->select('*')->from('contactform');
+		$this->db->where('status',1);
 		return $this->db->get()->row_array();
 	}
 	public  function get_servies_details(){

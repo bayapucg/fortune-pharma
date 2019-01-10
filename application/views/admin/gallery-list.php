@@ -44,7 +44,8 @@
                                     </td>
 
                                     <td class="text-right">
-                                        <a href="<?php echo base_url('gallery/status/'.base64_encode($list['g_id']).'/'.base64_encode($list['status'])); ?>" class="btn btn-danger">
+									<a href="<?php echo base_url('gallery/edit/'.base64_encode($list['g_id'])); ?>" class="btn btn-success">Edit</a>
+                                        <a href="<?php echo base_url('gallery/status/'.base64_encode($list['g_id']).'/'.base64_encode($list['status'])); ?>" class="btn btn-warning">
                                             <?php if($list['status']==0){ echo "Active"; }else{ echo "Deactive";} ?></a>
                                         <a href="<?php echo base_url('gallery/delete/'.base64_encode($list['g_id'])); ?>" class="btn btn-danger">Delete</a>
                                     </td>

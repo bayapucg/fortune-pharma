@@ -93,6 +93,35 @@ class Slider extends Back_end {
 		
 	}
 	
+	public function edit()
+	{
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$s_id=base64_decode($this->uri->segment(3));
+			$data['edit_slider']=$this->Slider_model->edit_slider($s_id);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('admin/edit-slider',$data);
+			$this->load->view('admin/footer');
+
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public function status()
 	{	
 		if($this->session->userdata('multi_details'))
@@ -154,6 +183,21 @@ class Slider extends Back_end {
 		
 	}
     
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     public function search_sliders(){
         
 		$this->load->view('admin/search_sliders');

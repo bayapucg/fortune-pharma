@@ -33,7 +33,11 @@ class Slider_model extends CI_Model
 		$this->db->where('s_id',$s_id);
 		return $this->db->delete('slider');
 	}
-	
+	public function edit_slider($s_id){
+	$this->db->select('*')->from('slider');
+		$this->db->where('s_id',$s_id);
+		return $this->db->get()->row_array();
+	}
 	
 
 }

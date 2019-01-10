@@ -50,7 +50,7 @@ class Gallery extends Back_end {
 			$data['details']=$this->Gallery_model->get_gallery_details($g_id);
 			
 			//echo '<pre>';print_r($data);exit; 
-			$this->load->view('admin/gallery/edit',$data);
+			$this->load->view('admin/edit-gallery',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error','Please login to continue');
@@ -111,23 +111,23 @@ class Gallery extends Back_end {
 		{
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
+			//echo'<pre>';print_r($post);exit;
 					$details=$this->Gallery_model->get_gallery_details($post['g_id']);
-					if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
-							unlink('assets/gallery/'.$details['image']);
+					if($_FILES['image']['name']!=''){
+					if($details['image']!=''){
+						unlink('assets/gallery/'.$details['image']);
+					}
+					$banners=$_FILES['image']['name'];
+					move_uploaded_file($_FILES['image']['tmp_name'], "assets/gallery/" . $_FILES['image']['name']);
 
-								$temp = explode(".", $_FILES["image"]["name"]);
-								$image = round(microtime(true)) . '.' . end($temp);
-								move_uploaded_file($_FILES['image']['tmp_name'], "assets/gallery/" . $image);
-								$org_name=$_FILES["image"]["name"];
-							}else{
-								$image=$details['image'];
-								$org_name=$details['org_image'];
-							}
+					}else{
+					$banners=$details['image'];
+					}
 					$update_data=array(
-					'image'=>$image,
-					'org_image'=>$org_name,
+					'image'=>$banners,
 					'update_at'=>date('Y-m-d H:i:s'),
 					);
+					//echo'<pre>';print_r($update_data);exit;
 						$update=$this->Gallery_model->update_gallery_details($post['g_id'],$update_data);
 						if(count($update)>0){
 							$this->session->set_flashdata('success','Certificate successfully Updated');

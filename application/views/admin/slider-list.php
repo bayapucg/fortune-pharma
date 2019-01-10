@@ -47,7 +47,8 @@
                                     </td>
 
                                     <td class="text-right">
-                                        <a href="<?php echo base_url('slider/status/'.base64_encode($list['s_id']).'/'.base64_encode($list['status'])); ?>" class="btn btn-danger">
+									<a href="<?php echo base_url('slider/edit/'.base64_encode($list['s_id'])); ?>" class="btn btn-success">Edit</a>
+                                        <a href="<?php echo base_url('slider/status/'.base64_encode($list['s_id']).'/'.base64_encode($list['status'])); ?>" class="btn btn-warning">
                                             <?php if($list['status']==0){ echo "Active"; }else{ echo "Deactive";} ?></a>
                                         <a href="<?php echo base_url('slider/delete/'.base64_encode($list['s_id'])); ?>" class="btn btn-danger">Delete</a>
                                     </td>

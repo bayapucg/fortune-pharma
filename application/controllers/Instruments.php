@@ -113,7 +113,7 @@ class Instruments extends Back_end {
 	
 	
 	
-	/*
+	
 	public function edit()
 	{
 		if($this->session->userdata('multi_details'))
@@ -190,7 +190,7 @@ class Instruments extends Back_end {
 			redirect('admin');
 		}
 	}
-	*/
+	
 	public function status()
 	{
 		if($this->session->userdata('multi_details'))

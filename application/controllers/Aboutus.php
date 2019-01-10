@@ -123,44 +123,38 @@ class Aboutus extends Back_end {
 		
 	}
 	
-	public function delete()
-	{	
+	
+	
+	public function deletes()
+{
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
-			$post=$this->input->post();
-			$a_id=base64_decode($this->uri->segment(3));
-			$type=base64_decode($this->uri->segment(4));
-			$details=$this->aboutus_model->get_aboutus_details($a_id);
-			if($type==1){
-				$up_dat=array('paragraph1'=>'','image1'=>'');	
-			}else if($type==2){
-				$up_dat=array('paragraph2'=>'','image2'=>'');	
-			}else if($type==3){
-				$up_dat=array('paragraph3'=>'','image3'=>'');	
-			}
-					
-					$delete=$this->aboutus_model->update_aboutus_details($a_id,$up_dat);
-					if(count($delete)>0){
-						if($type=1){
-								unlink('assets/aboutus/'.$details['image1']);	
-							}else if($type=2){
-								unlink('assets/aboutus/'.$details['image2']);	
-							}else if($type=3){
-								unlink('assets/aboutus/'.$details['image3']);	
+	             $a_id=base64_decode($this->uri->segment(3));
+							$statusdata=$this->aboutus_model->delete_aboutus($a_id);
+							if(count($statusdata)>0){
+								$this->session->set_flashdata('success',"aboutus details  successfully deleted.");
+								redirect('aboutus/lists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('aboutus/lists');
 							}
-						$this->session->set_flashdata('success','About us successfully deleted');
-						redirect('aboutus/lists');
-					}else{
+						
+		             }else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('aboutus/lists');
-					}
-		}else{
-			$this->session->set_flashdata('error','Please login to continue');
-			redirect('admin');
-		}
+						redirect('admin');
+					}	
+		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

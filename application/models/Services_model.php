@@ -30,32 +30,26 @@ class Services_model extends CI_Model
     return $this->db->update("services",$data);
 	}
 	
-	public function edit_servies_details($s_id){
-	$this->db->select('services.*')->from('services');
-	$this->db->where('s_id',$s_id);
-	$return=$this->db->get()->row_array();
-		$sevie_list=$this->get_edit_servies_list($return['s_id']);
-		$data=$return;
-		$data['sevies_list']=$sevie_list;
-		if(!empty($data)){
-			return $data;
-		}
-	}
-	public  function get_edit_servies_list($s_id){
-		$this->db->select('*')->from('servies_data');
-		$this->db->where('servies_data.s_id',$s_id);
-		return $this->db->get()->result_array();
-		
-	}
-	
-	public function delete_servies_details($s_d_id){
-	$this->db->where('s_d_id',$s_d_id);
-	return $this->db->delete('servies_data');
+	public function delete_servies_details($s_b_d_id){
+	$this->db->where('s_b_d_id',$s_b_d_id);
+	return $this->db->delete('service_name_details');
 	}
 	public function update_servies($s_id,$data){
 	$this->db->where('s_id',$s_id);
     return $this->db->update("services",$data);
 	}
+	public function update_servies_name_details(){
+	$this->db->where('s_n_id',$s_n_id);
+    return $this->db->update("servies_name",$data);
+	}
+	public function get_edit_servies_name_list($s_n_id){
+	$this->db->select('*')->from('service_name_details');
+		$this->db->where('service_name_details.s_n_id',$s_n_id);
+		return $this->db->get()->result_array();
+	}
+	
+	
+	
 	public  function get_edit_servies_list_data($s_id){
 		$this->db->select('*')->from('servies_data');
 		$this->db->where('servies_data.s_id',$s_id);
@@ -134,6 +128,54 @@ class Services_model extends CI_Model
 	 return $this->db->get()->result_array();
 	}
 	
+	public function edit_servies_details($s_id){
+	$this->db->select('services.*')->from('services');
+	$this->db->where('s_id',$s_id);
+	$return=$this->db->get()->row_array();
+		$sevie_list=$this->get_edit_servies_list($return['s_id']);
+		$data=$return;
+		$data['sevies_list']=$sevie_list;
+		if(!empty($data)){
+			return $data;
+		}
+	}
+	public  function get_edit_servies_list($s_id){
+		$this->db->select('*')->from('servies_name');
+		$this->db->where('servies_name.s_id',$s_id);
+		$return=$this->db->get()->result_array();
+	  //echo '<pre>';print_r($return);exit;
+	foreach($return as $list){
+	   $lists=$this->get_edit__servies_one_list($list['s_n_id']);
+	   //echo '<pre>';print_r($lists);exit;
+	   $data[$list['s_n_id']]=$list;
+	   $data[$list['s_n_id']]['servie_data']=$lists;
+	   
+	  }
+	if(!empty($data)){
+	   
+	   return $data;
+	   
+	  }
+ }
+	public function get_edit__servies_one_list($s_n_id){
+	 $this->db->select('service_name_details.*')->from('service_name_details');
+     $this->db->where('service_name_details.s_n_id',$s_n_id);
+     $this->db->where('service_name_details.status',1);
+	 return $this->db->get()->result_array();
+	}
+	
+	public function save_servies_name_details_sevies_name($data){
+	$this->db->insert('service_name_details',$data);
+	return $this->db->insert_id();	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public  function check_servies_active_ornot(){
 	$this->db->select('*')->from('services');
@@ -141,7 +183,7 @@ class Services_model extends CI_Model
 	return $this->db->get()->row_array();
 }
 	
-public function delete_services_name_details_data($s_b_d_id){
+   public function delete_services_name_details_data($s_b_d_id){
 	$this->db->where('s_b_d_id',$s_b_d_id);
 	return $this->db->delete('service_name_details');
 	}	

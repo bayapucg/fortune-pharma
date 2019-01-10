@@ -31,7 +31,10 @@ class Aboutus_model extends CI_Model
 		$this->db->where('a_id',$a_id);
 		return $this->db->delete('aboutus');
 	}
-	
+	public function update_aboutus_details_status($a_id){
+	$this->db->where('a_id',$a_id);
+    return $this->db->update("aboutus",$data);
+	}
 	
 	public function save_contactus_form_details($data){
 	$this->db->insert('contactform',$data);	

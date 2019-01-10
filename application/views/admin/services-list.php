@@ -75,6 +75,7 @@
 									<td><?php if($lis['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
 									
 		                             <td>
+									 <a href="<?php echo base_url('services/edit/'.base64_encode($lis['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
 									 <a href="<?php echo base_url('services/deletes/'.base64_encode($lis['s_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
 
 									</td>
