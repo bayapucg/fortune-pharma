@@ -44,8 +44,7 @@ class Services_model extends CI_Model
 	}
 	
 	
-	public function update_servies_name_details($s_id,$data){
-    $this->db->where('s_id',$s_id);
+	public function update_servies_name_details($data){
     return $this->db->update("servies_name",$data);
 	}
 	public function update_servies_one_data_details($s_id,$data){

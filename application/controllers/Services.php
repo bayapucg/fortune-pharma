@@ -265,10 +265,10 @@ class Services extends Back_end {
 						);
 						//echo '<pre>';print_r($update_data);exit;
 					
-						$id=$this->Services_model->update_servies_name_details($post['s_id'],$update_data);
-						   //echo '<pre>';print_r($id);exit;
+						$id=$this->Services_model->update_servies_name_details($update_data);
+						   echo '<pre>';print_r($id);exit;
 						   if($id!=0){
-							  
+					
 							   
 							   
 				if(isset($post['service_name']) && count($post['service_name'])>0){
@@ -289,7 +289,7 @@ class Services extends Back_end {
 					}
 					 
 					}
-				 $details=$this->Services_model->update_servies_one_data_details($data);
+				 $details=$this->Services_model->update_servies_one_data_details($post['s_id'],$data);
 							  	
 					
 					}
