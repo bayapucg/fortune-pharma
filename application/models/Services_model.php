@@ -38,8 +38,7 @@ class Services_model extends CI_Model
 	$this->db->where('s_id',$s_id);
     return $this->db->update("services",$data);
 	}
-	public function update_servies_name_details(){
-	$this->db->where('s_n_id',$s_n_id);
+	public function update_servies_name_details($data){
     return $this->db->update("servies_name",$data);
 	}
 	public function get_edit_servies_name_list($s_n_id){
@@ -164,9 +163,9 @@ class Services_model extends CI_Model
 	 return $this->db->get()->result_array();
 	}
 	
-	public function save_servies_name_details_sevies_name($data){
-	$this->db->insert('service_name_details',$data);
-	return $this->db->insert_id();	
+	public function edit_servies_name_details_sevies_name($data){
+	return $this->db->update("service_name_details",$data);
+	
 	}
 	
 	
@@ -187,6 +186,26 @@ class Services_model extends CI_Model
 	$this->db->where('s_b_d_id',$s_b_d_id);
 	return $this->db->delete('service_name_details');
 	}	
+	
+	
+	
+	
+	
+	public  function get_edit_instrument_list($s_n_id){
+		$this->db->select('*')->from('service_name_details');
+		$this->db->where('service_name_details.s_n_id',$s_n_id);
+		return $this->db->get()->result_array();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

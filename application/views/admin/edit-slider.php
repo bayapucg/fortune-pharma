@@ -13,59 +13,17 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Upload Slider 1</label>
-                        <input type="file" name="image_slider1" id="image_slider1" class="form-control" value="<?php echo isset($edit_slider['image_slider1'])?$edit_slider['image_slider1']:''; ?>">
+                        <input type="file" name="image" id="image" class="form-control" value="<?php echo isset($edit_slider['image'])?$edit_slider['image']:''; ?>">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>First Slider Text</label>
-                        <input type="text" name="slider1" id="slider1" class="form-control" placeholder="Enter Slider Text" name="lastName" value="<?php echo isset($edit_slider['slider1'])?$edit_slider['slider1']:''; ?>">
+                        <input type="text" name="text" id="text" class="form-control" placeholder="Enter Slider Text" name="lastName" value="<?php echo isset($edit_slider['text'])?$edit_slider['text']:''; ?>">
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Upload Slider 2</label>
-                        <input type="file" name="image_slider2" id="image_slider2" class="form-control" value="<?php echo isset($edit_slider['image_slider2'])?$edit_slider['image_slider2']:''; ?>">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Second Slider Text</label>
-                        <input type="text" name="slider2" id="slider2" class="form-control" placeholder="Enter Slider Text" value="<?php echo isset($edit_slider['slider2'])?$edit_slider['slider2']:''; ?>">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Upload Slider 3</label>
-                        <input type="file" name="image_slider3" id="image_slider3" class="form-control" value="<?php echo isset($edit_slider['image_slider3'])?$edit_slider['image_slider3']:''; ?>">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Third Slider Text</label>
-                        <input type="text" name="slider3" id="slider3" class="form-control" placeholder="Enter Slider Text" value="<?php echo isset($edit_slider['slider3'])?$edit_slider['slider3']:''; ?>">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Upload Slider 4</label>
-                        <input type="file" name="image_slider4" id="image_slider4" class="form-control" value="<?php echo isset($edit_slider['image_slider4'])?$edit_slider['image_slider4']:''; ?>">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Fourth Slider Text</label>
-                        <input type="text" name="slider4" id="slider4" class="form-control" placeholder="Enter Slider Text" value="<?php echo isset($edit_slider['slider4'])?$edit_slider['slider4']:''; ?>">
-                    </div>
-                </div>
-            </div>
-
+           
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>
                 <a href="<?php echo base_url('slider/search_sliders'); ?>" type="button" class="btn btn-info">Search Sliders</a>

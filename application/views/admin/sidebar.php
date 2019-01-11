@@ -2,9 +2,16 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-                <li class="active">
-                    <a href="<?php echo base_url('navigation'); ?>">Logo <span class="menu-arrow"></span></a>
+			<li class="submenu">
+                    <a href="#" class=""><span> Logo</span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled" style="display: none;">
+
+                        <li><a href="<?php echo base_url('navigation'); ?>">Logo</a></li>
+                        <li><a href="<?php echo base_url('navigation/lists'); ?>">Logo List</a></li>
+
+                    </ul>
                 </li>
+                
                 <li class="submenu">
                     <a href="#" class="noti-dot"><span> Sliders </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled" style="display: none;">

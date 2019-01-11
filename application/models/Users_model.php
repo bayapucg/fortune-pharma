@@ -38,7 +38,7 @@ class Users_model extends CI_Model
 		return $this->db->get()->row_array();
 	}
 	public  function get_slider_details(){
-		$this->db->select('s_id,text,image')->from('slider');
+		$this->db->select('*')->from('slider');
 		$this->db->where('status',1);
 		return $this->db->get()->result_array();
 	}

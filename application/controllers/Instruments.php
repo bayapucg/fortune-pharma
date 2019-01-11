@@ -203,7 +203,13 @@ class Instruments extends Back_end {
 					}else{
 						$statu=1;
 					}
-					
+					if($status==0){
+					$check_ative=$this->Admin_model->check_instruments_active_ornot();
+		if(count($check_ative)>0){
+			$this->session->set_flashdata('error',"At time only one Instruments is active. Please try again");	
+			redirect('instruments/lists');	
+		}
+					}
 					
 					if($i_id!=''){
 						$stusdetails=array(

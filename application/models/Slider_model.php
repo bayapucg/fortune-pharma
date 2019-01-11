@@ -9,23 +9,23 @@ class Slider_model extends CI_Model
 		$this->load->database("default");
 	}
 	
-	public  function save_slider_details($data){
+	public  function save_slider($data){
 		$this->db->insert('slider',$data);
 		return $this->db->insert_id();
 	}
 	
-	public  function get_slider_list(){
+	public  function get_slider_list($u_id){
 		$this->db->select('*')->from('slider');
-		$this->db->where('slider.status !=', 2);
+		$this->db->where('created_by',$u_id);
 		return $this->db->get()->result_array();
 	}
-	public  function get_edit_slider_list($s_id){
+	public  function get_slider_details($s_id){
 		$this->db->select('*')->from('slider');
 		$this->db->where('s_id',$s_id);
 		return $this->db->get()->row_array();
 	}
 	
-	public  function update_slider_details($s_id,$data){
+	public  function update_slider($s_id,$data){
 		$this->db->where('s_id',$s_id);
 		return $this->db->update('slider',$data);
 	}
@@ -33,11 +33,20 @@ class Slider_model extends CI_Model
 		$this->db->where('s_id',$s_id);
 		return $this->db->delete('slider');
 	}
-	public function edit_slider($s_id){
+	public function edit_slider_details($s_id){
 	$this->db->select('*')->from('slider');
 		$this->db->where('s_id',$s_id);
 		return $this->db->get()->row_array();
 	}
+	public  function update_slider_details($u_id,$data){
+		$this->db->where('s_id',$u_id);
+		return $this->db->update('slider',$data);
+	}
+	
+	
+	
+	
+	
 	
 
 }
