@@ -41,10 +41,7 @@ table.order-list td {
                         <label>Service 1 title</label>
                         <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" >
                     </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
+                   
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
                             <tbody>
@@ -67,10 +64,7 @@ table.order-list td {
                         <label>Service 2 title</label>
                         <input type="text" name="title2" id="title2" class="form-control" placeholder="Enter Service 2" >
                     </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph2" id="paragraph2"  class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
+                    
                     <div class="table-responsive">
                         <table id="" class="table order-list2">
                             <tbody>
@@ -93,10 +87,7 @@ table.order-list td {
                         <label>Service 3 title</label>
                         <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Service 3" >
                     </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
+                    
                     <div class="table-responsive">
                         <table id="" class="table order-list3">
                             <tbody>

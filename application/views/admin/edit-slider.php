@@ -12,13 +12,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Upload Slider 1</label>
+                        <label>Upload Slider</label>
                         <input type="file" name="image" id="image" class="form-control" value="<?php echo isset($edit_slider['image'])?$edit_slider['image']:''; ?>">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>First Slider Text</label>
+                        <label>Slider Text</label>
                         <input type="text" name="text" id="text" class="form-control" placeholder="Enter Slider Text" name="lastName" value="<?php echo isset($edit_slider['text'])?$edit_slider['text']:''; ?>">
                     </div>
                 </div>

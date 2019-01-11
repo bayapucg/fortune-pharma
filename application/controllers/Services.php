@@ -231,14 +231,14 @@ class Services extends Back_end {
 			echo json_encode($data);exit;
 		}
 }	
-
-    public function editpost()
+	
+	public function editpost()
 	{	
 		if($this->session->userdata('multi_details'))
 		{
 			$admindetails=$this->session->userdata('multi_details');
 			$post=$this->input->post();
-			echo '<pre>';print_r($post);exit;
+			//echo '<pre>';print_r($post);exit;
 			
 			
 						$add_data=array(
@@ -251,25 +251,29 @@ class Services extends Back_end {
 						
 						//echo '<pre>';print_r($add_data);exit;
 						
-						$save=$this->Services_model->update_servies($post['s_id'],$update_data);
+						$save=$this->Services_model->update_services_details($post['s_id'],$add_data);
 					//echo '<pre>';print_r($save);exit;
 					if($save!=0){
 						
-						  $update=array(
+						  $update_data=array(
 						  's_id'=>$save,
-						  'title'=>isset($post['title1'])?$post['title1']:'',
-						'paragraph'=>isset($post['paragraph1'])?$post['paragraph1']:'',
+						  'title'=>isset($post['title'])?$post['title']:'',
+						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 						'status'=>1,
 						'created_at'=>date('Y-m-d H:i:s'),
 						'created_by'=>$admindetails['id'],
 						);
-						
+						//echo '<pre>';print_r($update_data);exit;
 					
-						$id=$this->Services_model->update_servies_name_details($update);
+						$id=$this->Services_model->update_servies_name_details($post['s_id'],$update_data);
+						   //echo '<pre>';print_r($id);exit;
 						   if($id!=0){
-				if(isset($post['service_name1']) && count($post['service_name1'])>0){
+							  
+							   
+							   
+				if(isset($post['service_name']) && count($post['service_name'])>0){
 					$cnt=0;
-					foreach($post['service_name1'] as $list){
+					foreach($post['service_name'] as $list){
 						  $data[]=array(
 						  's_id'=>$save,
 						  's_n_id'=>$id,
@@ -285,14 +289,98 @@ class Services extends Back_end {
 					}
 					 
 					}
-				 $this->Services_model->save_servies_one_data_details($data);	
+				 $details=$this->Services_model->update_servies_one_data_details($data);
+							  	
 					
 					}
 										
 			//second loop
 			
 						
-						  $add_data=array(
+						 
+					}	
+						
+						 
+					
+					
+							$this->session->set_flashdata('success','Services details successfully added');
+							redirect('services/lists');
+							
+						}else{
+							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+							redirect('services');
+						}
+			
+				
+					
+						
+		
+		}
+	
+	
+	
+	
+	
+	
+	/*
+	public function editpost()
+	{	
+		if($this->session->userdata('multi_details'))
+		{
+			$admindetails=$this->session->userdata('multi_details');
+			$post=$this->input->post();
+			echo '<pre>';print_r($post);exit;
+			
+						  $update_data=array(
+						  's_id'=>$save,
+						  'title'=>isset($post['title1'])?$post['title1']:'',
+						'paragraph'=>isset($post['paragraph1'])?$post['paragraph1']:'',
+						'status'=>1,
+						'created_at'=>date('Y-m-d H:i:s'),
+						'created_by'=>$admindetails['id'],
+						);
+						//echo '<pre>';print_r($update_data);exit;
+					
+						$id=$this->Services_model->update_servies_name_details($post['s_id'],$update_data);
+						   //echo '<pre>';print_r($id);exit;
+				
+						   
+						   if($id!=0){
+							$details=$this->Services_model->get_edit_servies_name_list($id);
+							echo '<pre>';print_r($details);exit;
+                        if(count( $details)>0){
+					  foreach($details as $lis){
+						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
+					  }
+					}  
+						
+							   
+				if(isset($post['service_name1']) && count($post['service_name1'])>0){
+					$cnt=0;
+					foreach($post['service_name1'] as $list){
+						  $data[]=array(
+						  's_id'=>$save,
+						  's_n_id'=>$id,
+						  'service_name'=>$list,
+						  'status'=>1,
+						  'created_at'=>date('Y-m-d H:i:s'),
+						  'created_by'=>$admindetails['id'],
+						  );
+						   //echo '<pre>';print_r($data);
+						 
+                      
+				      
+					}
+					 
+					}
+				 $this->Services_model->save_servies_one_data_details($data);	
+					
+					}
+						//exit;				
+			//second loop
+			
+						
+						  $update_data=array(
 						  's_id'=>$save,
 						  'title'=>isset($post['title2'])?$post['title2']:'',
 						'paragraph'=>isset($post['paragraph2'])?$post['paragraph2']:'',
@@ -302,8 +390,18 @@ class Services extends Back_end {
 						);
 						
 					
-						$id=$this->Services_model->save_servies_name_details($add_data);
+						$id=$this->Services_model->update_servies_name_details($post['s_id'],$update_data);
+						   //echo '<pre>';print_r($id);exit;
+						   
 						   if($id!=0){
+							 $details=$this->Services_model->get_edit_servies_name_list($id);	   
+						//echo '<pre>';print_r($details);exit;   
+                        if(count( $details)>0){
+					  foreach($details as $lis){
+						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
+					  }
+					}    
+							   
 				if(isset($post['service_name2']) && count($post['service_name2'])>0){
 					$cnt=0;
 					foreach($post['service_name2'] as $list){
@@ -315,7 +413,7 @@ class Services extends Back_end {
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'created_by'=>$admindetails['id'],
 						  );
-						   //echo '<pre>';print_r($add_data);
+						   echo '<pre>';print_r($data1);exit;
 						 
                      
 				      
@@ -329,7 +427,7 @@ class Services extends Back_end {
 			//end
 					
 						
-						  $add_data=array(
+						  $update_data=array(
 						  's_id'=>$save,
 						  'title'=>isset($post['title3'])?$post['title3']:'',
 						'paragraph'=>isset($post['paragraph3'])?$post['paragraph3']:'',
@@ -339,8 +437,17 @@ class Services extends Back_end {
 						);
 						
 					
-						$id=$this->Services_model->save_servies_name_details($add_data);
+						$id=$this->Services_model->update_servies_name_details($post['s_id'],$update_data);
+						   //echo '<pre>';print_r($id);exit;
 						   if($id!=0){
+						$details=$this->Services_model->get_edit_servies_name_list($id);	   
+						echo '<pre>';print_r($details);exit;   
+                        if(count( $details)>0){
+					  foreach($details as $lis){
+						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
+					  }
+					}    	   
+							   
 				if(isset($post['service_name3']) && count($post['service_name3'])>0){
 					$cnt=0;
 					foreach($post['service_name3'] as $list){
@@ -362,11 +469,11 @@ class Services extends Back_end {
 				
 					 $this->Services_model->save_servies_one_data_details($data2);
 					}
-			}					
+							
 			//end
 					
 					
-							$this->session->set_flashdata('success','Services details successfully added');
+							$this->session->set_flashdata('success','Services details successfully updated');
 							redirect('services/lists');
 							
 						}else{
@@ -380,396 +487,10 @@ class Services extends Back_end {
 		
 		}
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*
-	public function editpost()
-	{	
-		if($this->session->userdata('multi_details'))
-		{
-			$admindetails=$this->session->userdata('multi_details');
-			$post=$this->input->post();
-			//echo '<pre>';print_r($post);exit;
-						$update_data=array(
-						'title'=>isset($post['title'])?$post['title']:'',
-						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-						//echo '<pre>';print_r($update_data);exit;
-						
-						$save=$this->Services_model->update_servies($post['s_id'],$update_data);
-					//echo '<pre>';print_r($save);exit;
-					if($save!=0){
-						$post=$this->input->post();
-						  $update=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title1'])?$post['title1']:'',
-						'paragraph'=>isset($post['paragraph1'])?$post['paragraph1']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						//echo '<pre>';print_r($update);exit;
-					
-						$id=$this->Services_model->update_servies_name_details($update);
-						//echo '<pre>';print_r($id);exit;
-						   
-				  if(count($id)>0){
-				  
-							   
-							   
-				if(isset($post['service_name1']) && count($post['service_name1'])>0){
-					$cnt=0;
-					foreach($post['service_name1'] as $list){
-						  $data=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						 // echo '<pre>';print_r($data);exit;
-						 $this->Services_model->edit_servies_name_details_sevies_name($data);	
-                      //echo '<pre>';print_r($data);exit;
-				      
-					}
-					 
-					}
-				
-					
-					}
-						//exit;				
-			//second loop
-			
-						
-						  $add_data=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title2'])?$post['title2']:'',
-						'paragraph'=>isset($post['paragraph2'])?$post['paragraph2']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-					
-						$id=$this->Services_model->update_servies_name_details($add_data);
-						    if(count($id)>0){
-				 
-				if(isset($post['service_name2']) && count($post['service_name2'])>0){
-					$cnt=0;
-					foreach($post['service_name2'] as $list){
-						  $data1=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($data1);exit;
-						 
-                     $this->Services_model->edit_servies_name_details_sevies_name($data1);
-				      
-					}
-					 	
-					}
-				
-					
-					}
-					exit;		
-			//end
-					
-						
-						  $add_data=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title3'])?$post['title3']:'',
-						'paragraph'=>isset($post['paragraph3'])?$post['paragraph3']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-					
-						$id=$this->Services_model->update_servies_name_details($add_data);
-						 if($id!=0){
-				  
-				if(isset($post['service_name3']) && count($post['service_name3'])>0){
-					$cnt=0;
-					foreach($post['service_name3'] as $list){
-						  $data2=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						 
-                     
-				      
-					}
-						
-					}
-				
-					$this->Services_model->edit_servies_name_details_sevies_name($data2);
-					}
-			}					
-			//end
-					
-					
-							$this->session->set_flashdata('success','Services details successfully added');
-							redirect('services/lists');
-							
-						}else{
-							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-							redirect('services');
-						}
-			
-				
-					
-						
-		
-		}
-		*/
-	/*
-	public function editpost()
-	{
-		if($this->session->userdata('multi_details'))
-		{
-			$admindetails=$this->session->userdata('multi_details');
-			$post=$this->input->post();
-			//echo'<pre>';print_r($post);exit;
-			$update_data=array(
-						'title'=>isset($post['title'])?$post['title']:'',
-						'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-						//echo '<pre>';print_r($add_data);exit;
-						
-						$save=$this->Services_model->update_servies($post['s_id'],$update_data);
-					//echo '<pre>';print_r($save);exit;
-					if($save!=0){
-						
-						  $update=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title1'])?$post['title1']:'',
-						'paragraph'=>isset($post['paragraph1'])?$post['paragraph1']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-					
-						$id=$this->Services_model->update_servies_name_details($post['s_n_id'],$update);
-						if(count($id)>0){
-				  $details=$this->Services_model->get_edit_servies_name_list($post['s_n_id']);
-				  if(count( $details)>0){
-					  foreach($details as $lis){
-						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
-					  }
-					}
-						
-						 
-				if(isset($post['service_name1']) && count($post['service_name1'])>0){
-					$cnt=0;
-					foreach($post['service_name1'] as $list){
-						  $data[]=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						 
-                      
-				      
-					}
-					 
-					}
-				 $this->Services_model->save_servies_name_details_sevies_name($data);	
-					
-				
-					
-								
-			//second loop
-			
-						
-						  $add_data=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title2'])?$post['title2']:'',
-						'paragraph'=>isset($post['paragraph2'])?$post['paragraph2']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-					
-						$id=$this->Services_model->update_servies_name_details($post['s_n_id'],$add_data);
-						  
-				  $details=$this->Services_model->get_edit_servies_name_list($post['s_n_id']);
-				  if(count( $details)>0){
-					  foreach($details as $lis){
-						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
-					  }
-					}
-						   
-				if(isset($post['service_name2']) && count($post['service_name2'])>0){
-					$cnt=0;
-					foreach($post['service_name2'] as $list){
-						  $data1[]=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						 
-                     
-				      
-					}
-					 	
-					}
-				 $this->Services_model->save_servies_name_details_sevies_name($data1);	
-					
-				
-							
-			//end
-					
-						
-						  $add_data=array(
-						  's_id'=>$save,
-						  'title'=>isset($post['title3'])?$post['title3']:'',
-						'paragraph'=>isset($post['paragraph3'])?$post['paragraph3']:'',
-						'status'=>1,
-						'created_at'=>date('Y-m-d H:i:s'),
-						'created_by'=>$admindetails['id'],
-						);
-						
-					
-						$id=$this->Services_model->update_servies_name_details($post['s_n_id'],$add_data);
-						   
-				  $details=$this->Services_model->get_edit_servies_name_list($post['s_n_id']);
-				  if(count( $details)>0){
-					  foreach($details as $lis){
-						 $this->Services_model->delete_servies_details($lis['s_b_d_id']); 
-					  }
-					}
-						 
-				if(isset($post['service_name3']) && count($post['service_name3'])>0){
-					$cnt=0;
-					foreach($post['service_name3'] as $list){
-						  $data2[]=array(
-						  's_id'=>$save,
-						  's_n_id'=>$id,
-						  'service_name'=>$list,
-						  'status'=>1,
-						  'created_at'=>date('Y-m-d H:i:s'),
-						  'created_by'=>$admindetails['id'],
-						  );
-						   //echo '<pre>';print_r($add_data);
-						 
-                     
-				      
-					}
-						
-					}
-		
-					 $this->Services_model->save_servies_name_details_sevies_name($data2);
-					
-					
-
-						}
-					}
-					//exit;
-					$this->session->set_flashdata('success',"services  details successfully updated");	
-					redirect('services/lists');	
-					}else{
-						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('services/lists');
-					}
-		}else{
-			$this->session->set_flashdata('loginerror','Please login to continue');
-			redirect('admin');
-		}
-	}
-	
 	*/
 	
 	
 	
-	public function serviestatus()
-	{
-		if($this->session->userdata('multi_details'))
-		{
-			$admindetails=$this->session->userdata('multi_details');
-	             $s_id=base64_decode($this->uri->segment(3));
-					$status=base64_decode($this->uri->segment(4));
-					if($status==1){
-						$statu=0;
-					}else{
-						$statu=1;
-					}
-					
-					
-					if($s_id!=''){
-						$stusdetails=array(
-							'status'=>$statu,
-							'updated_at'=>date('Y-m-d H:i:s')
-							);
-						//echo'<pre>';print_r($stusdetails);exit;
-							$statusdata=$this->Services_model->update_services_details($s_id,$stusdetails);
-							//echo'<pre>';print_r($statusdata);exit;
-							//echo $this->db->last_query();exit;	
-							if(count($statusdata)>0){
-								if($status==1){
-								$this->session->set_flashdata('success',"services   successfully Deactivate.");
-								}else{
-									$this->session->set_flashdata('success',"services  details successfully Activate.");
-								}
-								redirect('services/lists');
-							}else{
-									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('services/lists');
-							}
-						}
-						else{
-						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('dashboard');
-					}	
-	
-	
-          }else{
-		 $this->session->set_flashdata('error',"Please login and continue");
-		 redirect('');  
-	   }
-
-
-}	
- 
 public function servicenamedelete()
 	{
 		if($this->session->userdata('multi_details'))

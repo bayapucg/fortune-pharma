@@ -47,7 +47,6 @@
 									<th>Service Title</th>
                                     <th>Paragraph</th>
                                     <th>Names </th>
-                                    <th>Status </th>
                                     <th>Action </th>
                                 </tr>
                             </thead>
@@ -63,16 +62,14 @@
 									<td>
                                         <?php echo isset($lis['title'])?$lis['title']:''; ?>
                                     </td>
-                                    <td>
-                                        <?php echo isset($lis['paragraph'])?$lis['paragraph']:''; ?>
-                                    </td>
+                                   
 									<td>
 										<?php foreach($lis['servie_data'] as $li){ ?>
                                         <li><?php echo isset($li['service_name'])?$li['service_name']:''; ?>&nbsp; <a  href="<?php echo base_url('services/servicenamedelete/'.base64_encode($li['s_b_d_id']));?>">X</a></li>
 										<?php } ?>
                                     </td> 
 									
-									<td><?php if($lis['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
+									
 									
 		                             <td>
 									 <a href="<?php echo base_url('services/edit/'.base64_encode($lis['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>

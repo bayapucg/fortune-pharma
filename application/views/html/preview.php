@@ -142,7 +142,7 @@
                                     <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image1']); ?>" alt="<?php echo isset($aboutus_details['image1'])?$aboutus_details['image1']:''; ?>" class="img-fluid">
                                     <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
                                 </div>
-                                <h2 class="title"><a href="#">Equities</a></h2>
+                                <h2 class="title"><a href="#">Vision</a></h2>
                                 <p>
                                     <?php echo isset($aboutus_details['paragraph1'])?$aboutus_details['paragraph1']:''; ?>.
                                 </p>
@@ -155,7 +155,7 @@
                                     <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image2']); ?>" alt="<?php echo isset($aboutus_details['image2'])?$aboutus_details['image2']:''; ?>" class="img-fluid">
                                     <div class="icon"><i class="ion-ios-list-outline"></i></div>
                                 </div>
-                                <h2 class="title"><a href="#">Multi-asset</a></h2>
+                                <h2 class="title"><a href="#"> Mission</a></h2>
                                 <p>
                                     <?php echo isset($aboutus_details['paragraph2'])?$aboutus_details['paragraph2']:''; ?>.
                                 </p>
@@ -168,7 +168,7 @@
                                     <img src="<?php echo base_url('assets/aboutus/'.$aboutus_details['image3']); ?>" alt="<?php echo isset($aboutus_details['image3'])?$aboutus_details['image3']:''; ?>" class="img-fluid">
                                     <div class="icon"><i class="ion-ios-eye-outline"></i></div>
                                 </div>
-                                <h2 class="title"><a href="#">Fixed income</a></h2>
+                                <h2 class="title"><a href="#">Achievements</a></h2>
                                 <p>
                                     <?php echo isset($aboutus_details['paragraph3'])?$aboutus_details['paragraph3']:''; ?>.
                                 </p>
@@ -202,8 +202,7 @@
                     <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
                         <h4 class="title"><a href="">
                                <?php echo isset($lis['title'])?$lis['title']:''; ?></a></h4>
-                        <p>
-                          <?php echo isset($lis['paragraph'])?$lis['paragraph']:''; ?></p>
+                        
                         <ul>
 						<?php foreach($lis['servie_data'] as $li){ ?>
                             <li><?php echo isset($li['service_name'])?$li['service_name']:''; ?></li>

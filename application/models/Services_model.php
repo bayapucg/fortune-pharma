@@ -38,9 +38,23 @@ class Services_model extends CI_Model
 	$this->db->where('s_id',$s_id);
     return $this->db->update("services",$data);
 	}
-	public function update_servies_name_details($data){
+	public function update_servies_status($s_id,$data){
+	$this->db->where('s_id',$s_id);
+    return $this->db->update("services",$data);
+	}
+	
+	
+	public function update_servies_name_details($s_id,$data){
+    $this->db->where('s_id',$s_id);
     return $this->db->update("servies_name",$data);
 	}
+	public function update_servies_one_data_details($s_id,$data){
+    $this->db->where('s_id',$s_id);
+    return $this->db->update("service_name_details",$data);
+	}
+	
+	
+	
 	public function get_edit_servies_name_list($s_n_id){
 	$this->db->select('*')->from('service_name_details');
 		$this->db->where('service_name_details.s_n_id',$s_n_id);
@@ -191,14 +205,18 @@ class Services_model extends CI_Model
 	
 	
 	
-	public  function get_edit_instrument_list($s_n_id){
-		$this->db->select('*')->from('service_name_details');
+	
+	
+	public  function edit_servies_name($s_n_id){
+		$this->db->select('*')->from('servies_name');
+		$this->db->where('servies_name.s_n_id',$s_n_id);
+		return $this->db->get()->result_array();
+	}
+	public function get_edit_servies_name_details_one_list($s_n_id){
+	$this->db->select('*')->from('service_name_details');
 		$this->db->where('service_name_details.s_n_id',$s_n_id);
 		return $this->db->get()->result_array();
 	}
-	
-	
-	
 	
 	
 	

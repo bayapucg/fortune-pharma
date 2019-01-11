@@ -16,7 +16,7 @@ table.order-list td {
                 <h4 class="page-title">Edit Services</h4>
             </div>
         </div>
-        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url(''); ?>" enctype="multipart/form-data">
+        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('Services/editpost'); ?>" enctype="multipart/form-data">
        <input type="hidden" id="s_id" name="s_id" value="<?php echo isset($edit_servies['s_id'])?$edit_servies['s_id']:''; ?>">
             <div class="row">
 			<div class="col-md-6">
@@ -37,15 +37,12 @@ table.order-list td {
             <div class="row">
 			<?php $count=1;foreach($edit_servies['sevies_list'] as $lis){?>
                 <div class="col-md-4">
-                    <h4 class="text-primary">Service 1</h4>
+                    <h4 class="text-primary">Service </h4>
                     <div class="form-group">
-                        <label>Service 1 title</label>
-                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" value="<?php echo isset($lis['title'])?$lis['title']:''; ?>" >
+                        <label>Service title</label>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter Service 1" value="<?php echo isset($lis['title'])?$lis['title']:''; ?>" >
                     </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter text here..."><?php echo isset($lis['paragraph'])?$lis['paragraph']:''; ?></textarea>
-                    </div>
+                    
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
                             <tbody>
@@ -53,7 +50,7 @@ table.order-list td {
                                <tr id="oldid<?php echo $cnt; ?>">
                                     <td >
 									
-                                        <input type="text" name="service_name1[]" placeholder="Enter service name1" class="form-control"  value="<?php echo isset($li['service_name'])?$li['service_name']:''; ?>"/>
+                                        <input type="text" name="service_name[]" placeholder="Enter service name1" class="form-control"  value="<?php echo isset($li['service_name'])?$li['service_name']:''; ?>"/>
                                    
 									</td>
 									<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph('<?php echo $li['s_b_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>
