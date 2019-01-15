@@ -243,6 +243,7 @@ class Services extends Back_end {
 			$update_data=array(
 			'title_name'=>isset($post['title_name'])?$post['title_name']:'',
 			'updated_at'=>date('Y-m-d H:i:s'),
+			'homepage_preview'=>0,
 			);
 			//echo'<pre>';print_r($update_data);exit;
 			 $update=$this->Services_model->update_servies_name_title($post['s_n_id'],$update_data);
@@ -369,6 +370,8 @@ public function servicenamedelete()
 					'title'=>isset($post['title'])?$post['title']:'',
 					'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 					'updated_at'=>date('Y-m-d H:i:s'),
+				    'homepage_preview'=>0,
+
 					);
 					//echo'<pre>';print_r($update_data);exit;
 						$update=$this->Services_model->update_mainservies_details($post['s_id'],$update_data);

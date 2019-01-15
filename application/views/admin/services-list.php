@@ -22,7 +22,6 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>Paragraph</th>
-									<th>Status</th>
 									<th>Action</th>
                                 </tr>
                             </thead>
@@ -36,7 +35,6 @@
 								 <?php echo isset($services_list[0]['paragraph'])?$services_list[0]['paragraph']:''; ?>
                                     </td>
 									
-									<td><?php if($services_list[0]['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                     <td class="">
 									<a href="<?php echo base_url('services/serviesedit/'.base64_encode($services_list[0]['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
 									<a href="<?php echo base_url('services/serviesdelete/'.base64_encode($services_list[0]['s_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
@@ -60,7 +58,7 @@
                             <thead>
                                 <tr>
                                     
-									<th>Service</th>
+									<th>Service No</th>
 									<th>Service Title</th>
                                     <th>Service Name</th>
                                     <th>Names </th>

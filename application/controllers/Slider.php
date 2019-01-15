@@ -137,6 +137,7 @@ class Slider extends Back_end {
 						'created_at'=>date('Y-m-d H:i:s'),
 						'updated_at'=>date('Y-m-d H:i:s'),
 						'created_by'=>$admindetails['id'],
+						'homepage_preview'=>0,
 						);
 						
 						//echo '<pre>';print_r($upadte_data);exit;

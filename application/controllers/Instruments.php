@@ -154,6 +154,8 @@ class Instruments extends Back_end {
 			'title'=>isset($post['title'])?$post['title']:'',
 			'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 			'updated_at'=>date('Y-m-d H:i:s'),
+			'homepage_preview'=>0,
+
 			);
 			//echo'<pre>';print_r($update_data);exit;
 			 $update=$this->Admin_model->update_instruments($post['i_id'],$update_data);

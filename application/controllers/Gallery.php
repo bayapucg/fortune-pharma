@@ -78,6 +78,7 @@ class Gallery extends Back_end {
 						'create_at'=>date('Y-m-d H:i:s'),
 						'update_at'=>date('Y-m-d H:i:s'),
 						'create_by'=>$admindetails['id'],
+						'homepage_preview'=>0,
 						);
 						//echo '<pre>';print_r($add_data);
 						
@@ -125,6 +126,8 @@ class Gallery extends Back_end {
 					}
 					$update_data=array(
 					'image'=>$banners,
+					'org_image'=>$banners,
+					'homepage_preview'=>0,
 					'update_at'=>date('Y-m-d H:i:s'),
 					);
 					//echo'<pre>';print_r($update_data);exit;
