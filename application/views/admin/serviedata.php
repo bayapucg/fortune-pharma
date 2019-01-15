@@ -13,107 +13,30 @@ table.order-list td {
     <div class="content container-fluid bg-white">
         <div class="row">
             <div class="col-xs-4">
-                <h4 class="page-title">Services</h4>
+                <h4 class="page-title"> Edit Services</h4>
             </div>
         </div>
-        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('services/addpost'); ?>" enctype="multipart/form-data">
+        <form id="defaultForm" method="post" class="m-b-30" action="<?php echo base_url('services/editserviespost'); ?>" enctype="multipart/form-data">
+       <input type="hidden" id="s_id" name="s_id" value="<?php echo isset($editservies['s_id'])?$editservies['s_id']:''; ?>">
 
             <div class="row">
 			<div class="col-md-6">
                     <div class="form-group">
                         <label>Title</label>
-                        <input name="title" id="title" class="form-control" placeholder="Enter Title"></input>
+                        <input name="title" id="title" class="form-control" placeholder="Enter Title" value="<?php echo isset($editservies['title'])?$editservies['title']:''; ?>"></input>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Paragraph</label>
-                        <textarea name="paragraph" id="paragraph" placeholder="Enter text here....." class="form-control" rows="5"></textarea>
+                        <textarea name="paragraph" id="paragraph" placeholder="Enter text here....." class="form-control" rows="5"><?php echo isset($editservies['paragraph'])?$editservies['paragraph']:''; ?></textarea>
                     </div>
                 </div>
 				
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 1</h4>
-                    <div class="form-group">
-                        <label>Service 1 title</label>
-                        <input type="text" name="title1" id="title1" class="form-control" placeholder="Enter Service 1" >
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph1" id="paragraph1" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="" class="table order-list1">
-                            <tbody>
-                                <tr>
-                                    <td >
-                                        <input type="text" name="service_name1[]" placeholder="Enter service name1" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <a class="deleteRow"></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="button" class="btn btn-sm btn-info" id="addrow1">Add Row</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 2</h4>
-                    <div class="form-group">
-                        <label>Service 2 title</label>
-                        <input type="text" name="title2" id="title2" class="form-control" placeholder="Enter Service 2" >
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph2" id="paragraph2"  class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="" class="table order-list2">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="text" name="service_name2[]" placeholder="Enter service name2" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <a class="deleteRow"></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="button" class="btn btn-sm btn-info" id="addrow2">Add Row</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-primary">Service 3</h4>
-                    <div class="form-group">
-                        <label>Service 3 title</label>
-                        <input type="text" name="title3" id="title3" class="form-control" placeholder="Enter Service 3" >
-                    </div>
-                    <div class="form-group">
-                        <label>Paragraph</label>
-                        <textarea name="paragraph3" id="paragraph3" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="" class="table order-list3">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="text" name="service_name3[]" placeholder="Enter service name3" class="form-control" />
-                                    </td>
-                                    <td>
-                                        <a class="deleteRow"></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="button" class="btn btn-sm btn-info" id="addrow3">Add Row</button>
-                    </div>
-                </div>
-            </div>
+           
+                
            
             <div class="m-t-20 text-center">
                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save</button>

@@ -15,28 +15,44 @@
                 <div class="col-md-12 bg-white">
                     <div class="clearfix">&nbsp;</div>
 					<?php if(isset($services_list) && count($services_list)>0){ ?>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>Title</th>
-                                <td>
-								
-								   <?php echo isset($services_list[0]['title'])?$services_list[0]['title']:''; ?>
+					<div class="table-responsive">
+                        
+					<table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Paragraph</th>
+									<th>Status</th>
+									<th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                       <?php echo isset($services_list[0]['title'])?$services_list[0]['title']:''; ?>
 								   
-                                </td>
-                            </tr>
-							<tr>
-                                <th>Paragraph</th>
-                                <td>
+                                    </td>
+                                    <td>
 								 <?php echo isset($services_list[0]['paragraph'])?$services_list[0]['paragraph']:''; ?>
-
-								   
-                                </td>
-                            </tr>
+                                    </td>
+									
+									<td><?php if($services_list[0]['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
+                                    <td class="">
+									<a href="<?php echo base_url('services/serviesedit/'.base64_encode($services_list[0]['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
+									<a href="<?php echo base_url('services/serviesdelete/'.base64_encode($services_list[0]['s_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
+								</td>
+                                </tr>
+							
+                            </tbody>
                         </table>
-                    </div>
-					<?php }?>
-					<?php if(isset($services_list) && count($services_list)>0){ ?>
+					                    </div>
+
+					
+					
+					
+                    
+					
+					
                     <div class="table-responsive">
                        
                         <table id="example1" class="table table-bordered table-striped">
@@ -45,7 +61,7 @@
                                     
 									<th>Service</th>
 									<th>Service Title</th>
-                                    <th>Paragraph</th>
+                                    <th>Service Name</th>
                                     <th>Names </th>
                                     <th>Action </th>
                                 </tr>
@@ -60,7 +76,7 @@
                                         <?php echo $count; ?>
                                     </td>
 									<td>
-                                        <?php echo isset($lis['title'])?$lis['title']:''; ?>
+                                        <?php echo isset($lis['title_name'])?$lis['title_name']:''; ?>
                                     </td>
                                    
 									<td>
@@ -72,8 +88,8 @@
 									
 									
 		                             <td>
-									 <a href="<?php echo base_url('services/edit/'.base64_encode($lis['s_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
-									 <a href="<?php echo base_url('services/deletes/'.base64_encode($lis['s_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
+									 <a href="<?php echo base_url('services/edit/'.base64_encode($lis['s_n_id'])); ?>"  data-toggle="tooltip" title="Edit" class="btn btn-success"><i class="fa fa-pencil btn btn-success"></i></a>
+									 <a href="<?php echo base_url('services/deletes/'.base64_encode($lis['s_n_id']));?>" data-toggle="tooltip"  title="Delete" class="btn btn-danger"><i class="fa fa-trash btn btn-danger"></i></a>
 
 									</td>
                                  

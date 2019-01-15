@@ -202,7 +202,7 @@
 					<?php $count=1;foreach($services_details[0]['servies'] as $lis){?>
                     <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
                         <h4 class="title"><a href="">
-                               <?php echo isset($lis['title'])?$lis['title']:''; ?></a></h4>
+                               <?php echo isset($lis['title_name'])?$lis['title_name']:''; ?></a></h4>
                         
                         <ul>
 						<?php foreach($lis['servie_data'] as $li){ ?>
