@@ -45,14 +45,15 @@
 							
                             </tbody>
                         </table>
-					                    </div>
+
 
 					
 					
 					
                     
 					
-					
+				<?php if(isset($services_list[0]['servies']) && count($services_list[0]['servies'])>0){ ?>
+
                     <div class="table-responsive">
                        
                         <table id="example1" class="table table-bordered table-striped">
@@ -103,12 +104,20 @@
                         </table>
                         
                     </div>
-					
 					<?php }else{ ?>
                     <div> No data available</div>
                      <?php }?>
 					
+					
                 </div>
+				<?php }else{ ?>
+                    <div> No data available</div>
+                     <?php }?>
+				
+				
+				
+				
+				
             </div>
         </form>
     </div>
