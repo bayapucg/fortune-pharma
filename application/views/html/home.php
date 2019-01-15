@@ -11,7 +11,7 @@
     <meta content="" name="<?php echo isset($logo_details['title'])?$logo_details['title']:'description'; ?>">
     <!-- Favicons -->
     <?php if($logo_details['favicon']==''){ ?>
-    <link href="<?php echo base_url(); ?>assets/vendor/img/favicon.png" rel="icon">
+    <link href="<?php echo base_url(); ?>assets/vendor/img/forma.png" rel="icon">
     <?php }else{ ?>
     <link href="<?php echo base_url('assets/logo/'.$logo_details['favicon']); ?>" rel="icon">
     <?php } ?>
