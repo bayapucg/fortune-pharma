@@ -61,7 +61,6 @@
 									<th>Service No</th>
 									<th>Service Title</th>
                                     <th>Service Name</th>
-                                    <th>Names </th>
                                     <th>Action </th>
                                 </tr>
                             </thead>

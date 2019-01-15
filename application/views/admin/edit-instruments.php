@@ -49,12 +49,7 @@ table.order-list td {
 												
 										</tr>
 									<?php $cnt++;} ?>
-										<tr id='addr0'>
-											<td class="form-group">
-												<input type="text" name="description[]" placeholder="Enter Description" class="form-control" />
-												</td>
-												
-												</tr>
+										
 										<tr id='addr1'></tr>
 									</tbody>
 										</table>
@@ -112,7 +107,7 @@ table.order-list td {
      $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><input name='description[]' id='name"+i+"' class='form-control input-md'></td>");
+      $('#addr'+i).html("<td><input name='description[]' id='name"+i+"' placeholder='Enter Description' class='form-control input-md'></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 
