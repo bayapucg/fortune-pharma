@@ -364,7 +364,6 @@
                         <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage"></div>
-                            <!--<form id="defaultForm" action="<?php echo base_url('preview/contactpost'); ?>" method="post" role="form" class="">-->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
@@ -383,7 +382,7 @@
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
-                            <div><button type="submit" class="btn btn-success" name="submit">Send Message</button></div>
+                            <div><button type="submit" formaction="<?php echo base_url('preview/contactpost');?>" class="btn btn-success" name="submit">Send Message</button></div>
                         </div>
                     </div>
                 </section><!-- #contact -->
