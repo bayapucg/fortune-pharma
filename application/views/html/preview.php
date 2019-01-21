@@ -185,7 +185,7 @@
       Services Section
     ============================-->
         <?php if(isset($services_details) && count($services_details)>0){ ?>
-        <section id="services" class="section-bg">
+        <section id="services">
             <div class="container">
                 
 

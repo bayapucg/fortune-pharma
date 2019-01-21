@@ -756,12 +756,17 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #333;
 }
 
-.section-body ul li:before{
+/*.section-body ul li:before{
     content: "\f064";
     font: normal normal normal 14px/1 FontAwesome;
     font-size: 18px;
     margin-right: 10px;
     font-weight: 100;
+}*/
+
+.section-body ul li:before{
+    content: url("../img/before-after.png");
+    padding-right: 15px;
 }
 
 /* Call To Action Section
