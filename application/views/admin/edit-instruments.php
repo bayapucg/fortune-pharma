@@ -42,8 +42,8 @@ table.order-list td {
 									<?php $cnt=1;foreach($edit_instruments['instrument_list'] as $lis){ ?>
 										
 										<tr id="oldid<?php echo $cnt; ?>">
-										<td>
-											 <input type="text" name="description[]" placeholder="Enter Description" class="form-control" value="<?php echo isset($lis['description'])?$lis['description']:''; ?>">
+										<td class="form-group">
+											 <input type="text" name="description[]"  placeholder="Enter Description" class="form-control" value="<?php echo isset($lis['description'])?$lis['description']:''; ?>">
 										</td>
 										<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph('<?php echo $lis['i_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>
 												

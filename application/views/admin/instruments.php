@@ -37,7 +37,7 @@ table.order-list td {
                         <table id="" class="table order-list">
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td class="form-group">
                                         <input type="text" name="description[]" placeholder="Enter Description" class="form-control" />
                                     </td>
                                     <td>

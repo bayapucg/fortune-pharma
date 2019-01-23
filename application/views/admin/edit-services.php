@@ -41,7 +41,7 @@ table.order-list td {
 									<tbody>
 										<?php $cnt=1;foreach($edit_servies['servie_data'] as $lis){ ?>
 										<tr id="oldid<?php echo $cnt; ?>">
-										<td>
+										<td class="form-group">
 											 <input type="text" name="service_name[]" placeholder="Enter Service Name" class="form-control" value="<?php echo isset($lis['service_name'])?$lis['service_name']:''; ?>">
 										</td>
 										<td class="text-center" valign="center"><a href="javascript:void(0);" onclick="removeparagraph('<?php echo $lis['s_b_d_id']; ?>','<?php echo $cnt; ?>')"><i class="fa fa-times-circle " style="font-size:25px;" aria-hidden="true"></i></a></td>

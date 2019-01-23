@@ -45,8 +45,8 @@ table.order-list td {
                     <div class="table-responsive">
                         <table id="" class="table order-list1">
                             <tbody>
-                                <tr>
-                                    <td >
+                                <tr >
+                                    <td class="form-group">
                                         <input type="text" name="service_name1[]" placeholder="Enter service name1" class="form-control" />
                                     </td>
                                     <td>
@@ -69,7 +69,7 @@ table.order-list td {
                         <table id="" class="table order-list2">
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td class="form-group">
                                         <input type="text" name="service_name2[]" placeholder="Enter service name2" class="form-control" />
                                     </td>
                                     <td>
@@ -92,7 +92,7 @@ table.order-list td {
                         <table id="" class="table order-list3">
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td class="form-group">
                                         <input type="text" name="service_name3[]" placeholder="Enter service name3" class="form-control" />
                                     </td>
                                     <td>
